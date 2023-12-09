@@ -49,17 +49,19 @@
         app:layout_constraintVertical_bias="0.151"
         app:srcCompat="@drawable/intro" />
 
-    <Button
+    <ImageButton
         android:id="@+id/introBT"
-        android:layout_width="74dp"
+        android:layout_width="76dp"
         android:layout_height="76dp"
+        android:src="@drawable/arrow"
         android:background="@drawable/intro_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917" />
+        app:layout_constraintVertical_bias="0.917"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
