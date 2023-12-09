@@ -15,5 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.NHFintro_signup);
         NavController navController = host.getNavController();
+        
     }
 }

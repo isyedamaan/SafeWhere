@@ -23,6 +23,7 @@ public class IntroFragment extends Fragment {
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
 
+        //Button
         ImageButton BtnIntro = view.findViewById(R.id.introBT);
         View.OnClickListener OCLIntro = new View.OnClickListener() {
             @Override
@@ -32,9 +33,6 @@ public class IntroFragment extends Fragment {
         };
         BtnIntro.setOnClickListener(OCLIntro);
     }
-
-
-
 
     @Override
     //IMPORTANT TO BIND FOR IT TO APPEAR ON SCREEN
