@@ -1,10 +1,12 @@
-package com.cyk29.safewhere;
+package com.cyk29.safewhere.startup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
+
+import com.cyk29.safewhere.R;
 
 public class MainActivity extends AppCompatActivity {
 

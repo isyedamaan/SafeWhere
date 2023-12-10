@@ -1,4 +1,4 @@
-package com.cyk29.safewhere;
+package com.cyk29.safewhere.startup;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.FragmentIntroBinding;
 
 

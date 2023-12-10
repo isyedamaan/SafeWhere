@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/DestIntro"
-        android:name="com.cyk29.safewhere.IntroFragment"
+        android:name="com.cyk29.safewhere.startup.IntroFragment"
         android:label="fragment_intro"
         tools:layout="@layout/fragment_intro" />
     <fragment
         android:id="@+id/DestSignup"
-        android:name="com.cyk29.safewhere.SignUpFragment"
+        android:name="com.cyk29.safewhere.startup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 </navigation>

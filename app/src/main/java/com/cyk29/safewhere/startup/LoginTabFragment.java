@@ -1,4 +1,4 @@
-package com.cyk29.safewhere;
+package com.cyk29.safewhere.startup;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cyk29.safewhere.R;
 
 public class LoginTabFragment extends Fragment {
 

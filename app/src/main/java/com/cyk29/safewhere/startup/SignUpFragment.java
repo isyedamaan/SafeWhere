@@ -1,6 +1,5 @@
-package com.cyk29.safewhere;
+package com.cyk29.safewhere.startup;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,22 +9,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.FragmentSignUpBinding;
 import com.google.android.material.tabs.TabLayout;
-
-import org.w3c.dom.Text;
 
 
 public class SignUpFragment extends Fragment {
