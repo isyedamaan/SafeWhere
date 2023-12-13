@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.startup;
+package com.cyk29.safewhere.startupmodule;
 
 import android.graphics.Color;
 import android.os.Bundle;

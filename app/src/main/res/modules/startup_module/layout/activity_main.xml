@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".startup.MainActivity">
+    tools:context=".startupmodule.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/NHFintro_signup"

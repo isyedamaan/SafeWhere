@@ -13,7 +13,10 @@
         android:theme="@style/Theme.SafeWhere"
         tools:targetApi="31" >
         <activity
-            android:name=".startup.MainActivity"
+            android:name=".mapmodule.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startupmodule.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>

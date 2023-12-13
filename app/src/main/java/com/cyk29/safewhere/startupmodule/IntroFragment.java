@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.startup;
+package com.cyk29.safewhere.startupmodule;
 
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.cyk29.safewhere.R;

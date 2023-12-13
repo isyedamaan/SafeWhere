@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.startup;
+package com.cyk29.safewhere.startupmodule;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
