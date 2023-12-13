@@ -1,5 +1,6 @@
 package com.cyk29.safewhere.startupmodule;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.FragmentSignUpBinding;
+import com.cyk29.safewhere.mapmodule.MapsActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class SignUpFragment extends Fragment {
@@ -35,7 +37,9 @@ public class SignUpFragment extends Fragment {
         View.OnClickListener OCLSignup = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "TO BE CONTINUED", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Login to do backend", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
             }
         };
         BtnSignup.setOnClickListener(OCLSignup);

@@ -34,7 +34,7 @@ public class LoginTabFragment extends Fragment {
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Toast.makeText(getActivity(), "TO BE CONTINUED", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "bruh what", Toast.LENGTH_SHORT).show();
             }
 
             @Override
