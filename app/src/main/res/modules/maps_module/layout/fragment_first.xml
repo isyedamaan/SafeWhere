@@ -4,14 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/coral"
+    android:backgroundTint="@color/coral"
     tools:context=".mapmodule.FirstFragment">
 
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_height="230dp"
+        android:layout_height="245dp"
+        android:layout_marginBottom="-25dp"
+        android:background="@drawable/rounded_rect"
+        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/profileIVBtn"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:contentDescription="profile"
+        android:src="@drawable/profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="-55dp"
+        android:background="@drawable/rounded_rect"
+        android:backgroundTint="@color/white"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view">
+
+        <EditText
+            android:id="@+id/userLocET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
