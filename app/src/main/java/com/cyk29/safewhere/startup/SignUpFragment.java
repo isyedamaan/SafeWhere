@@ -19,10 +19,10 @@ import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.FragmentSignUpBinding;
 import com.google.android.material.tabs.TabLayout;
 
-
 public class SignUpFragment extends Fragment {
 
     private FragmentSignUpBinding binding;
+    FragmentSignUpBinding f;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private ViewPageAdapter adapter;

@@ -29,6 +29,13 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res', 'src\\main\\res\\layouts\\startup', 'src\\main\\res\\layouts\\profile', 'src\\main\\res\\layouts\\notification', 'src\\main\\res\\layouts\\maps', 'src\\main\\res\\sos', 'src\\main\\res\\layouts\\information_module', 'src\\main\\res\\layouts\\report_module', 'src\\main\\res\\layouts\\sos_module', 'src\\main\\res\\layouts\\startup_module', 'src\\main\\res\\modules\\profile_module', 'src\\main\\res\\modules\\maps_module', 'src\\main\\res\\notifications_module', 'src\\main\\res\\modules\\notification_module', 'src\\main\\res\\modules\\information_module', 'src\\main\\res\\modules\\report_module', 'src\\main\\res\\modules\\sos_module', 'src\\main\\res\\modules\\startup_module'
+            }
+        }
+    }
 }
 
 dependencies {
