@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.cyk29.safewhere.R;
 
@@ -57,10 +58,22 @@ public class FirstGeoFragment extends Fragment {
         }
     }
 
+    Button register;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_geo, container, false);
+        View view = inflater.inflate(R.layout.fragment_first_geo, container, false);
+
+        register = view.findViewById(R.id.registerBT);
+        register.setOnClickListener(v -> {
+            // Navigate to Fragment
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVFirst, new SecondGeoFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        return view;
     }
 }

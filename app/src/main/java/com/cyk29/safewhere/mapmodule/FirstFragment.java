@@ -78,7 +78,7 @@ public class FirstFragment extends Fragment {
     private Button startBtn;
     private ImageView sos, notifBtn;
     private View report;
-    private Button infoBtn, repBtn;
+    private Button infoBtn, repBtn, geoBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -129,6 +129,15 @@ public class FirstFragment extends Fragment {
                 Intent i = new Intent(requireActivity().getApplicationContext(), NotificationMainActivity.class);
                 startActivity(i);
             }
+        });
+
+        geoBtn = view.findViewById(R.id.geoSlideBtn);
+        geoBtn.setOnClickListener(v -> {
+            // Navigate to Fragment
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVFirst, new FirstGeoFragment())
+                    .addToBackStack(null)
+                    .commit();
         });
 
 

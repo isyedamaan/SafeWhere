@@ -1,5 +1,8 @@
 package com.cyk29.safewhere.mapmodule;
 
+import static android.content.Intent.getIntent;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.cyk29.safewhere.R;
 
@@ -57,10 +61,20 @@ public class FinalGeoFragment extends Fragment {
         }
     }
 
+    Button disable;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_final_geo, container, false);
+        View view = inflater.inflate(R.layout.fragment_final_geo, container, false);
+
+        disable = view.findViewById(R.id.disableGeoBtn);
+        disable.setOnClickListener(v -> {
+            // Navigate to Fragment
+            Intent intent = new Intent(requireActivity().getApplicationContext(), MapsActivity.class);
+            startActivity(intent);
+        });
+
+        return view;
     }
 }
