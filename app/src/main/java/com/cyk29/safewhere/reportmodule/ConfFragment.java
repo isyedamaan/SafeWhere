@@ -1,8 +1,10 @@
-package com.cyk29.safewhere.startupmodule;
+package com.cyk29.safewhere.reportmodule;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +15,10 @@ import com.cyk29.safewhere.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
+ * Use the {@link ConfFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class ConfFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +29,7 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ProfileFragment() {
+    public ConfFragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +39,11 @@ public class ProfileFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
+     * @return A new instance of fragment ConfFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
+    public static ConfFragment newInstance(String param1, String param2) {
+        ConfFragment fragment = new ConfFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,22 +60,42 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    Button resetPass;
+    Button cancel;
+    Button report;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        
-        resetPass = view.findViewById(R.id.BTResetPassword);
-        resetPass.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_conf, container, false);
+
+        cancel = view.findViewById(R.id.cancelReportBTr);
+        report = view.findViewById(R.id.reportBT);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                if (getActivity() != null && getActivity() instanceof ReportMainActivity) {
+                    // Cast the activity to your Main Activity
+                    ReportMainActivity mainActivity = (ReportMainActivity) getActivity();
+
+                    // Now you can call the method in the Main Activity
+                    mainActivity.setGone();
+                }
             }
         });
-        
-        
+
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentTransaction.replace(R.id.FCVReport, new AcceptFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
         return view;
     }
 }

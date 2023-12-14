@@ -77,7 +77,6 @@ public class FirstFragment extends Fragment {
     private ImageView sos;
     private View report;
     private Button infoBtn;
-    private Button informationBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -105,16 +104,6 @@ public class FirstFragment extends Fragment {
 
         infoBtn = view.findViewById(R.id.reportSlideBtn);
         infoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(requireActivity().getApplicationContext(), MainInformationActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        informationBtn = view.findViewById(R.id.infoSlideBtn);
-
-        informationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireActivity().getApplicationContext(), MainInformationActivity.class);

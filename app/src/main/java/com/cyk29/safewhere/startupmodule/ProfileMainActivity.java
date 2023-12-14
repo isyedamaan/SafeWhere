@@ -15,8 +15,6 @@ public class ProfileMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.NHFprofile);
-        NavController navController = host.getNavController();
     }
 
 }
