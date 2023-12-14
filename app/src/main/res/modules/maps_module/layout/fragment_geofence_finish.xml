@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".GeofenceFinishFragment"
+    android:background="@color/blue">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Geofencing"
+        android:textColor="@color/white"
+        android:textSize="22.48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="37dp" />
+
+    <Button
+        android:id="@+id/registerBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_button"
+        android:fontFamily="@font/lexend"
+        android:text="Finish"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        android:textSize="14.99dp"
+        tools:layout_editor_absoluteX="33.7dp"
+        tools:layout_editor_absoluteY="657.16dp" />
+
+    <TextView
+        android:layout_width="336dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/lexend_bold"
+        android:text="You have successfully configured
+    this device for Geofencing."
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18.72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteX="56.17dp"
+        tools:layout_editor_absoluteY="390dp" />
+
+    <ImageView
+        android:id="@+id/backBT"
+        android:layout_width="52.46dp"
+        android:layout_height="52.46dp"
+        android:src="@drawable/back_white3"
+        tools:layout_editor_absoluteX="20.61dp"
+        tools:layout_editor_absoluteY="24.35dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="68.96dp"
+        android:layout_height="68.96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/geofence_configured"
+        tools:layout_editor_absoluteY="286.45dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
