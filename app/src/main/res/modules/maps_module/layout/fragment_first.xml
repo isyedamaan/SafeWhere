@@ -10,6 +10,16 @@
     tools:context=".mapmodule.FirstFragment">
 
     <ImageView
+        android:id="@+id/mainSOSBtn"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/sos_icon"
+        app:layout_constraintBottom_toTopOf="@+id/bgView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
         android:id="@+id/profileIVBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"

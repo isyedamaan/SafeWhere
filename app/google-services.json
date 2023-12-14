@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824569154777",
+    "project_id": "safewhere-cyk29",
+    "storage_bucket": "safewhere-cyk29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824569154777:android:acfc6907478f719a5882c8",
+        "android_client_info": {
+          "package_name": "com.cyk29.safewhere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9SvrWCSeKth0vLfcHMHTl3mudC8eqLAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

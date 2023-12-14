@@ -7,16 +7,6 @@
     tools:context=".mapmodule.HotStopFragment">
 
     <ImageView
-        android:id="@+id/backBtn3"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="-5dp"
-        android:contentDescription="@string/profile"
-        android:src="@drawable/back_button1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +22,7 @@
         android:id="@+id/dangerDescTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/lexend"
         android:text="@string/danger_desc"
         android:textColor="@color/blue"
@@ -46,7 +36,7 @@
         android:id="@+id/dangerTypeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="292dp"
         android:fontFamily="@font/lexend_bold"
         android:text="@string/robbery"
         android:textColor="@color/bright_red"

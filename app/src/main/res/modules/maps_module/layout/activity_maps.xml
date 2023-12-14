@@ -17,6 +17,22 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".mapmodule.MapsActivity" />
 
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fragment_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="3dp"
+        android:contentDescription="@string/profile"
+        android:src="@drawable/back_button1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/FCVFirst"
         android:name="com.cyk29.safewhere.mapmodule.FirstFragment"

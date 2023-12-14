@@ -1,7 +1,14 @@
 package com.cyk29.safewhere.mapmodule;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.fragment.app.Fragment;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.startupmodule.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +68,6 @@ public class OnRouteFragment extends Fragment {
 
 
     Button endBtn;
-    Button report;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -68,22 +75,15 @@ public class OnRouteFragment extends Fragment {
 
         endBtn = view.findViewById(R.id.endBtn);
         endBtn.setOnClickListener(v -> {
+            if (getActivity() instanceof MapsActivity) {
+                ((MapsActivity) getActivity()).clearBackStack();
+            }
             // Navigate to Fragment2
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.FCVFirst, new FirstFragment())
                     .addToBackStack(null)
                     .commit();
         });
-
-        report = view.findViewById(R.id.onRouteReportBtn);
-        report.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst,new HotStopFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
-
-
 
 
 
