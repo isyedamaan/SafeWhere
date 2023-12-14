@@ -66,7 +66,7 @@
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@color/blue"
-        android:textSize="14.99dp"
+        android:textSize="18sp"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="655dp" />
 

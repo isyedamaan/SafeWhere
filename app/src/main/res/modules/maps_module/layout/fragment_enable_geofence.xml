@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".GeofenceFinishFragment"
+    tools:context=".EnableGeofenceFragment"
     android:background="@color/blue">
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/white_button"
         android:fontFamily="@font/lexend"
-        android:text="Finish"
+        android:text="Disable Geofencing"
         android:textAllCaps="false"
         android:textColor="@color/blue"
         android:textSize="18sp"
