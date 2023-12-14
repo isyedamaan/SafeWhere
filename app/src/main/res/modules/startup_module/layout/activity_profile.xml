@@ -51,7 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/IVBack2"
+            android:id="@+id/IVBackProfile"
             android:layout_width="52dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"

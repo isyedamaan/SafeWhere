@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.informationmodule.MainInformationActivity;
+import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
+import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.google.android.gms.maps.GoogleMap;
 
@@ -74,9 +76,9 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
-    private ImageView sos;
+    private ImageView sos, notifBtn;
     private View report;
-    private Button infoBtn;
+    private Button infoBtn, repBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -102,12 +104,30 @@ public class FirstFragment extends Fragment {
 
 
 
-        infoBtn = view.findViewById(R.id.reportSlideBtn);
+        infoBtn = view.findViewById(R.id.infoSlideBtn);
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireActivity().getApplicationContext(), MainInformationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        repBtn = view.findViewById(R.id.reportSlideBtn);
+        repBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity().getApplicationContext(), ReportMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        notifBtn = view.findViewById(R.id.notifBtn);
+        notifBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireActivity().getApplicationContext(), NotificationMainActivity.class);
+                startActivity(i);
             }
         });
 
