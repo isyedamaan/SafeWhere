@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink">
+
+    <Button
+        android:id="@+id/cancelBT"
+        android:layout_width="176.06dp"
+        android:layout_height="56.19dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/button_sos"
+        android:fontFamily="@font/lexend"
+        android:text="Cancel SOS"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descPanicCountdownTV" />
+
+    <ImageView
+        android:id="@+id/panic_countdown_bg"
+        android:layout_width="280.18dp"
+        android:layout_height="280.18dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/panic_mode_bg" />
+
+    <ImageView
+        android:id="@+id/panic_countdown"
+        android:layout_width="256.83dp"
+        android:layout_height="256.83dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/panic_mode_countdown" />
+
+    <TextView
+        android:id="@+id/descPanicCountdownTV"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="113dp"
+        android:fontFamily="@font/lexend"
+        android:text="You are currently in panic mode
+tap the button every 10 seconds."
+        android:textColor="@color/red"
+        android:textSize="18.68dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/panic_countdown_bg" />
+
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="10"
+        android:textColor="@color/white"
+        android:textSize="76.55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/panic_countdown"
+        app:layout_constraintEnd_toEndOf="@+id/panic_countdown"
+        app:layout_constraintStart_toStartOf="@+id/panic_countdown"
+        app:layout_constraintTop_toTopOf="@+id/panic_countdown" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink">
+
+    <ImageButton
+        android:id="@+id/panic_mode"
+        android:layout_width="357.74dp"
+        android:layout_height="277.2dp"
+        app:layout_constraintBottom_toTopOf="@id/emergency_contact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066"
+        app:srcCompat="@drawable/panic_mode" />
+
+    <TextView
+        android:id="@+id/panicTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="11dp"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Panic Mode"
+        android:textColor="@color/white"
+        android:textSize="37sp"
+        app:layout_constraintBottom_toTopOf="@+id/panicDescTV"
+        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="@+id/panic_mode"
+        app:layout_constraintTop_toTopOf="@+id/panic_mode"
+        app:layout_constraintVertical_bias="0.878" />
+
+    <TextView
+        android:id="@+id/panicDescTV"
+        android:layout_width="312dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lexend"
+        android:text="Tap a button every 10 seconds during
+critical situation before your location
+is automatically shared to emergency
+services and contacts."
+        android:textColor="#FBCFCF"
+        android:textSize="14.98sp"
+        app:layout_constraintBottom_toBottomOf="@+id/panic_mode"
+        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
+        app:layout_constraintStart_toStartOf="@+id/panic_mode"
+        app:layout_constraintTop_toBottomOf="@+id/panicTV" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/panicTV"
+        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="@+id/panic_mode"
+        app:layout_constraintTop_toTopOf="@+id/panic_mode"
+        app:srcCompat="@drawable/panic" />
+
+    <ImageButton
+        android:id="@+id/emergency_contact"
+        android:layout_width="357.74dp"
+        android:layout_height="118dp"
+        android:background="@drawable/emergency_contact"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="322dp"
+        app:layout_constraintBottom_toTopOf="@id/emergency_services"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/panic_mode"
+        app:layout_constraintVertical_bias="0.058"/>
+
+
+    <TextView
+        android:id="@+id/emergencyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Alert Emergency Contacts"
+        android:textColor="@color/white"
+        android:textSize="18.73sp"
+        app:layout_constraintBottom_toTopOf="@+id/emergency_desc_TV"
+        app:layout_constraintEnd_toEndOf="@id/emergency_contact"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="@id/emergency_contact"
+        app:layout_constraintTop_toTopOf="@id/emergency_contact"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <TextView
+        android:id="@+id/emergency_desc_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/lexend"
+        android:text="Share your location to emergency contacts."
+        android:textColor="#ECB9C2"
+        android:textSize="11.24sp"
+        app:layout_constraintBottom_toBottomOf="@id/emergency_contact"
+        app:layout_constraintEnd_toEndOf="@id/emergency_contact"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="@id/emergency_contact"
+        app:layout_constraintTop_toBottomOf="@id/emergencyTV" />
+
+    <ImageView
+        android:id="@+id/alertIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/alert"
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="337dp"
+        app:layout_constraintBottom_toBottomOf="@id/emergency_contact"
+        app:layout_constraintEnd_toEndOf="@id/emergency_contact"
+        app:layout_constraintStart_toEndOf="@+id/emergencyTV"
+        app:layout_constraintTop_toTopOf="@id/emergency_contact"
+        app:layout_constraintVertical_bias="0.21"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emergency_services"
+        android:layout_width="357.74dp"
+        android:layout_height="170.44dp"
+        android:background="@drawable/emergency_services"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emergency_contact"
+        app:layout_constraintVertical_bias="0.405">
+
+        <TextView
+            android:id="@+id/servicesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Emergency Services"
+            android:textColor="@color/white"
+            android:textSize="18.73sp"
+            app:layout_constraintBottom_toTopOf="@+id/policeBT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.156"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <ImageButton
+            android:id="@+id/policeBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/emergency_service_button"
+            android:contentDescription="Police"
+            app:layout_constraintBottom_toTopOf="@id/policeTV"
+            app:layout_constraintEnd_toStartOf="@+id/firefighterBT"
+            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/servicesTV"
+            app:srcCompat="@drawable/police" />
+
+        <ImageButton
+            android:id="@+id/firefighterBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/emergency_service_button"
+            android:contentDescription="Firefighter"
+            app:layout_constraintBottom_toTopOf="@id/firefighterTV"
+            app:layout_constraintLeft_toRightOf="@id/policeBT"
+            app:layout_constraintRight_toLeftOf="@id/ambulanceBT"
+            app:layout_constraintTop_toBottomOf="@id/servicesTV"
+            app:layout_constraintVertical_bias="0.511"
+            app:srcCompat="@drawable/firefighter" />
+
+        <ImageButton
+            android:id="@+id/ambulanceBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/emergency_service_button"
+            android:contentDescription="Ambulance"
+            app:layout_constraintBottom_toTopOf="@id/ambulanceTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/firefighterBT"
+            app:layout_constraintTop_toBottomOf="@id/servicesTV"
+            app:srcCompat="@drawable/ambulance" />
+
+        <TextView
+            android:id="@+id/policeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="54dp"
+            android:layout_marginBottom="11dp"
+            android:fontFamily="@font/lexend"
+            android:text="Police"
+            android:textColor="@color/white"
+            android:textSize="11.24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/firefighterTV"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/policeBT"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/firefighterTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="63dp"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="11dp"
+            android:fontFamily="@font/lexend"
+            android:text="Firefighter"
+            android:textColor="@color/white"
+            android:textSize="11.24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ambulanceTV"
+            app:layout_constraintStart_toEndOf="@+id/policeTV"
+            app:layout_constraintTop_toBottomOf="@+id/firefighterBT" />
+
+        <TextView
+            android:id="@+id/ambulanceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="11dp"
+            android:fontFamily="@font/lexend"
+            android:text="Ambulance"
+            android:textColor="@color/white"
+            android:textSize="11.24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/firefighterTV"
+            app:layout_constraintTop_toBottomOf="@+id/ambulanceBT" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/cancelBT"
+        android:layout_width="176.06dp"
+        android:layout_height="56.19dp"
+        android:background="@drawable/button_sos"
+        android:text="Cancel SOS"
+        android:textColor="@color/pink"
+        android:fontFamily="@font/lexend"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emergency_services" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

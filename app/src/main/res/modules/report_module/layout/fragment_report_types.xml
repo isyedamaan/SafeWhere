@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/report_page"
+        android:layout_width="412dp"
+        android:layout_height="595dp"
+        android:background="@drawable/report_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/reportTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend_bold"
+            android:text="What do you see?"
+            android:textColor="@color/white"
+            android:textSize="26.15dp"
+            tools:layout_editor_absoluteX="26.15dp"
+            tools:layout_editor_absoluteY="35.49dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/reportTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/line" />
+
+        <TextView
+            android:id="@+id/endangermentTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Endangerment"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="208dp" />
+
+        <ImageButton
+            android:id="@+id/endangermentBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="110dp" />
+
+        <TextView
+            android:id="@+id/sexualAssaultTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Sexual Assault"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="208dp" />
+
+        <ImageButton
+            android:id="@+id/sexualAssaultBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="110dp" />
+
+        <TextView
+            android:id="@+id/domesticViolenceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Domestic Violence"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="263dp"
+            tools:layout_editor_absoluteY="208dp" />
+
+        <ImageButton
+            android:id="@+id/domesticViolenceBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            tools:layout_editor_absoluteX="287dp"
+            tools:layout_editor_absoluteY="110dp" />
+
+        <ImageButton
+            android:id="@+id/assaultBatteryBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            app:layout_constraintEnd_toEndOf="@+id/assaultBatteryTV"
+            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintStart_toStartOf="@+id/assaultBatteryTV"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <TextView
+            android:id="@+id/assaultBatteryTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Assault/Battery"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="359dp" />
+
+        <ImageButton
+            android:id="@+id/abductionBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            app:layout_constraintEnd_toEndOf="@+id/abductionTV"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="@+id/abductionTV"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <TextView
+            android:id="@+id/abductionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Abduction"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="168dp"
+            tools:layout_editor_absoluteY="359dp" />
+
+        <TextView
+            android:id="@+id/robberyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Robbery"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="292dp"
+            tools:layout_editor_absoluteY="359dp" />
+
+        <ImageButton
+            android:id="@+id/robberyBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            tools:layout_editor_absoluteX="283dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <ImageButton
+            android:id="@+id/terrorismBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+            android:background="@drawable/button"
+            app:layout_constraintEnd_toEndOf="@+id/terrorismTV"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/terrorismTV"
+            tools:layout_editor_absoluteY="409dp" />
+
+        <ImageButton
+            android:id="@+id/arsonBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+
+            android:background="@drawable/button"
+
+            app:layout_constraintEnd_toEndOf="@+id/arsonTV"
+            app:layout_constraintStart_toStartOf="@+id/arsonTV"
+            tools:layout_editor_absoluteY="409dp" />
+
+        <ImageButton
+            android:id="@+id/murderBT"
+            android:layout_width="87.79dp"
+            android:layout_height="87.79dp"
+
+            android:background="@drawable/button"
+
+            app:layout_constraintEnd_toEndOf="@+id/murderTV"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/murderTV"
+            tools:layout_editor_absoluteY="409dp" />
+
+        <TextView
+            android:id="@+id/murderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Murder"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="301dp"
+            tools:layout_editor_absoluteY="515dp" />
+
+        <TextView
+            android:id="@+id/arsonTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Arson"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="515dp" />
+
+        <TextView
+            android:id="@+id/terrorismTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:text="Terrorism"
+            android:textColor="@color/white"
+            android:textSize="14.94dp"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="515dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
