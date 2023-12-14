@@ -23,4 +23,6 @@
     <string name="robbery">robbery.</string>
     <string name="temp_number">12</string>
     <string name="temp_number_2">3</string>
+    <string name="UMC">UM Central</string>
+    <string name="setFencing">Set Geofencing</string>
 </resources>
