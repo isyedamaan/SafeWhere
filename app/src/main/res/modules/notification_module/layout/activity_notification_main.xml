@@ -38,10 +38,10 @@
                     android:id="@+id/dangerzoneText"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
                     android:fontFamily="@font/lexend"
-                    android:text="Danger zone ahead: 150m."
+                    android:text="Danger zone ahead: assualt."
                     android:textSize="19dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -84,10 +84,10 @@
                     android:id="@+id/report_text"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
                     android:fontFamily="@font/lexend"
-                    android:text="Danger zone ahead: 150m."
+                    android:text="Danger zone nearby: Robbery."
                     android:textSize="19dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -124,11 +124,11 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend"
-            android:text="Notification"
-            android:textColor="@color/white"
-            android:textSize="40dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Notifications"
+            android:textColor="@color/white"
+            android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
             app:layout_constraintVertical_bias="0.515" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/backBtnNotif"
             android:contentDescription="@string/image"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -145,6 +145,16 @@
             android:background="@drawable/back_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/settingsBtn"
+            android:layout_width="32dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/setting_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

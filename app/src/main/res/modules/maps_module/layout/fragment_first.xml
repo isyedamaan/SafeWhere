@@ -10,6 +10,17 @@
     tools:context=".mapmodule.FirstFragment">
 
     <ImageView
+        android:id="@+id/notifBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="10dp"
+        android:src="@drawable/notif_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/mainSOSBtn"
         android:layout_width="105dp"
         android:layout_height="105dp"

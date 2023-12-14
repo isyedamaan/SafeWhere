@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.informationmodule.MainInformationActivity;
+import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.google.android.gms.maps.GoogleMap;
@@ -75,7 +76,7 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
-    private ImageView sos;
+    private ImageView sos, notifBtn;
     private View report;
     private Button infoBtn, repBtn;
     @Override
@@ -120,6 +121,16 @@ public class FirstFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        notifBtn = view.findViewById(R.id.notifBtn);
+        notifBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireActivity().getApplicationContext(), NotificationMainActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         return view;
     }
