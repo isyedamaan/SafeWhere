@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reportmodule.ConfFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/report_page"
+        android:layout_width="412dp"
+        android:layout_height="500dp"
+        android:background="@drawable/report_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/drop_photos"
+            app:layout_constraintBottom_toTopOf="@+id/cancelReportBTr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/murderBT" />
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/line" />
+
+
+        <TextView
+            android:id="@+id/reportTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Murder"
+            android:textColor="@color/white"
+            android:textSize="26.15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <TextView
+            android:id="@+id/reportTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Upload Photos"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/murderBT"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:background="@drawable/button"
+            android:contentDescription="murder"
+            app:layout_constraintBottom_toTopOf="@+id/cancelReportBTr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportTV"
+            app:layout_constraintVertical_bias="0.07999998" />
+
+        <ImageView
+            android:id="@+id/murderTV"
+            android:layout_width="86dp"
+            android:layout_height="81dp"
+            app:layout_constraintBottom_toBottomOf="@+id/murderBT"
+            app:layout_constraintEnd_toEndOf="@+id/murderBT"
+            app:layout_constraintStart_toStartOf="@+id/murderBT"
+            app:layout_constraintTop_toTopOf="@+id/murderBT"
+            app:srcCompat="@drawable/murder" />
+
+
+        <Button
+            android:id="@+id/reportBT"
+            android:layout_width="175.58dp"
+            android:layout_height="52.13dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_report"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Report"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:textSize="14.94sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cancelReportBTr"
+            app:layout_constraintTop_toTopOf="@id/report_page"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/cancelReportBTr"
+            android:layout_width="175.58dp"
+            android:layout_height="52.13dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_report_cancel"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14.94sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="89dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/view3"
+            app:layout_constraintStart_toStartOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="@+id/view3"
+            app:srcCompat="@drawable/photos_icon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

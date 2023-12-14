@@ -1,14 +1,19 @@
 package com.cyk29.safewhere.mapmodule;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
-import com.google.android.gms.maps.CameraUpdate;
+import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -23,6 +28,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public GoogleMap mMap;
     private ActivityMapsBinding binding;
 
+    ImageView backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +40,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v -> {
+            onBackPressed();
+        });
+
+
+
+
     }
+
+
+
+
 
     /**
      * Manipulates the map once available.
@@ -59,11 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Marker tempMarker = mMap.addMarker(new MarkerOptions().position(kl).title("UM Central"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kl,zoomLevel));
 
-
         // Add the transaction to the back stack (optional, allows the user to navigate back)
-
-        // Commit the transaction
-
 
         mMap.setOnMarkerClickListener(marker -> {
             if (marker.equals(tempMarker)) {
@@ -78,4 +93,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+
+
+    void clearBackStack() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
 }

@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/LegalInfoFragment"
+        android:title="Legal"
+        android:icon="@drawable/legal_icon"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/StatisticsFragment"
+        android:title="Statistics"
+        android:icon="@drawable/stats_icon"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/FAQFragment"
+        android:title="FAQ"
+        android:icon="@drawable/faq_icon"
+        android:enabled="true"/>
+
+</menu>
