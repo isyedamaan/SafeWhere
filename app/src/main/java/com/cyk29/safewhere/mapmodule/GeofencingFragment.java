@@ -3,10 +3,12 @@ package com.cyk29.safewhere.mapmodule;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.*;
 
 import com.cyk29.safewhere.R;
 
@@ -57,10 +59,37 @@ public class GeofencingFragment extends Fragment {
         }
     }
 
+    private Button geofenced;
+    private TextView metres;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_geofencing, container, false);
+
+       View view =  inflater.inflate(R.layout.fragment_geofencing, container, false);
+        geofenced = view.findViewById(R.id.setFenceBtn);
+        geofenced.setOnClickListener(v -> {
+            // Navigate to Fragment
+
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVFirst, new GeofencedFragment())
+                    .addToBackStack(null)
+                    .commit();
+
+        });
+
+        metres = view.findViewById(R.id.metresTV);
+        metres.setOnClickListener(v -> {
+            String text = metres.getText().toString();
+            if (text.equals("metres")){
+                text = "kilometres";
+            }
+            else {
+                text = "metres";
+            }
+            metres.setText(text);
+        });
+
+        return view;
     }
 }
