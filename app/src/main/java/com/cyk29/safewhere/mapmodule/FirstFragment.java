@@ -1,5 +1,6 @@
 package com.cyk29.safewhere.mapmodule;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Map;
@@ -67,6 +70,7 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
+    private ImageView sos;
     private View report;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +86,14 @@ public class FirstFragment extends Fragment {
                     .commit();
         });
 
-
+        sos = view.findViewById(R.id.mainSOSBtn);
+        sos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), SosActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;

@@ -7,9 +7,10 @@
     android:background="@color/pink">
 
     <ImageButton
-        android:id="@+id/panic_mode"
+        android:id="@+id/panic_modeIV"
         android:layout_width="357.74dp"
         android:layout_height="277.2dp"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@id/emergency_contact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -29,10 +30,10 @@
         android:textColor="@color/white"
         android:textSize="37sp"
         app:layout_constraintBottom_toTopOf="@+id/panicDescTV"
-        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
+        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
         app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="@+id/panic_mode"
-        app:layout_constraintTop_toTopOf="@+id/panic_mode"
+        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
+        app:layout_constraintTop_toTopOf="@+id/panic_modeIV"
         app:layout_constraintVertical_bias="0.878" />
 
     <TextView
@@ -47,9 +48,9 @@ is automatically shared to emergency
 services and contacts."
         android:textColor="#FBCFCF"
         android:textSize="14.98sp"
-        app:layout_constraintBottom_toBottomOf="@+id/panic_mode"
-        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
-        app:layout_constraintStart_toStartOf="@+id/panic_mode"
+        app:layout_constraintBottom_toBottomOf="@+id/panic_modeIV"
+        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
+        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
         app:layout_constraintTop_toBottomOf="@+id/panicTV" />
 
     <ImageView
@@ -57,10 +58,10 @@ services and contacts."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/panicTV"
-        app:layout_constraintEnd_toEndOf="@+id/panic_mode"
+        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
         app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="@+id/panic_mode"
-        app:layout_constraintTop_toTopOf="@+id/panic_mode"
+        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
+        app:layout_constraintTop_toTopOf="@+id/panic_modeIV"
         app:srcCompat="@drawable/panic" />
 
     <ImageButton
@@ -68,14 +69,13 @@ services and contacts."
         android:layout_width="357.74dp"
         android:layout_height="118dp"
         android:background="@drawable/emergency_contact"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="322dp"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@id/emergency_services"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/panic_mode"
-        app:layout_constraintVertical_bias="0.058"/>
+        app:layout_constraintTop_toBottomOf="@+id/panic_modeIV"
+        app:layout_constraintVertical_bias="0.058" />
 
 
     <TextView
@@ -252,6 +252,15 @@ services and contacts."
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emergency_services" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/panic_fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
