@@ -1,19 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/LegalInfoFragment"
+        android:id="@+id/fragment_legal"
         android:title="Legal"
         android:icon="@drawable/legal_icon"
         android:enabled="true"/>
 
     <item
-        android:id="@+id/StatisticsFragment"
+        android:id="@+id/fragment_statistics"
         android:title="Statistics"
         android:icon="@drawable/stats_icon"
         android:enabled="true"/>
 
     <item
-        android:id="@+id/FAQFragment"
+        android:id="@+id/fragment_f_a_q"
         android:title="FAQ"
         android:icon="@drawable/faq_icon"
         android:enabled="true"/>

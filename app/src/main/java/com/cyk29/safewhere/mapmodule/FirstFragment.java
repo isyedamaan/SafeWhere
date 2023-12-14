@@ -22,7 +22,6 @@ import com.cyk29.safewhere.informationmodule.MainInformationActivity;
 import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
-import com.cyk29.safewhere.startupmodule.ProfileMainActivity;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Map;
@@ -77,9 +76,9 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
-    private ImageView sos, notifBtn, profile;
+    private ImageView sos, notifBtn;
     private View report;
-    private Button infoBtn, repBtn, geofenceBtn;
+    private Button infoBtn, repBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -130,24 +129,6 @@ public class FirstFragment extends Fragment {
                 Intent i = new Intent(requireActivity().getApplicationContext(), NotificationMainActivity.class);
                 startActivity(i);
             }
-        });
-
-        profile = view.findViewById(R.id.profileIVBtn);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(requireActivity().getApplicationContext(), ProfileMainActivity.class);
-                startActivity(i);
-            }
-        });
-
-        geofenceBtn = view.findViewById(R.id.geoSlideBtn);
-        geofenceBtn.setOnClickListener(v -> {
-            // Navigate to Fragment
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst, new GeofencingFragment())
-                    .addToBackStack(null)
-                    .commit();
         });
 
 
