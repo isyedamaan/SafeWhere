@@ -84,9 +84,6 @@ public class FirstFragment extends Fragment {
 
 
 
-        report = view.findViewById(R.id.reportBtn);
-
-
 
         return view;
 
