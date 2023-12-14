@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".startupmodule.ProfileMainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" >
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/FCVProfile"
+            android:name="com.cyk29.safewhere.startupmodule.ProfileFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_profile"/>
+    </ScrollView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/blueHalf"
         android:layout_width="415dp"
@@ -15,8 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/profileTV"
@@ -40,23 +57,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@color/blue"
+            android:contentDescription="@string/image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/img"
-            android:contentDescription="@string/image"/>
+            app:srcCompat="@drawable/img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/NHFprofile"
-        android:name="com.cyk29.safewhere.startupmodule.ProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="653dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueHalf"
-        tools:layout="@layout/fragment_profile" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

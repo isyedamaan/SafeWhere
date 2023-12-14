@@ -6,184 +6,140 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/blueHalf"
-        android:layout_width="415dp"
-        android:layout_height="82dp"
-        android:background="@drawable/profile_top_bg"
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        tools:layout_editor_absoluteY="100dp">
 
-        <TextView
-            android:id="@+id/profileTV"
+        <ImageView
+            android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="28dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/img_1" />
 
-        <ImageButton
-            android:id="@+id/IVBack2"
-            android:layout_width="52dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/img"
-            android:contentDescription="@string/image"/>
+        <EditText
+            android:id="@+id/ETName"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:text="Name"
+            android:textColor="#A6B7FF"
+            android:textColorHint="#A6B7FF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/ETGender"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:text="Gender"
+            android:textColor="#A6B7FF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/profileDesc"
-            android:layout_width="407dp"
-        android:layout_height="648dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/blueHalf"
-        app:layout_constraintVertical_bias="0.064">
+        <EditText
+            android:id="@+id/ETEmail"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:text="E-mail"
+            android:textColor="#A6B7FF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="112dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_1" />
+        <EditText
+            android:id="@+id/ETContact"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:text="Contact number"
+            android:textColor="#A6B7FF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/ETName"
-                android:layout_width="355dp"
-                android:layout_height="41dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="12dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Name"
-                android:textColor="#A6B7FF"
-                android:textColorHint="#A6B7FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4"
-                tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/ETDateofbirth"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/text_shape"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:text="Date of Birth"
+            android:textColor="#A6B7FF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/ETGender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Gender"
-                android:textColor="#A6B7FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ETDateofbirth"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/ETEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="E-mail"
-                android:textColor="#A6B7FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ETGender"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/ETContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Contact number"
-                android:textColor="#A6B7FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ETEmail"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/ETDateofbirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Date of Birth"
-                android:textColor="#A6B7FF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ETName"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <Button
+        <Button
             android:id="@+id/BTEditProfile"
-            android:layout_width="283dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/pink_button"
             android:fontFamily="@font/lexend_bold"
             android:text="Edit Profile"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ETContact"
+            android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         <Button
-            android:id="@+id/BTLogout"
-            android:layout_width="284dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/red_button"
-            android:fontFamily="@font/lexend_bold"
-            android:text="Logout"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BTResetPassword"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <Button
             android:id="@+id/BTResetPassword"
-            android:layout_width="283dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/pink_button"
             android:fontFamily="@font/lexend_bold"
             android:text="Reset Password"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BTEditProfile"
+            android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/BTLogout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/red_button"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
