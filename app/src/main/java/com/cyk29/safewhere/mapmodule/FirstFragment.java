@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.HorizontalScrollView;
 
 import com.cyk29.safewhere.R;
+import com.google.android.gms.maps.GoogleMap;
+
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,7 +67,7 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
-    private boolean shouldShowHorizontalScrollView = true;
+    private View report;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -72,13 +75,21 @@ public class FirstFragment extends Fragment {
         horizontalScrollView = view.findViewById(R.id.HCVbtns);
         startBtn = view.findViewById(R.id.chooseDestBtn);
         startBtn.setOnClickListener(v -> {
-            // Navigate to Fragment2
+            // Navigate to Fragment
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.FCVFirst, new DestinationSelectFragment())
                     .addToBackStack(null)
                     .commit();
         });
+
+
+
+        report = view.findViewById(R.id.reportBtn);
+
+
+
         return view;
 
     }
+
 }

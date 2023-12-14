@@ -1,6 +1,9 @@
 package com.cyk29.safewhere.mapmodule;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
@@ -17,7 +20,7 @@ import com.cyk29.safewhere.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
+    public GoogleMap mMap;
     private ActivityMapsBinding binding;
 
     @Override
@@ -42,6 +45,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -53,10 +59,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Marker tempMarker = mMap.addMarker(new MarkerOptions().position(kl).title("UM Central"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kl,zoomLevel));
 
+
+        // Add the transaction to the back stack (optional, allows the user to navigate back)
+
+        // Commit the transaction
+
+
         mMap.setOnMarkerClickListener(marker -> {
             if (marker.equals(tempMarker)) {
-
-
+                fragmentTransaction.replace(R.id.FCVFirst, new HotStopFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 return true; // Consume the event to prevent default behavior (info window)
             }
             return false; // Let the default behavior happen for other markers

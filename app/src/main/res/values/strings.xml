@@ -19,4 +19,8 @@
     <string name="end_route">End Route</string>
     <string name="UM_lib">UM Library</string>
     <string name="fsktm">Faculty of Computer Science</string>
+    <string name="danger_desc">"This area has been reported\nfor "</string>
+    <string name="robbery">robbery.</string>
+    <string name="temp_number">12</string>
+    <string name="temp_number_2">3</string>
 </resources>

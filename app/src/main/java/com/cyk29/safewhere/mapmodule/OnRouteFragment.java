@@ -60,6 +60,7 @@ public class OnRouteFragment extends Fragment {
 
 
     Button endBtn;
+    Button report;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -73,6 +74,19 @@ public class OnRouteFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
+        report = view.findViewById(R.id.onRouteReportBtn);
+        report.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVFirst,new HotStopFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+
+
+
+
         return view;
     }
 }
