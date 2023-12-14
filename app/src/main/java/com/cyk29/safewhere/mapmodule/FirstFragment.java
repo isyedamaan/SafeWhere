@@ -1,5 +1,6 @@
 package com.cyk29.safewhere.mapmodule;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,12 +15,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.informationmodule.MainInformationActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,6 +76,7 @@ public class FirstFragment extends Fragment {
     private Button startBtn;
     private ImageView sos;
     private View report;
+    private Button infoBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
@@ -90,14 +95,24 @@ public class FirstFragment extends Fragment {
         sos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SosActivity.class);
+                Intent intent = new Intent(requireActivity().getApplicationContext(), SosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        infoBtn = view.findViewById(R.id.reportSlideBtn);
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity().getApplicationContext(), MainInformationActivity.class);
                 startActivity(intent);
             }
         });
 
 
         return view;
-
     }
 
 }
