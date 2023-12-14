@@ -11,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.cyk29.safewhere.databinding.ActivityMapsBinding;
 
@@ -49,8 +50,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng kl = new LatLng(3.120490, 101.653581);
-        mMap.addMarker(new MarkerOptions().position(kl).title("UM Central"));
+        Marker tempMarker = mMap.addMarker(new MarkerOptions().position(kl).title("UM Central"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kl,zoomLevel));
+
+        mMap.setOnMarkerClickListener(marker -> {
+            if (marker.equals(tempMarker)) {
+
+
+                return true; // Consume the event to prevent default behavior (info window)
+            }
+            return false; // Let the default behavior happen for other markers
+        });
+
+
 
     }
 }
