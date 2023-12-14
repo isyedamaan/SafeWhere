@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegistrationFragment"
+    android:background="@color/blue">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="22.48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="37dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Register this device for geofencing"
+        android:textColor="@color/white"
+        android:textSize="18.73dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="134.89dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="52.46dp"
+        android:layout_height="52.46dp"
+        android:src="@drawable/back_white3"
+        tools:layout_editor_absoluteX="20.61dp"
+        tools:layout_editor_absoluteY="24.35dp" />
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:fontFamily="@font/lexend"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textColorHint="#A6B7FF"
+        android:textSize="15dp"
+        tools:layout_editor_absoluteX="35.98dp"
+        tools:layout_editor_absoluteY="185.47dp" />
+
+
+    <EditText
+        android:id="@+id/alertET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:fontFamily="@font/lexend"
+        android:hint="Alert Contact Number"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textColorHint="#A6B7FF"
+        android:textSize="15dp"
+        tools:layout_editor_absoluteX="35.98dp"
+        tools:layout_editor_absoluteY="251.04dp" />
+
+    <EditText
+        android:id="@+id/geofenceET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:fontFamily="@font/lexend"
+        android:hint="Geofencing Password"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textColorHint="#A6B7FF"
+        android:textSize="15dp"
+        tools:layout_editor_absoluteX="35.98dp"
+        tools:layout_editor_absoluteY="316.61dp" />
+
+    <Button
+        android:id="@+id/registerBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_button"
+        android:fontFamily="@font/lexend"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        android:textSize="14.99dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="655dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
