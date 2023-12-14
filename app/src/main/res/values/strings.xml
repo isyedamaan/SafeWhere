@@ -14,4 +14,9 @@
     <string name="info_btn_txt">Keep up to date with the\nlatest safety information</string>
     <string name="profile">profile</string>
     <string name="image">image</string>
+    <string name="button">button</string>
+    <string name="start">Start</string>
+    <string name="end_route">End Route</string>
+    <string name="UM_lib">UM Library</string>
+    <string name="fsktm">Faculty of Computer Science</string>
 </resources>

@@ -2,13 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ffCL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp"
+    android:paddingTop="30dp"
     tools:context=".mapmodule.FirstFragment">
 
+    <ImageView
+        android:id="@+id/profileIVBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/profile"
+        android:src="@drawable/profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
-        android:id="@+id/view"
+        android:id="@+id/bgView"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginBottom="-25dp"
@@ -19,14 +32,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
+        android:id="@+id/HCVbtns"
         android:layout_width="0dp"
         android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:scrollbars="none"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/destLL">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -198,33 +215,21 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <ImageView
-        android:id="@+id/profileIVBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/profile"
-        android:src="@drawable/profile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/destLL"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="100dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="-50dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="-70dp"
+        android:layout_marginBottom="245dp"
         android:background="@drawable/rounded_rect"
         android:backgroundTint="@color/white"
-        android:elevation="5dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/bgView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view">
+        app:layout_constraintStart_toStartOf="@+id/bgView"
+        app:layout_constraintTop_toTopOf="@+id/bgView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -239,7 +244,7 @@
                 android:contentDescription="@string/image"
                 android:scaleX=".45"
                 android:scaleY=".45"
-                android:src="@drawable/magnifying_glass" />
+                android:src="@drawable/location" />
 
             <EditText
                 android:id="@+id/userLocET"
@@ -282,8 +287,22 @@
                 android:hint="@string/choose_destination"
                 android:inputType="text"
                 android:textColorHint="@color/grey" />
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/chooseDestBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_rect"
+        android:elevation="6dp"
+        android:text="@string/button"
+        android:textColor="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/destLL"
+        app:layout_constraintEnd_toEndOf="@+id/destLL"
+        app:layout_constraintStart_toStartOf="@+id/destLL"
+        app:layout_constraintTop_toTopOf="@+id/destLL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,11 +2,16 @@ package com.cyk29.safewhere.mapmodule;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 
 import com.cyk29.safewhere.R;
 
@@ -57,10 +62,23 @@ public class FirstFragment extends Fragment {
         }
     }
 
+    private HorizontalScrollView horizontalScrollView;
+    private Button startBtn;
+    private boolean shouldShowHorizontalScrollView = true;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_first, container, false);
+
+        horizontalScrollView = view.findViewById(R.id.HCVbtns);
+        startBtn = view.findViewById(R.id.chooseDestBtn);
+        startBtn.setOnClickListener(v -> {
+            // Navigate to Fragment2
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVFirst, new DestinationSelectFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+        return view;
+
     }
 }
