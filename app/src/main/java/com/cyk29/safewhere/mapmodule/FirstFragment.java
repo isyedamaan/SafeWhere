@@ -22,6 +22,7 @@ import com.cyk29.safewhere.informationmodule.MainInformationActivity;
 import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
+import com.cyk29.safewhere.startupmodule.ProfileMainActivity;
 import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Map;
@@ -76,7 +77,7 @@ public class FirstFragment extends Fragment {
 
     private HorizontalScrollView horizontalScrollView;
     private Button startBtn;
-    private ImageView sos, notifBtn;
+    private ImageView sos, notifBtn, profile;
     private View report;
     private Button infoBtn, repBtn, geoBtn;
     @Override
@@ -138,6 +139,13 @@ public class FirstFragment extends Fragment {
                     .replace(R.id.FCVFirst, new FirstGeoFragment())
                     .addToBackStack(null)
                     .commit();
+        });
+
+        profile = view.findViewById(R.id.profileIVBtn);
+        profile.setOnClickListener(v -> {
+            // Navigate to Fragment
+            Intent intent = new Intent(requireActivity().getApplicationContext(), ProfileMainActivity.class);
+            startActivity(intent);
         });
 
 

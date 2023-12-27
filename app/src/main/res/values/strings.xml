@@ -23,4 +23,10 @@
     <string name="robbery">robbery.</string>
     <string name="temp_number">12</string>
     <string name="temp_number_2">3</string>
+    <string name="remember_me">Remember me</string>
+    <string name="proceed">proceed</string>
+    <string name="choose_tab">Choose Tab</string>
+    <string name="back">back</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
 </resources>
