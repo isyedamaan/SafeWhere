@@ -32,7 +32,13 @@ public class ProfileMainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
 
-
+        boolean firstTime = getIntent().getBooleanExtra("firstTime", false);
+        if(firstTime){
+            backBtn.setVisibility(View.INVISIBLE);
+        }
+        else{
+            backBtn.setVisibility(View.VISIBLE);
+        }
 
     }
     private boolean isBackButtonEnabled = true;

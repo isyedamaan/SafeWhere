@@ -78,4 +78,15 @@ tap the button every 10 seconds."
         app:layout_constraintStart_toStartOf="@+id/panic_countdown"
         app:layout_constraintTop_toTopOf="@+id/panic_countdown" />
 
+    <ImageView
+        android:id="@+id/panicContinueIV"
+        android:layout_width="256.83dp"
+        android:layout_height="256.83dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/panic_mode_countdown" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

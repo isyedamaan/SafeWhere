@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteY="100dp">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/profilepicIV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
@@ -35,7 +35,7 @@
             android:hint="Name"
             android:inputType="text"
             android:paddingStart="15dp"
-            android:textColor="#A6B7FF"
+            android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -51,7 +51,7 @@
             android:hint="Phone"
             android:inputType="number"
             android:paddingStart="15dp"
-            android:textColor="#A6B7FF"
+            android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -67,7 +67,7 @@
             android:hint="Emergency Contact Name"
             android:inputType="text"
             android:paddingStart="15dp"
-            android:textColor="#A6B7FF"
+            android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -83,24 +83,24 @@
             android:hint="Emergency Contact Phone"
             android:inputType="text"
             android:paddingStart="15dp"
-            android:textColor="#A6B7FF"
+            android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:id="@+id/TV_Email"
+        <EditText
+            android:id="@+id/ET_EC_Email"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:gravity="center_vertical"
+            android:hint="Emergency Contact Email"
             android:inputType="text"
             android:paddingStart="15dp"
-            android:text="Email"
-            android:textColor="#A6B7FF"
+            android:textColor="@color/blue"
+            android:textColorHint="#A6B7FF"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
 
