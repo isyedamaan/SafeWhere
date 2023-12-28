@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataObjects.User;
+import com.cyk29.safewhere.mapmodule.MapsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,8 +69,8 @@ public class ProfileFragment extends Fragment {
             editProfile.setOnClickListener(v -> {
                 saveCredentials();
                 // Go to map
-//                startActivity(new Intent(getActivity(), MapsActivity.class));
-//                requireActivity().finish();
+                startActivity(new Intent(getActivity(), MapsActivity.class));
+                requireActivity().finish();
             });
         }
 
@@ -106,22 +107,7 @@ public class ProfileFragment extends Fragment {
         User user = new User(uid, name.getText().toString(), phone.getText().toString(), ecName.getText().toString(), ecPhone.getText().toString());
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
-        databaseReference.child("a").setValue(12, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(getContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-//        databaseReference.child("user_1").setValue(user, new DatabaseReference.CompletionListener() {
-//            @Override
-//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-//                if (error == null) {
-//                    Toast.makeText(getContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(getContext(), "Failed to save data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        databaseReference.child(uid).setValue(user);
     }
 
     @Override

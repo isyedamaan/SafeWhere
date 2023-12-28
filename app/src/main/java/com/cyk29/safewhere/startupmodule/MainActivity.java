@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent i = new Intent(this, ProfileMainActivity.class);
-        i.putExtra("firstTime", true);
-        startActivity(i);
-        finish();
-
 
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.NHFintro_signup);
         NavController navController = host.getNavController();
