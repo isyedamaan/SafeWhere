@@ -12,11 +12,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
+import com.google.firebase.FirebaseApp;
 
 public class ProfileMainActivity extends AppCompatActivity {
 
     ImageView backBtn;
     Button logoutButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +29,21 @@ public class ProfileMainActivity extends AppCompatActivity {
             onBackPressed();
         });
 
+        FirebaseApp.initializeApp(this);
+
 
 
 
     }
+    private boolean isBackButtonEnabled = true;
 
+    public void setBackButtonEnabled(boolean enabled) {
+        isBackButtonEnabled = enabled;
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        if (!isBackButtonEnabled) return;
+        super.onBackPressed();
+    }
 }

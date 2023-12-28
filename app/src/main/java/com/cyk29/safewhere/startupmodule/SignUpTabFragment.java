@@ -73,8 +73,12 @@ public class SignUpTabFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(getContext(), ProfileMainActivity.class));
+                            Intent i = new Intent(getContext(), ProfileMainActivity.class);
+                            i.putExtra("firstTime", true);
+                            i.putExtra("email", email);
+                            startActivity(i);
                             Toast.makeText(getContext(), "Before proceeding, please Enter details.", Toast.LENGTH_SHORT).show();
+                            requireActivity().finish();
                         } else {
                             Toast.makeText(getContext(), "Sign up failed.", Toast.LENGTH_SHORT).show();
                         }
