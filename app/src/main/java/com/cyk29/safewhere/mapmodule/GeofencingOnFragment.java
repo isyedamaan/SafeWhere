@@ -1,5 +1,6 @@
 package com.cyk29.safewhere.mapmodule;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,10 +14,10 @@ import com.cyk29.safewhere.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ThirdGeoFragment#newInstance} factory method to
+ * Use the {@link GeofencingOnFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ThirdGeoFragment extends Fragment {
+public class GeofencingOnFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +28,7 @@ public class ThirdGeoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ThirdGeoFragment() {
+    public GeofencingOnFragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +38,11 @@ public class ThirdGeoFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ThirdGeoFragment.
+     * @return A new instance of fragment GeofencingOnFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ThirdGeoFragment newInstance(String param1, String param2) {
-        ThirdGeoFragment fragment = new ThirdGeoFragment();
+    public static GeofencingOnFragment newInstance(String param1, String param2) {
+        GeofencingOnFragment fragment = new GeofencingOnFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,20 +59,18 @@ public class ThirdGeoFragment extends Fragment {
         }
     }
 
-    Button finish;
+    Button disable;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_third_geo, container, false);
+        View view = inflater.inflate(R.layout.fragment_geofencing_on, container, false);
 
-        finish = view.findViewById(R.id.finishGeoBT);
-        finish.setOnClickListener(v -> {
+        disable = view.findViewById(R.id.disableGeoBtn);
+        disable.setOnClickListener(v -> {
             // Navigate to Fragment
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst, new FinalGeoFragment())
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(requireActivity().getApplicationContext(), MapsActivity.class);
+            startActivity(intent);
         });
 
         return view;

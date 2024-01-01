@@ -1,14 +1,7 @@
 package com.cyk29.safewhere.mapmodule;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.startupmodule.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,7 +72,7 @@ public class OnRouteFragment extends Fragment {
             }
             // Navigate to Fragment2
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst, new FirstFragment())
+                    .replace(R.id.FCVFirst, new HomeFragment())
                     .addToBackStack(null)
                     .commit();
         });

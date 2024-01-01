@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SafeWhere</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="api_key">AIzaSyBhlwC1IyMQp6bauKmOi-Z5gUSKs43hlj0</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="your_location">Your location</string>
@@ -29,4 +30,7 @@
     <string name="back">back</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="reset_geo">Reset Geofencing</string>
+    <string name="radius">Radius of area</string>
 </resources>

@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.informationmodule.MainInformationActivity;
+import com.cyk29.safewhere.mapmodule.GeofencingActivity;
 import com.cyk29.safewhere.mapmodule.MapsActivity;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;

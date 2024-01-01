@@ -2,65 +2,75 @@ package com.cyk29.safewhere.informationmodule;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.dataObjects.InfoItem;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FAQFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class FAQFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FAQFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FAQFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FAQFragment newInstance(String param1, String param2) {
-        FAQFragment fragment = new FAQFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RecyclerView recyclerView;
+    private InfoAdapter adapter;
+    private DatabaseReference databaseReference;
+    private List<InfoItem> faqInfoList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_f_a_q, container, false);
+        View view = inflater.inflate(R.layout.fragment_legal_info, container, false);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("faqInfo");
+
+        adapter = new InfoAdapter(faqInfoList);
+
+        fetchDataFromFirebase();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
+
+
+    private void fetchDataFromFirebase() {
+        // Attach a listener to read the data from Firebase Realtime Database
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                faqInfoList.clear();
+                faqInfoList = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Convert the data from Firebase to InfoItem objects
+                    InfoItem infoItem = snapshot.getValue(InfoItem.class);
+                    faqInfoList.add(infoItem);
+                }
+                // Update the adapter with the retrieved data
+                adapter.updateData(faqInfoList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors
+            }
+        });
+    }
+
 }
