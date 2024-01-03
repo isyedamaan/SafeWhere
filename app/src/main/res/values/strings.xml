@@ -33,4 +33,14 @@
     <string name="register">Register</string>
     <string name="reset_geo">Reset Geofencing</string>
     <string name="radius">Radius of area</string>
+    <string name="danger_zone">New danger hotspot reported near your area.</string>
+    <string name="notification">Notification</string>
+    <string name="filter">Filter</string>
+    <string name="notifications">Notifications</string>
+    <string-array name="notification_filter_options">
+        <item>All</item>
+        <item>Report</item>
+        <item>Danger</item>
+        <item>Geofencing</item>
+    </string-array>
 </resources>

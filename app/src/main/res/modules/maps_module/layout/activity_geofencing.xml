@@ -154,8 +154,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/selectLocationBG"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/selectLocationBG"
-                app:layout_constraintTop_toTopOf="@+id/selectLocationBG"
-                tools:visibility="invisible">
+                app:layout_constraintTop_toTopOf="@+id/selectLocationBG">
 
             </fragment>
 
@@ -189,8 +188,7 @@
         app:layout_constraintBottom_toTopOf="@+id/mainGeoBT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/geoActTitleTV"
-        tools:visibility="visible">
+        app:layout_constraintTop_toBottomOf="@+id/geoActTitleTV">
 
         <EditText
             android:id="@+id/resetGeofencingET"
@@ -271,6 +269,7 @@
         android:textAllCaps="false"
         android:textColor="@color/blue"
         android:textSize="22sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

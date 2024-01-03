@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataObjects.InfoItem;
+import com.cyk29.safewhere.dataclasses.InfoItem;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

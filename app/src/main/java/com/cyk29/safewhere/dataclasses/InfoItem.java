@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.dataObjects;
+package com.cyk29.safewhere.dataclasses;
 
 public class InfoItem {
     private String title;

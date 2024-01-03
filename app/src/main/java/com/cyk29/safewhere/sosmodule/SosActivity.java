@@ -20,8 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataObjects.User;
-import com.cyk29.safewhere.mapmodule.MapsActivity;
+import com.cyk29.safewhere.dataclasses.User;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;

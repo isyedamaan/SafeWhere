@@ -16,7 +16,7 @@ import android.transition.ChangeBounds;
 import android.transition.TransitionManager;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataObjects.InfoItem;
+import com.cyk29.safewhere.dataclasses.InfoItem;
 
 import java.util.List;
 

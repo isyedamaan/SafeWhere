@@ -164,7 +164,7 @@ public class LoginTabFragment extends Fragment {
         editor.apply();
     }
 
-    private void loadCredentials() {
+    public void loadCredentials() {
         SharedPreferences prefs = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String savedEmail = prefs.getString(PREF_EMAIL, "");
         String savedPassword = prefs.getString(PREF_PASSWORD, "");

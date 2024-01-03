@@ -3,10 +3,11 @@ package com.cyk29.safewhere.mapmodule;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataObjects.GeofencingInfo;
+import com.cyk29.safewhere.dataclasses.GeofencingInfo;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -34,6 +35,7 @@ import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.FragmentContainerView;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -46,6 +48,7 @@ public class GeofencingActivity extends AppCompatActivity {
     private ConstraintLayout searchLayout, readyLayout;
     private EditText name, alertNumber, alertEmail, geoPin, radius, resetGeofencing;
     private Button mainGeoButton, resetGeoButton;
+    private FragmentContainerView fcv;
 
     // Google Places and Firebase
     private PlacesClient placesClient;
@@ -58,6 +61,7 @@ public class GeofencingActivity extends AppCompatActivity {
     private int currentLayout = 0;
     private boolean alreadyRegistered = false;
     private GeofencingInfo geofencingInfo;
+    private boolean isGeofencingOn = false;
 
 
 
@@ -65,6 +69,10 @@ public class GeofencingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geofencing);
+
+        if(isGeofencingOn){
+            handleStart();
+        }
 
         initializeUI();
 
@@ -104,6 +112,7 @@ public class GeofencingActivity extends AppCompatActivity {
                         handleSetup();
                         break;
                     case 2:
+                        isGeofencingOn = true;
                         handleStart();
                         break;
                     default:
@@ -199,6 +208,7 @@ public class GeofencingActivity extends AppCompatActivity {
         resetGeoButton = findViewById(R.id.resetGeoBT);
 
         mainGeoButton = findViewById(R.id.mainGeoBT);
+
     }
 
 
@@ -226,7 +236,11 @@ public class GeofencingActivity extends AppCompatActivity {
     }
 
     private void handleStart() {
-
+        showToast("Geofencing started");
+        Intent intent = new Intent(this, GeofencingOnActivity.class);
+        intent.putExtra("geofencingInfo", geofencingInfo);
+        startActivity(intent);
+        finish();
     }
 
     private void showSetupLayout() {
@@ -283,7 +297,7 @@ public class GeofencingActivity extends AppCompatActivity {
         view.startAnimation(fade);
     }
 
-    private boolean getGeofencingInfoFromDatabase() {
+    private void getGeofencingInfoFromDatabase() {
         DatabaseReference geoInfoRef = FirebaseDatabase.getInstance().getReference()
                 .child("users").child(uid).child("geofencingInfo");
         geoInfoRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -308,6 +322,5 @@ public class GeofencingActivity extends AppCompatActivity {
                 Log.e("DatabaseError", databaseError.getMessage());
             }
         });
-        return alreadyRegistered;
     }
 }

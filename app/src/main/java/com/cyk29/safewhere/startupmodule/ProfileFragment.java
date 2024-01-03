@@ -1,11 +1,8 @@
 package com.cyk29.safewhere.startupmodule;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,11 +14,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataObjects.User;
+import com.cyk29.safewhere.dataclasses.User;
 import com.cyk29.safewhere.mapmodule.MapsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

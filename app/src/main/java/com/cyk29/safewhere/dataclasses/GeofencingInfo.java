@@ -1,8 +1,10 @@
-package com.cyk29.safewhere.dataObjects;
+package com.cyk29.safewhere.dataclasses;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class GeofencingInfo {
+import java.io.Serializable;
+
+public class GeofencingInfo implements Serializable {
 
     private String name;
     private String alertNumber;
