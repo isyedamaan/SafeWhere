@@ -143,7 +143,7 @@ services and contacts."
             android:text="Emergency Services"
             android:textColor="@color/white"
             android:textSize="18.73sp"
-            app:layout_constraintBottom_toTopOf="@+id/policeBT"
+            app:layout_constraintBottom_toTopOf="@+id/AmbulanceBT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.156"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,17 +151,17 @@ services and contacts."
             app:layout_constraintVertical_bias="0.3" />
 
         <ImageButton
-            android:id="@+id/policeBT"
+            android:id="@+id/AmbulanceBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/emergency_service_button"
             android:contentDescription="Police"
-            app:layout_constraintBottom_toTopOf="@id/policeTV"
             app:layout_constraintEnd_toStartOf="@+id/firefighterBT"
             app:layout_constraintHorizontal_bias="0.238"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/servicesTV"
-            app:srcCompat="@drawable/police" />
+            app:srcCompat="@drawable/ambulance" />
 
         <ImageButton
             android:id="@+id/firefighterBT"
@@ -170,14 +170,14 @@ services and contacts."
             android:background="@drawable/emergency_service_button"
             android:contentDescription="Firefighter"
             app:layout_constraintBottom_toTopOf="@id/firefighterTV"
-            app:layout_constraintLeft_toRightOf="@id/policeBT"
-            app:layout_constraintRight_toLeftOf="@id/ambulanceBT"
+            app:layout_constraintLeft_toRightOf="@id/AmbulanceBT"
+            app:layout_constraintRight_toLeftOf="@id/civilDefenceBT"
             app:layout_constraintTop_toBottomOf="@id/servicesTV"
             app:layout_constraintVertical_bias="0.511"
             app:srcCompat="@drawable/firefighter" />
 
         <ImageButton
-            android:id="@+id/ambulanceBT"
+            android:id="@+id/civilDefenceBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="23dp"
@@ -187,55 +187,49 @@ services and contacts."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@id/firefighterBT"
             app:layout_constraintTop_toBottomOf="@id/servicesTV"
-            app:srcCompat="@drawable/ambulance" />
+            app:srcCompat="@drawable/police" />
 
         <TextView
             android:id="@+id/policeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="54dp"
-            android:layout_marginBottom="11dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/lexend"
-            android:text="Police"
+            android:gravity="center"
+            android:text="Ambulance\n/Police"
             android:textColor="@color/white"
             android:textSize="11.24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/firefighterTV"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/policeBT"
-            app:layout_constraintVertical_bias="0.666" />
+            app:layout_constraintEnd_toEndOf="@+id/AmbulanceBT"
+            app:layout_constraintStart_toStartOf="@+id/AmbulanceBT" />
 
         <TextView
             android:id="@+id/firefighterTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="63dp"
-            android:layout_marginEnd="51dp"
             android:layout_marginBottom="11dp"
             android:fontFamily="@font/lexend"
             android:text="Firefighter"
             android:textColor="@color/white"
             android:textSize="11.24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ambulanceTV"
-            app:layout_constraintStart_toEndOf="@+id/policeTV"
+            app:layout_constraintEnd_toEndOf="@+id/firefighterBT"
+            app:layout_constraintStart_toStartOf="@+id/firefighterBT"
             app:layout_constraintTop_toBottomOf="@+id/firefighterBT" />
 
         <TextView
             android:id="@+id/ambulanceTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="35dp"
             android:layout_marginBottom="11dp"
             android:fontFamily="@font/lexend"
-            android:text="Ambulance"
+            android:text="Civil Defence"
             android:textColor="@color/white"
             android:textSize="11.24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/firefighterTV"
-            app:layout_constraintTop_toBottomOf="@+id/ambulanceBT" />
+            app:layout_constraintEnd_toEndOf="@+id/civilDefenceBT"
+            app:layout_constraintStart_toStartOf="@+id/civilDefenceBT"
+            app:layout_constraintTop_toBottomOf="@+id/civilDefenceBT" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -257,6 +251,7 @@ services and contacts."
         android:id="@+id/panic_fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

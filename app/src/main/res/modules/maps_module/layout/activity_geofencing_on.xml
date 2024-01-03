@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".mapmodule.FinalGeoFragment">
+    tools:context=".mapmodule.GeofencingOnFragment">
 
     <ImageView
         android:id="@+id/backBT5"
@@ -18,24 +18,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/nameET2"
+        android:id="@+id/geoDisablePasswordET"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:fontFamily="@font/lexend"
         android:hint="Geofencing Password"
-        android:inputType="text"
+        android:inputType="number|numberPassword"
         android:paddingLeft="20dp"
         android:textColorHint="#A6B7FF"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/disableGeoBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/msgGeoTV" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/GeoOnTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/GeoIsOnTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/msgGeoTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_bold"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/GeoIsOnTV" />
 
     <Button
         android:id="@+id/disableGeoBtn"
@@ -94,7 +94,7 @@
 
 
     <TextView
-        android:id="@+id/locationET3"
+        android:id="@+id/geoLocationTV"
         android:layout_width="0dp"
         android:layout_height="49.83dp"
         android:layout_marginStart="30dp"
@@ -113,7 +113,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/GeoOnTitle" />
 
     <ImageView
         android:id="@+id/locationIV3"
@@ -121,9 +121,9 @@
         android:layout_height="28dp"
         android:layout_marginStart="15dp"
         android:src="@drawable/location_geofence"
-        app:layout_constraintBottom_toBottomOf="@+id/locationET3"
-        app:layout_constraintStart_toStartOf="@+id/locationET3"
-        app:layout_constraintTop_toTopOf="@+id/locationET3" />
+        app:layout_constraintBottom_toBottomOf="@+id/geoLocationTV"
+        app:layout_constraintStart_toStartOf="@+id/geoLocationTV"
+        app:layout_constraintTop_toTopOf="@+id/geoLocationTV" />
 
     <ImageView
         android:id="@+id/imageView17"
@@ -134,6 +134,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationET3" />
+        app:layout_constraintTop_toBottomOf="@+id/geoLocationTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

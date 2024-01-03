@@ -57,8 +57,9 @@ public class SignUpTabFragment extends Fragment {
                     Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(password.equals(confirmPassword))
+                if(password.equals(confirmPassword)) {
                     firebaseSignUp(email, password);
+                }
                 else
                     Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
             }

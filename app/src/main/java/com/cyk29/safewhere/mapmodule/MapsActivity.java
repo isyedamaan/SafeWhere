@@ -1,5 +1,7 @@
 package com.cyk29.safewhere.mapmodule;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentContainerView;
@@ -7,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,16 +44,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
         backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(v -> {
             onBackPressed();
         });
 
-
-
-
     }
 
+    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+    private boolean locationPermissionGranted;
+
+    private void getLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            locationPermissionGranted = true;
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+        }
+    }
 
 
 
@@ -69,6 +84,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        getLocationPermission();
+
+
         mMap = googleMap;
         float zoomLevel = 15.0f;
 

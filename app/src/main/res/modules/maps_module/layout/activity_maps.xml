@@ -35,7 +35,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/FCVFirst"
-        android:name="com.cyk29.safewhere.mapmodule.FirstFragment"
+        android:name="com.cyk29.safewhere.mapmodule.HomeFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="visible"
@@ -45,6 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
