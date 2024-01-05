@@ -1,61 +1,62 @@
 package com.cyk29.safewhere.reportmodule;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.FragmentContainerView;
 
-import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.mapmodule.MapsActivity;
 
 public class ReportMainActivity extends AppCompatActivity {
 
-    ImageView murder, back;
-
-    View dark;
-    FragmentContainerView FCV;
+    ImageButton hazard, suspicious, vandalism,envIssues,animal,accident,health,streetAlt,violence;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_main);
+        initializeUI();
 
-        dark = findViewById(R.id.dark);
-        FCV = findViewById(R.id.FCVReport);
-
-        murder = findViewById(R.id.murderBT);
-        murder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dark.setVisibility(View.VISIBLE);
-                FCV.setVisibility(View.VISIBLE);
-            }
-        });
-
-        dark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setGone();
-            }
-        });
-
-        back = findViewById(R.id.BackBtnReport);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        hazard.setOnClickListener(v -> {makeOverlay("hazard");});
+        suspicious.setOnClickListener(v -> {makeOverlay("suspicious");});
+        vandalism.setOnClickListener(v -> {makeOverlay("vandalism");});
+        envIssues.setOnClickListener(v -> {makeOverlay("envIssues");});
+        animal.setOnClickListener(v -> {makeOverlay("animal");});
+        accident.setOnClickListener(v -> {makeOverlay("accident");});
+        health.setOnClickListener(v -> {makeOverlay("health");});
+        streetAlt.setOnClickListener(v -> {makeOverlay("streetAlt");});
+        violence.setOnClickListener(v -> {makeOverlay("violence");});
     }
 
-    void setGone(){
-        dark.setVisibility(View.GONE);
-        FCV.setVisibility(View.GONE);
+    private void makeOverlay(String type){
+        MakeReportFragment makeReportFragment = new MakeReportFragment(type);
+        dimBackground();
+        makeReportFragment.show(getSupportFragmentManager(), "makeReportFragment");
+    }
+
+    private void initializeUI(){
+        hazard = findViewById(R.id.safetyHazardBT);
+        suspicious = findViewById(R.id.susActivityBT);
+        vandalism = findViewById(R.id.vandalismBT);
+        envIssues = findViewById(R.id.envIssueBT);
+        animal = findViewById(R.id.animalBT);
+        accident = findViewById(R.id.accidentBT);
+        health = findViewById(R.id.healthBT);
+        streetAlt = findViewById(R.id.streetAltBT);
+        violence = findViewById(R.id.violenceBT);
+    }
+
+    private void dimBackground() {
+        ViewGroup rootView = (ViewGroup) findViewById(android.R.id.content);
+        Drawable dim = new ColorDrawable(Color.argb(128, 0, 0, 0));
+        dim.setBounds(0, 0, rootView.getWidth(), rootView.getHeight());
+        rootView.getOverlay().add(dim);
+    }
+    public void clearDim() {
+        ViewGroup rootView = (ViewGroup) findViewById(android.R.id.content);
+        rootView.getOverlay().clear();
     }
 }

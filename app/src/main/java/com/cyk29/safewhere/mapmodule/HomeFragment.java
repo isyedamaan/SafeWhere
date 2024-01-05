@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.informationmodule.MainInformationActivity;
+import com.cyk29.safewhere.mapmodule.geofencing.GeofencingActivity;
 import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;

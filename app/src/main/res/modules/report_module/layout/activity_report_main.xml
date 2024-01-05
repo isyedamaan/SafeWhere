@@ -3,388 +3,324 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:layout_editor_absoluteX="10dp"
+    tools:layout_editor_absoluteY="89dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/report_page"
-        android:layout_width="412dp"
-        android:layout_height="0dp"
-        android:background="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/reportQtnTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/lexend_bold"
+        android:text="@string/report_question"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportTitleTV" />
+
+    <TextView
+        android:id="@+id/reportTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/lexend_bold"
+        android:text="@string/report"
+        android:textColor="@color/white"
+        android:textSize="26.15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BackBtnReport"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:srcCompat="@drawable/back_white" />
 
-        <TextView
-            android:id="@+id/reportTV3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/lexend_bold"
-            android:text="Report"
-            android:textColor="@color/white"
-            android:textSize="26.15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/BackBtnReport"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back_white" />
-
-        <ImageView
-            android:id="@+id/line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/reportTV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/line" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportTitleTV"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/domesticViolenceBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
+            android:id="@+id/safetyHazardBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            app:layout_constraintBottom_toTopOf="@+id/domesticViolenceTV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/sexualAssaultBT"
-            app:layout_constraintTop_toBottomOf="@+id/reportTV" />
-
-        <TextView
-            android:id="@+id/reportTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend_bold"
-            android:text="What do you see?"
-            android:textColor="@color/white"
-            android:textSize="26.15sp"
-            app:layout_constraintBottom_toTopOf="@id/endangermentBT"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.165"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/susActivityBT"
+            app:layout_constraintEnd_toStartOf="@+id/susActivityBT"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line" />
-
-        <ImageButton
-            android:id="@+id/endangermentBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="endangerment"
-            app:layout_constraintBottom_toTopOf="@+id/endangermentTV"
-            app:layout_constraintEnd_toStartOf="@+id/sexualAssaultBT"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reportTV" />
-
-        <TextView
-            android:id="@+id/endangermentTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend"
-            android:text="Endangerment"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toTopOf="@+id/assaultBatteryBT"
-            app:layout_constraintEnd_toEndOf="@+id/endangermentBT"
-            app:layout_constraintHorizontal_bias="0.578"
-            app:layout_constraintStart_toStartOf="@+id/endangermentBT"
-            app:layout_constraintTop_toBottomOf="@+id/endangermentBT" />
-
-        <ImageButton
-            android:id="@+id/sexualAssaultBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toTopOf="@+id/sexualAssaultTV"
-            app:layout_constraintEnd_toStartOf="@+id/domesticViolenceBT"
-            app:layout_constraintStart_toEndOf="@+id/endangermentBT"
-            app:layout_constraintTop_toBottomOf="@+id/reportTV" />
-
-        <TextView
-            android:id="@+id/sexualAssaultTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend"
-            android:text="Sexual Assault"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/abductionBT"
-            app:layout_constraintEnd_toStartOf="@+id/domesticViolenceTV"
-            app:layout_constraintStart_toEndOf="@+id/endangermentTV"
-            app:layout_constraintTop_toBottomOf="@+id/sexualAssaultBT" />
-
-        <TextView
-            android:id="@+id/domesticViolenceTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend"
-            android:text="Domestic Violence"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/robberyBT"
-            app:layout_constraintEnd_toEndOf="@+id/domesticViolenceBT"
-            app:layout_constraintHorizontal_bias="0.435"
-            app:layout_constraintStart_toStartOf="@+id/domesticViolenceBT"
-            app:layout_constraintTop_toBottomOf="@+id/domesticViolenceBT" />
-
-        <ImageButton
-            android:id="@+id/robberyBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toTopOf="@+id/robberyTV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/abductionBT"
-            app:layout_constraintTop_toBottomOf="@+id/domesticViolenceTV" />
-
-        <ImageButton
-            android:id="@+id/abductionBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="@string/image"
-            app:layout_constraintBottom_toTopOf="@+id/abductionTV"
-            app:layout_constraintEnd_toStartOf="@+id/robberyBT"
-            app:layout_constraintStart_toEndOf="@+id/assaultBatteryBT"
-            app:layout_constraintTop_toBottomOf="@+id/sexualAssaultTV"
-            app:layout_constraintVertical_bias="0.511" />
-
-        <TextView
-            android:id="@+id/abductionTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:fontFamily="@font/lexend"
-            android:text="Abduction"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toTopOf="@+id/terrorismBT"
-            app:layout_constraintEnd_toStartOf="@+id/robberyTV"
-            app:layout_constraintHorizontal_bias="0.317"
-            app:layout_constraintStart_toEndOf="@+id/assaultBatteryTV"
-            app:layout_constraintTop_toBottomOf="@+id/abductionBT" />
-
-        <ImageButton
-            android:id="@+id/assaultBatteryBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="assaultBattery"
-            app:layout_constraintBottom_toTopOf="@+id/assaultBatteryTV"
-            app:layout_constraintEnd_toStartOf="@+id/abductionBT"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/endangermentTV" />
-
-        <TextView
-            android:id="@+id/assaultBatteryTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend"
-            android:text="Assault/Battery"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toTopOf="@+id/arsonBT"
-            app:layout_constraintEnd_toStartOf="@+id/abductionTV"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/assaultBatteryBT" />
-
-        <TextView
-            android:id="@+id/robberyTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:fontFamily="@font/lexend"
-            android:text="Robbery"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toTopOf="@+id/murderBT"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/abductionTV"
-            app:layout_constraintTop_toBottomOf="@+id/robberyBT" />
-
-        <ImageButton
-            android:id="@+id/murderBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="murder"
-            app:layout_constraintBottom_toTopOf="@+id/murderTV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/terrorismBT"
-            app:layout_constraintTop_toBottomOf="@+id/robberyTV" />
-
-        <ImageButton
-            android:id="@+id/terrorismBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-            android:background="@drawable/button"
-            android:contentDescription="terrorism"
-            app:layout_constraintBottom_toTopOf="@+id/terrorismTV"
-            app:layout_constraintEnd_toStartOf="@+id/murderBT"
-            app:layout_constraintStart_toEndOf="@+id/arsonBT"
-            app:layout_constraintTop_toBottomOf="@+id/abductionTV" />
-
-        <ImageButton
-            android:id="@+id/arsonBT"
-            android:layout_width="87.79dp"
-            android:layout_height="87.79dp"
-
-            android:background="@drawable/button"
-            android:contentDescription="arson"
-            app:layout_constraintBottom_toTopOf="@+id/arsonTV"
-            app:layout_constraintEnd_toStartOf="@+id/terrorismBT"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/assaultBatteryTV" />
-
-        <TextView
-            android:id="@+id/arsonTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/lexend"
-            android:text="Arson"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/terrorismTV"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/arsonBT" />
-
-        <TextView
-            android:id="@+id/terrorismTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/lexend"
-            android:text="Terrorism"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/murderBT"
-            app:layout_constraintStart_toEndOf="@+id/arsonBT"
-            app:layout_constraintTop_toBottomOf="@+id/terrorismBT" />
-
-        <TextView
-            android:id="@+id/murderTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/lexend"
-            android:text="Murder"
-            android:textColor="@color/white"
-            android:textSize="14.94sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
-            app:layout_constraintStart_toEndOf="@+id/terrorismTV"
-            app:layout_constraintTop_toBottomOf="@+id/murderBT" />
-
-        <ImageView
-            android:id="@+id/endangermentIV"
-            android:layout_width="65dp"
-            android:layout_height="64dp"
-            app:layout_constraintBottom_toBottomOf="@+id/endangermentBT"
-            app:layout_constraintEnd_toEndOf="@+id/endangermentBT"
-            app:layout_constraintStart_toStartOf="@+id/endangermentBT"
-            app:layout_constraintTop_toTopOf="@+id/endangermentBT"
+            app:layout_constraintTop_toTopOf="@+id/susActivityBT"
             app:srcCompat="@drawable/endangerment" />
 
         <TextView
-            android:id="@+id/saTV"
+            android:id="@+id/safetyHazardTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lexend_bold"
-            android:text="SA"
-            android:textColor="@color/black"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="@+id/sexualAssaultBT"
-            app:layout_constraintEnd_toEndOf="@+id/sexualAssaultBT"
-            app:layout_constraintStart_toStartOf="@+id/sexualAssaultBT"
-            app:layout_constraintTop_toTopOf="@+id/sexualAssaultBT" />
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_public_safety_hazards"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/safetyHazardBT"
+            app:layout_constraintStart_toStartOf="@+id/safetyHazardBT"
+            app:layout_constraintTop_toBottomOf="@+id/safetyHazardBT" />
 
-        <ImageView
-            android:id="@+id/domesticViolenceIV"
-            android:layout_width="71dp"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toBottomOf="@+id/domesticViolenceBT"
-            app:layout_constraintEnd_toEndOf="@+id/domesticViolenceBT"
-            app:layout_constraintStart_toStartOf="@+id/domesticViolenceBT"
-            app:layout_constraintTop_toTopOf="@+id/domesticViolenceBT"
-            app:srcCompat="@drawable/domestic_violence" />
+        <ImageButton
+            android:id="@+id/susActivityBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/animalBT"
+            app:layout_constraintEnd_toStartOf="@+id/vandalismBT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/safetyHazardBT"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/endangerment" />
 
-        <ImageView
-            android:id="@+id/assaultBatteryIV"
-            android:layout_width="70dp"
-            android:layout_height="77dp"
-            app:layout_constraintBottom_toBottomOf="@+id/assaultBatteryBT"
-            app:layout_constraintEnd_toEndOf="@+id/assaultBatteryBT"
-            app:layout_constraintStart_toStartOf="@+id/assaultBatteryBT"
-            app:layout_constraintTop_toTopOf="@+id/assaultBatteryBT"
-            app:srcCompat="@drawable/assault" />
+        <TextView
+            android:id="@+id/susActivityTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_suspicious_activities"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/susActivityBT"
+            app:layout_constraintStart_toStartOf="@+id/susActivityBT"
+            app:layout_constraintTop_toBottomOf="@+id/susActivityBT" />
 
-        <ImageView
-            android:id="@+id/abductionIV"
-            android:layout_width="63dp"
-            android:layout_height="58dp"
-            app:layout_constraintBottom_toBottomOf="@+id/abductionBT"
-            app:layout_constraintEnd_toEndOf="@+id/abductionBT"
-            app:layout_constraintStart_toStartOf="@+id/abductionBT"
-            app:layout_constraintTop_toTopOf="@+id/abductionBT"
-            app:srcCompat="@drawable/abduction" />
+        <ImageButton
+            android:id="@+id/vandalismBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/susActivityBT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/susActivityBT"
+            app:layout_constraintTop_toTopOf="@+id/susActivityBT"
+            app:srcCompat="@drawable/endangerment" />
 
-        <ImageView
-            android:id="@+id/robberyIV"
-            android:layout_width="64dp"
-            android:layout_height="67dp"
-            app:layout_constraintBottom_toBottomOf="@+id/robberyBT"
-            app:layout_constraintEnd_toEndOf="@+id/robberyBT"
-            app:layout_constraintStart_toStartOf="@+id/robberyBT"
-            app:layout_constraintTop_toTopOf="@+id/robberyBT"
-            app:srcCompat="@drawable/robbery" />
+        <TextView
+            android:id="@+id/vandalismTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_street_vandalism"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/vandalismBT"
+            app:layout_constraintStart_toStartOf="@+id/vandalismBT"
+            app:layout_constraintTop_toBottomOf="@+id/vandalismBT" />
 
-        <ImageView
-            android:id="@+id/arsonIV"
-            android:layout_width="67dp"
-            android:layout_height="68dp"
-            app:layout_constraintBottom_toBottomOf="@+id/arsonBT"
-            app:layout_constraintEnd_toEndOf="@+id/arsonBT"
-            app:layout_constraintStart_toStartOf="@+id/arsonBT"
-            app:layout_constraintTop_toTopOf="@+id/arsonBT"
-            app:srcCompat="@drawable/arson" />
+        <ImageButton
+            android:id="@+id/envIssueBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/animalBT"
+            app:layout_constraintEnd_toStartOf="@+id/animalBT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/animalBT"
+            app:srcCompat="@drawable/endangerment" />
 
-        <ImageView
-            android:id="@+id/terrorismIV"
-            android:layout_width="73dp"
-            android:layout_height="74dp"
-            app:layout_constraintBottom_toBottomOf="@+id/terrorismBT"
-            app:layout_constraintEnd_toEndOf="@+id/terrorismBT"
-            app:layout_constraintStart_toStartOf="@+id/terrorismBT"
-            app:layout_constraintTop_toTopOf="@+id/terrorismBT"
-            app:srcCompat="@drawable/terrorism" />
+        <TextView
+            android:id="@+id/envIssueTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_environmental_issues"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/envIssueBT"
+            app:layout_constraintStart_toStartOf="@+id/envIssueBT"
+            app:layout_constraintTop_toBottomOf="@+id/envIssueBT" />
 
-        <ImageView
-            android:id="@+id/murderIV"
-            android:layout_width="76dp"
-            android:layout_height="71dp"
-            app:layout_constraintBottom_toBottomOf="@+id/murderBT"
-            app:layout_constraintEnd_toEndOf="@+id/murderBT"
-            app:layout_constraintStart_toStartOf="@+id/murderBT"
-            app:layout_constraintTop_toTopOf="@+id/murderBT"
-            app:srcCompat="@drawable/murder" />
+        <ImageButton
+            android:id="@+id/animalBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/streetAltBT"
+            app:layout_constraintEnd_toStartOf="@+id/accidentBT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/envIssueBT"
+            app:layout_constraintTop_toBottomOf="@+id/susActivityBT"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/endangerment" />
 
+        <TextView
+            android:id="@+id/animalTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_stray_animals"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/animalBT"
+            app:layout_constraintStart_toStartOf="@+id/animalBT"
+            app:layout_constraintTop_toBottomOf="@+id/animalBT" />
+
+        <ImageButton
+            android:id="@+id/accidentBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/animalBT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/animalBT"
+            app:layout_constraintTop_toTopOf="@+id/animalBT"
+            app:srcCompat="@drawable/endangerment" />
+
+        <TextView
+            android:id="@+id/accidentTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_traffic_accidents"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/accidentBT"
+            app:layout_constraintStart_toStartOf="@+id/accidentBT"
+            app:layout_constraintTop_toBottomOf="@+id/accidentBT" />
+
+        <ImageButton
+            android:id="@+id/healthBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/streetAltBT"
+            app:layout_constraintEnd_toStartOf="@+id/streetAltBT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/streetAltBT"
+            app:srcCompat="@drawable/endangerment" />
+
+        <TextView
+            android:id="@+id/healthTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_public_health_concerns"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/healthBT"
+            app:layout_constraintStart_toStartOf="@+id/healthBT"
+            app:layout_constraintTop_toBottomOf="@+id/healthBT" />
+
+        <ImageButton
+            android:id="@+id/streetAltBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/violenceBT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/healthBT"
+            app:layout_constraintTop_toBottomOf="@+id/animalBT"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/endangerment" />
+
+        <TextView
+            android:id="@+id/streetAltTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_street_altercations"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/streetAltBT"
+            app:layout_constraintStart_toStartOf="@+id/streetAltBT"
+            app:layout_constraintTop_toBottomOf="@+id/streetAltBT" />
+
+        <ImageButton
+            android:id="@+id/violenceBT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/streetAltBT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/streetAltBT"
+            app:layout_constraintTop_toTopOf="@+id/streetAltBT"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/endangerment" />
+
+        <TextView
+            android:id="@+id/violenceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/title_violence"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/violenceBT"
+            app:layout_constraintStart_toStartOf="@+id/violenceBT"
+            app:layout_constraintTop_toBottomOf="@+id/violenceBT" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -400,7 +336,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/FCVReport"
-        android:name="com.cyk29.safewhere.reportmodule.ConfFragment"
+        android:name="com.cyk29.safewhere.reportmodule.MakeReportFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="5dp"
@@ -408,6 +344,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_conf" />
+        tools:layout="@layout/fragment_make_report" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
