@@ -63,14 +63,17 @@
             android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="5dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/susActivityBT"
             app:layout_constraintEnd_toStartOf="@+id/susActivityBT"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/susActivityBT"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/safety_hazard" />
 
         <TextView
             android:id="@+id/safetyHazardTV"
@@ -92,7 +95,7 @@
             android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            android:padding="10dp"
+            android:padding="15dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/animalBT"
             app:layout_constraintEnd_toStartOf="@+id/vandalismBT"
@@ -100,7 +103,7 @@
             app:layout_constraintStart_toEndOf="@+id/safetyHazardBT"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/suspicious_activity" />
 
         <TextView
             android:id="@+id/susActivityTV"
@@ -122,14 +125,14 @@
             android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            android:padding="10dp"
+            android:padding="15dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/susActivityBT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/susActivityBT"
             app:layout_constraintTop_toTopOf="@+id/susActivityBT"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/vandalism" />
 
         <TextView
             android:id="@+id/vandalismTV"
@@ -151,14 +154,14 @@
             android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            android:padding="10dp"
+            android:padding="15dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/animalBT"
             app:layout_constraintEnd_toStartOf="@+id/animalBT"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/animalBT"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/environmental_issues" />
 
         <TextView
             android:id="@+id/envIssueTV"
@@ -188,7 +191,7 @@
             app:layout_constraintStart_toEndOf="@+id/envIssueBT"
             app:layout_constraintTop_toBottomOf="@+id/susActivityBT"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/dangerous_animals" />
 
         <TextView
             android:id="@+id/animalTV"
@@ -217,7 +220,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/animalBT"
             app:layout_constraintTop_toTopOf="@+id/animalBT"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/traffic_accident" />
 
         <TextView
             android:id="@+id/accidentTV"
@@ -246,7 +249,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/streetAltBT"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/health_concerns" />
 
         <TextView
             android:id="@+id/healthTV"
@@ -268,7 +271,7 @@
             android:layout_height="100dp"
             android:background="@drawable/button"
             android:contentDescription="@string/image"
-            android:padding="10dp"
+            android:padding="15dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/violenceBT"
@@ -276,7 +279,7 @@
             app:layout_constraintStart_toEndOf="@+id/healthBT"
             app:layout_constraintTop_toBottomOf="@+id/animalBT"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/street_altercation" />
 
         <TextView
             android:id="@+id/streetAltTV"
@@ -306,7 +309,7 @@
             app:layout_constraintStart_toEndOf="@+id/streetAltBT"
             app:layout_constraintTop_toTopOf="@+id/streetAltBT"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/endangerment" />
+            app:srcCompat="@drawable/violence" />
 
         <TextView
             android:id="@+id/violenceTV"
