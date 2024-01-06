@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,8 +29,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.cyk29.safewhere.databinding.ActivityMapsBinding;
@@ -80,26 +85,294 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
         updateLocationUI();
 
+        String config = "[\n" +
+                "  {\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#f5f5f5\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"elementType\": \"labels.icon\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#616161\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"elementType\": \"labels.text.stroke\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#f5f5f5\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"administrative\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"administrative.land_parcel\",\n" +
+                "    \"elementType\": \"labels\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"administrative.land_parcel\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#bdbdbd\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#eeeeee\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi\",\n" +
+                "    \"elementType\": \"labels.text\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#757575\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi.park\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#e5e5e5\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"poi.park\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#9e9e9e\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#ffffff\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road\",\n" +
+                "    \"elementType\": \"labels.icon\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.arterial\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#757575\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.highway\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#dadada\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.highway\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#616161\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.local\",\n" +
+                "    \"elementType\": \"geometry.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#c7c7c7\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.local\",\n" +
+                "    \"elementType\": \"geometry.stroke\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#d6d6d6\"\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"weight\": 0.5\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.local\",\n" +
+                "    \"elementType\": \"labels\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"road.local\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#9e9e9e\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"transit\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"visibility\": \"off\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"transit.line\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#e5e5e5\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"transit.station\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#eeeeee\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"water\",\n" +
+                "    \"elementType\": \"geometry\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#c9c9c9\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"featureType\": \"water\",\n" +
+                "    \"elementType\": \"labels.text.fill\",\n" +
+                "    \"stylers\": [\n" +
+                "      {\n" +
+                "        \"color\": \"#9e9e9e\"\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  }\n" +
+                "]";
+
+        mMap.setMapStyle(new MapStyleOptions(config));
+
         if (locationPermissionGranted) {
             // Try to obtain the last known location
             getDeviceLocation();
         }
         if(currentLocation == null){
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15.0f));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 12.0f));
         }
         else{
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15.0f));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f));
         }
-        if(currentLocation!= null){
-            MarkerOptions markerOptions = new MarkerOptions()
-                    .position(currentLocation)
-                    .title("Marker Title")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
-            mMap.addMarker(markerOptions);
-        }
+//        if(currentLocation!= null){
+//            MarkerOptions markerOptions = new MarkerOptions()
+//                    .position(currentLocation)
+//                    .title("Marker Title")
+//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
+//            mMap.addMarker(markerOptions);
+//        }
 
-
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(new LatLng(3.12049,101.6510061))
+                .title("Marker Title")
+                .icon(resizeMapIcons(70,100));
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(@NonNull LatLng latLng) {
+                mMap.addMarker(new MarkerOptions().position(latLng)
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.geofencing_icon)));
+                mMap.addCircle(new com.google.android.gms.maps.model.CircleOptions()
+                        .center(latLng)
+                        .radius(1000)
+                        .strokeWidth(2f)
+                        .fillColor(0x550021A6))
+                        .setStrokeColor(0xFF0021A6);
+            }
+        });
     }
+
+    private BitmapDescriptor resizeMapIcons( int width, int height){
+        Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier("dangerzone_icon", "drawable", getPackageName()));
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, width, height, false);
+        return BitmapDescriptorFactory.fromBitmap(resizedBitmap);
+    }
+
     private void getDeviceLocation() {
 //        try {
 //            if (locationPermissionGranted) {
