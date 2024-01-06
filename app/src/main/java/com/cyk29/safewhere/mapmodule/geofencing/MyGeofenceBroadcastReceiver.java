@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.mapmodule;
+package com.cyk29.safewhere.mapmodule.geofencing;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

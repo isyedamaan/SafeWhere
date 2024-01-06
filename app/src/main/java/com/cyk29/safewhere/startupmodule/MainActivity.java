@@ -12,19 +12,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
-import com.cyk29.safewhere.dataclasses.GeofencingInfo;
-import com.cyk29.safewhere.informationmodule.MainInformationActivity;
-import com.cyk29.safewhere.mapmodule.GeofencingActivity;
-import com.cyk29.safewhere.mapmodule.GeofencingOnActivity;
 import com.cyk29.safewhere.mapmodule.MapsActivity;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 

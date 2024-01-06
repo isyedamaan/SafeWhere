@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.mapmodule;
+package com.cyk29.safewhere.mapmodule.geofencing;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

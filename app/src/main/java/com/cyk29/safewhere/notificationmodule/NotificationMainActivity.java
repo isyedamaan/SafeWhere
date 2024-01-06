@@ -103,7 +103,7 @@ public class NotificationMainActivity extends AppCompatActivity {
 
     private void loadNotificationItems(String selectedType) {
         String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("notification");
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("notifications");
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

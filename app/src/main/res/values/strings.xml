@@ -43,4 +43,36 @@
         <item>Danger</item>
         <item>Geofencing</item>
     </string-array>
+
+    <!-- Suspicious Activities -->
+    <string name="title_suspicious_activities">Suspicious\nActivity</string>
+    <string name="description_suspicious_activities">Report unusual or potentially criminal activities, like someone attempting to break into a vehicle or exhibiting threatening behavior.</string>
+    <!-- Public Safety Hazards -->
+    <string name="title_public_safety_hazards">Safety\nHazard</string>
+    <string name="description_public_safety_hazards">Notify authorities about dangers like fallen trees, broken glass, or large potholes that pose a risk of accidents or injuries.</string>
+    <!-- Street Altercations or Disturbances -->
+    <string name="title_street_altercations">Street\nAltercation</string>
+    <string name="description_street_altercations">Report fights, aggressive behavior, or public arguments that could escalate and threaten the safety of others.</string>
+    <!-- Traffic Accidents or Violations -->
+    <string name="title_traffic_accidents">Traffic\nAccident</string>
+    <string name="description_traffic_accidents">Alert about minor accidents, traffic disruptions like a broken-down vehicle blocking the road, erratic driving, or illegal parking.</string>
+    <!-- Street Vandalism -->
+    <string name="title_street_vandalism">Vandalism</string>
+    <string name="description_street_vandalism">Report acts of vandalism, such as damaged windows, graffiti, or destruction of public property.</string>
+    <!-- Stray or Dangerous Animals -->
+    <string name="title_stray_animals">Dangerous\nAnimals</string>
+    <string name="description_stray_animals">Notify about stray dogs, injured wildlife, or animals exhibiting aggressive behavior towards people.</string>
+    <!-- Violence -->
+    <string name="title_violence">Violence</string>
+    <string name="description_violence">Report incidents of violence witnessed on the streets, including physical assaults or threats of violence.</string>
+    <!-- Environmental Issues -->
+    <string name="title_environmental_issues">Environmental\nIssues</string>
+    <string name="description_environmental_issues">Alert about environmental concerns like illegal dumping, oil spills, or excessive air or noise pollution.</string>
+    <!-- Public Health Concerns -->
+    <string name="title_public_health_concerns">Health\nConcerns</string>
+    <string name="description_public_health_concerns">Report situations that pose a health risk, such as unsanitary conditions, sewage leaks, or overcrowded areas during health crises.</string>
+    <string name="report_question">What do you see?</string>
+    <string name="report">Report</string>
+    <string name="write_details">Write more details…</string>
+    <string name="error">Error</string>
 </resources>
