@@ -68,7 +68,7 @@ public class DestinationSelectFragment extends Fragment {
          startBtn.setOnClickListener(v -> {
                     // Navigate to Fragment2
              getParentFragmentManager().beginTransaction()
-                     .replace(R.id.FCVFirst, new OnRouteFragment())
+                     .replace(R.id.FCVHome, new OnRouteFragment())
                      .addToBackStack(null)
                      .commit();
          });

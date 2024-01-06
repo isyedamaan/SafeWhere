@@ -12,8 +12,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="-30dp"
+        android:layout_marginBottom="-8dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/infoBottomNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
@@ -53,16 +54,16 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/infoBottomNavBar"
-        android:layout_width="356dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:background="@drawable/bottom_background"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemPaddingTop="13dp"
+        app:itemTextColor="@drawable/text_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@drawable/item_selector"
-        app:itemTextColor="@drawable/text_selector"/>
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

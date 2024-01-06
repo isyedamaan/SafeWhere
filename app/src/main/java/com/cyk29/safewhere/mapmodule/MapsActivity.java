@@ -27,6 +27,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -78,6 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -357,14 +359,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onMapLongClick(@NonNull LatLng latLng) {
                 mMap.addMarker(new MarkerOptions().position(latLng)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.geofencing_icon)));
-                mMap.addCircle(new com.google.android.gms.maps.model.CircleOptions()
-                        .center(latLng)
-                        .radius(1000)
-                        .strokeWidth(2f)
-                        .fillColor(0x550021A6))
-                        .setStrokeColor(0xFF0021A6);
             }
         });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.FCVHome, new HotStopFragment())
+                        .addToBackStack(null)
+                        .commit();
+                return false;
+            }
+        });
+
     }
 
     private BitmapDescriptor resizeMapIcons( int width, int height){

@@ -72,7 +72,7 @@ public class OnRouteFragment extends Fragment {
             }
             // Navigate to Fragment2
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst, new HomeFragment())
+                    .replace(R.id.FCVHome, new HomeFragment())
                     .addToBackStack(null)
                     .commit();
         });

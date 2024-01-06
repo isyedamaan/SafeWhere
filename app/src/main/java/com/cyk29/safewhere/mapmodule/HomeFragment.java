@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         startBtn.setOnClickListener(v -> {
             // Navigate to Fragment
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVFirst, new DestinationSelectFragment())
+                    .replace(R.id.FCVHome, new DestinationSelectFragment())
                     .addToBackStack(null)
                     .commit();
         });
