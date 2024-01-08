@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".mapmodule.GeofencingOnFragment">
+    tools:context=".mapmodule.geofencing.GeofencingOnFragment">
 
     <ImageView
         android:id="@+id/backBT5"
@@ -24,9 +24,10 @@
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:fontFamily="@font/lexend"
-        android:hint="Geofencing Password"
+        android:hint="@string/geofence_passcode"
         android:inputType="number|numberPassword"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:textColorHint="#A6B7FF"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/disableGeoBtn"
@@ -101,29 +102,19 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/bluetv_bg_"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:fontFamily="@font/lexend"
-        android:hint="Gasket Alley"
-        android:inputType="text"
-        android:paddingLeft="55dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GeoOnTitle" />
-
-    <ImageView
-        android:id="@+id/locationIV3"
-        android:layout_width="21dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="15dp"
-        android:src="@drawable/location_geofence"
-        app:layout_constraintBottom_toBottomOf="@+id/geoLocationTV"
-        app:layout_constraintStart_toStartOf="@+id/geoLocationTV"
-        app:layout_constraintTop_toTopOf="@+id/geoLocationTV" />
+        app:layout_constraintTop_toBottomOf="@+id/GeoOnTitle"
+        app:drawableStartCompat="@drawable/location_geofence" />
 
     <ImageView
         android:id="@+id/imageView17"

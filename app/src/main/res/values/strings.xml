@@ -329,4 +329,7 @@
     ]
   }
 ]</string>
+    <string name="geofence_passcode">Geofence Passcode</string>
+    <string name="danger_hotspot">Danger Hotspot</string>
+    <string name="hotspot_desc">This area has been reported for</string>
 </resources>

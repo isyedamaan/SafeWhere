@@ -4,7 +4,17 @@
 <!--         Customize your light theme here. -->
 <!--         <item name="colorPrimary">@color/my_light_primary</item> -->
 
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="Theme.SafeWhere" parent="Base.Theme.SafeWhere" />
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_hotspot</item>
+    </style>
 </resources>

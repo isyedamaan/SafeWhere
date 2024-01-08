@@ -3,114 +3,153 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mapmodule.HotStopFragment">
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/blue"
+    tools:context=".mapmodule.HotSpotFragment">
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <View
+        android:id="@+id/view3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-150dp"
-        android:contentDescription="@string/image"
-        android:scaleX="1.015"
-        android:src="@drawable/hotspot_bg"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_hotspot"
+        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/dangerDescTV"
+    <ImageView
+        android:id="@+id/hotspot_topline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:fontFamily="@font/lexend"
-        android:text="@string/danger_desc"
-        android:textColor="@color/blue"
-        android:textSize="25sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/line" />
 
-    <TextView
-        android:id="@+id/dangerDescTV2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="352dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_rect"
-        android:backgroundTint="@color/brigtest_blue"
-        android:fontFamily="@font/lexend"
-        android:padding="20dp"
-        android:text="User Description:\nI saw a stray dog at this locaiton that was barking at people and running after them."
-        android:textColor="@color/black"
-        android:textSize="20sp"
+    <View
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rounded_hotspot"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_title"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/dangerTypeTV"
-        android:layout_width="wrap_content"
+        android:id="@+id/hotspot_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/rounded_rect"
+        android:backgroundTint="@color/pink"
+        android:drawableEnd="@drawable/ic_hotspot"
         android:fontFamily="@font/lexend_bold"
-        android:text="dangerous animals."
-        android:textColor="@color/bright_red"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:text="@string/danger_hotspot"
+        android:textColor="@color/maroon"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/hotspot_danger_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/lexend"
+        android:text="@string/hotspot_desc"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
+    <TextView
+        android:id="@+id/hotspot_upvotes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lexend"
+        android:gravity="center_horizontal"
+        android:text="0"
+        android:textColor="#34A753"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_upvoteIV"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hotspot_upvoteIV"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_upvoteIV" />
+
+    <TextView
+        android:id="@+id/hotspot_downvotes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend"
+        android:gravity="center_horizontal"
+        android:text="0"
+        android:textColor="#B31616"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvotes"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_downvoteIV"
+        app:layout_constraintStart_toStartOf="@+id/hotspot_downvoteIV"
+        app:layout_constraintTop_toTopOf="@+id/hotspot_upvotes" />
+
+    <TextView
+        android:id="@+id/hotspot_user_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/text_bg"
+        android:fontFamily="@font/lexend"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="User Description:\nyabababahdbashd\nrsfsfsfsfs\ndsadsda\ndasds\n\n\nffe"
+        android:textColor="#4B4B4B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_danger_description" />
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="35dp"
+        android:id="@+id/hotspot_upvoteIV"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="48dp"
         android:src="@drawable/upvote"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/dangerDescTV2" />
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_user_description"
+        app:layout_constraintVertical_bias="0.3"/>
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="35dp"
+        android:id="@+id/hotspot_downvoteIV"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:src="@drawable/downvote"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView12"
-        app:layout_constraintTop_toTopOf="@+id/imageView12" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/lexend"
-        android:text="@string/temp_number"
-        android:textColor="#34A753"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView12"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/lexend"
-        android:text="@string/temp_number_2"
-        android:textColor="#B31616"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView14"
-        app:layout_constraintStart_toStartOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvoteIV"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintHorizontal_bias=".6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hotspot_upvoteIV"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

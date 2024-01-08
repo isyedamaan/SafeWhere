@@ -5,6 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#F2DBE5</color>
     <color name="blue">#0021A6</color>
+    <color name="blue_transparent">#880021A6</color>
 <!--    <color name="blue">#FF000000</color>-->
     <color name="burgundy">#B41616</color>
     <color name="maroon">#AB3D4A</color>

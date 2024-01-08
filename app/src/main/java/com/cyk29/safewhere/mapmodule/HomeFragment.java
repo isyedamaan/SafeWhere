@@ -1,9 +1,14 @@
 package com.cyk29.safewhere.mapmodule;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +19,15 @@ import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.informationmodule.MainInformationActivity;
-import com.cyk29.safewhere.mapmodule.geofencing.GeofencingActivity;
+import com.cyk29.safewhere.mapmodule.geofencing.GeofencingFragment;
 import com.cyk29.safewhere.notificationmodule.NotificationMainActivity;
 import com.cyk29.safewhere.reportmodule.ReportMainActivity;
 import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.cyk29.safewhere.startupmodule.ProfileMainActivity;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class HomeFragment extends Fragment {
 
@@ -30,6 +39,8 @@ public class HomeFragment extends Fragment {
     private ImageView sos, notifBtn, profile;
     private View report;
     private Button infoBtn, repBtn, geoBtn;
+
+    private FusedLocationProviderClient fusedLocationClient;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -84,7 +95,10 @@ public class HomeFragment extends Fragment {
 
         geoBtn = view.findViewById(R.id.geoSlideBtn);
         geoBtn.setOnClickListener(v -> {
-            startActivity(new Intent(requireActivity().getApplicationContext(), GeofencingActivity.class));
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.FCVHome, new GeofencingFragment())
+                    .addToBackStack(null)
+                    .commit();
         });
 
         profile = view.findViewById(R.id.profileIVBtn);

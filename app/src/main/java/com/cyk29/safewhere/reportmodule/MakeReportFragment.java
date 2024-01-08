@@ -1,9 +1,14 @@
 package com.cyk29.safewhere.reportmodule;
 
+import android.Manifest;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +21,9 @@ import android.widget.Toast;
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataclasses.NotificationItem;
 import com.cyk29.safewhere.dataclasses.Report;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,6 +46,12 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
     private TextView title, description;
     private EditText userDesc;
     private String userName, uid;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLastLocation();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,9 +126,16 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         String type = title.getText().toString();
         String userDescription = userDesc.getText().toString();
         String date = String.valueOf(System.currentTimeMillis());
-        // TODO connect to location services
-        String latitude = "0";
-        String longitude = "0";
+        String latitude;
+        String longitude;
+        if(currentLocation == null){
+            Toast.makeText(getContext(), "Wait for location Data", Toast.LENGTH_SHORT).show();
+            getLastLocation();
+            return;
+        } else {
+            latitude = String.valueOf(currentLocation.getLatitude());
+            longitude = String.valueOf(currentLocation.getLongitude());
+        }
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reports");
         String reportID = ref.push().getKey();
         Report report = new Report(reportID, uid, userName, type, userDescription, date, latitude, longitude);
@@ -165,5 +186,21 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         Date date = new Date(timeInMillis);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         return dateFormat.format(date);
+    }
+
+    private Location currentLocation;
+    private void getLastLocation(){
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(requireActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        currentLocation = location;
+                    }
+                });
     }
 }
