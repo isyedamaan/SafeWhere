@@ -1,11 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SafeWhere</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="api_key" tools:ignore="Typos">AIzaSyBhlwC1IyMQp6bauKmOi-Z5gUSKs43hlj0</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="your_location">Your location</string>
-    <string name="choose_destination">Chose destination</string>
+    <string name="your_location">Your Location</string>
+    <string name="choose_destination">Chose Destination</string>
     <string name="report_icon">report icon</string>
     <string name="report_btn_txt">Report incidents around you</string>
     <string name="Report_btn">Report</string>
@@ -100,4 +99,5 @@
     <string name="ambulance_n_police">Ambulance\n/Police</string>
     <string name="civil_defence">Civil Defence</string>
     <string name="cancel_sos">Cancel SOS</string>
+    <string name="my_location">My Location</string>
 </resources>

@@ -17,6 +17,7 @@
         android:layout_marginEnd="20dp"
         android:elevation="10dp"
         android:src="@drawable/notif_icon"
+        android:contentDescription="@string/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="60dp"
         android:src="@drawable/sos_icon"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@+id/bgView"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -82,7 +84,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/rounded_rect"
-                    android:text="button"
+                    android:text=""
                     android:textColor="#00FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +149,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/rounded_rect"
-                    android:text="button"
+                    android:text=""
                     android:textColor="#00FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -260,7 +262,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/rounded_rect"
-                    android:text="button"
+                    android:text=""
                     android:textColor="#00FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -288,31 +290,25 @@
         app:layout_constraintStart_toStartOf="@+id/bgView"
         app:layout_constraintTop_toTopOf="@+id/bgView">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/home_startLocationTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/location"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:gravity="center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/your_location"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/image"
-                android:scaleX=".45"
-                android:scaleY=".45"
-                android:src="@drawable/location" />
-
-            <EditText
-                android:id="@+id/userLocET"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:ems="10"
-                android:hint="@string/your_location"
-                android:inputType="text"
-                android:textColorHint="@color/grey" />
-        </LinearLayout>
 
         <View
             android:id="@+id/view2"
@@ -320,32 +316,24 @@
             android:layout_height="2dp"
             android:background="@color/grey" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/home_destinationTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/image"
-                android:scaleX=".45"
-                android:scaleY=".45"
-                android:src="@drawable/map_marker" />
-
-            <EditText
-                android:id="@+id/editTextText2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:ems="10"
-                android:hint="@string/choose_destination"
-                android:inputType="text"
-                android:textColorHint="@color/grey" />
-
-        </LinearLayout>
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_destionation_marker"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:gravity="center_vertical"
+            android:paddingStart="19dp"
+            android:paddingEnd="15dp"
+            android:text="@string/choose_destination"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
 
     </LinearLayout>
 

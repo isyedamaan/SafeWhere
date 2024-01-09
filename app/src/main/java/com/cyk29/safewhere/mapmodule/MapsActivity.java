@@ -15,7 +15,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.ActivityMapsBinding;
@@ -30,6 +29,9 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -67,6 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         handleNotificationPermission();
         handleSMSandCallPermissions();
         showHotSpots();
+
 
         mMap.setOnMapLongClickListener(latLng -> addGeofenceMarker(latLng, 1000));
     }
@@ -254,9 +257,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> currentLocation = location);
     }
-    void clearBackStack() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+
+    public void makePolyLineForRoute(List<LatLng> decodedPath) {
+        mMap.addPolyline(new com.google.android.gms.maps.model.PolylineOptions().addAll(decodedPath).width(10).color(ContextCompat.getColor(this, R.color.blue)));
+        mMap.addMarker(new MarkerOptions().position(decodedPath.get(0)).title("Start")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.location)));
+        mMap.addMarker(new MarkerOptions().position(decodedPath.get(decodedPath.size()-1)).title("Destination")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_destionation_marker)));
+    }
+
+    public LatLng getUserLatLng(){
+        if(currentLocation == null){
+            getLastLocation();
+            return getUserLatLng();
+        }
+        return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
     }
 
 }

@@ -8,19 +8,8 @@
     android:padding="0dp"
     tools:context=".mapmodule.DestinationSelectFragment">
 
-    <View
-        android:id="@+id/bgView"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        android:layout_marginBottom="-25dp"
-        android:background="@drawable/rounded_rect"
-        android:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <LinearLayout
-        android:id="@+id/destLL"
+        android:id="@+id/on_route_destLL"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -34,34 +23,25 @@
         app:layout_constraintStart_toStartOf="@+id/bgView"
         app:layout_constraintTop_toTopOf="@+id/bgView">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/on_route_startTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/location"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:gravity="center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/your_location"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/image"
-                android:scaleX=".45"
-                android:scaleY=".45"
-                android:src="@drawable/location" />
-
-            <TextView
-                android:id="@+id/startLocTV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:ems="10"
-                android:fontFamily="@font/lexend"
-                android:gravity="center_vertical"
-                android:text="@string/UM_lib"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-        </LinearLayout>
 
         <View
             android:id="@+id/view2"
@@ -69,37 +49,37 @@
             android:layout_height="2dp"
             android:background="@color/grey" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/on_route_destinationTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/image"
-                android:scaleX=".45"
-                android:scaleY=".45"
-                android:src="@drawable/map_marker" />
-
-            <TextView
-                android:id="@+id/startLocTV2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:ems="10"
-                android:fontFamily="@font/lexend"
-                android:gravity="center_vertical"
-                android:text="@string/fsktm"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-        </LinearLayout>
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_destionation_marker"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:fontFamily="@font/lexend"
+            android:gravity="center_vertical"
+            android:paddingStart="19dp"
+            android:paddingEnd="15dp"
+            android:text="@string/choose_destination"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="UseCompatTextViewDrawableXml" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/bgView"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:layout_marginBottom="-25dp"
+        android:background="@drawable/rounded_rect"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/endBtn"
@@ -116,14 +96,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/bgView"
-        app:layout_constraintTop_toBottomOf="@+id/destLL" />
+        app:layout_constraintStart_toStartOf="@+id/bgView" />
 
     <ImageView
         android:id="@+id/onRouteReportBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:contentDescription="@string/image"
         android:layout_marginBottom="10dp"
         android:src="@drawable/report_icon2"
         app:layout_constraintBottom_toTopOf="@+id/bgView"
@@ -136,6 +116,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/sos_icon"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@+id/bgView"
         app:layout_constraintEnd_toEndOf="parent" />
 

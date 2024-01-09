@@ -80,8 +80,6 @@ public class GeofencingFragment extends Fragment {
         // Initialize Places Client
         if(!Places.isInitialized())
             Places.initialize(requireActivity().getApplicationContext(), getString(R.string.api_key));
-        // Google Places and Firebase
-//        PlacesClient placesClient = Places.createClient(requireContext());
         // Initialize AutocompleteSupportFragment
         setupAutocompleteFragment();
 
