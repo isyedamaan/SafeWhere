@@ -1,6 +1,7 @@
 package com.cyk29.safewhere.notificationmodule;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -23,9 +25,7 @@ import com.cyk29.safewhere.R;
 import java.util.Random;
 
 public class NotificationHelper extends ContextWrapper {
-
     private static final String TAG = "NotificationHelper";
-
     public NotificationHelper(Context base) {
         super(base);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -33,8 +33,8 @@ public class NotificationHelper extends ContextWrapper {
         }
     }
 
-    private String CHANNEL_NAME = "High priority channel";
-    private String CHANNEL_ID = "com.cyk29.safewhere" + CHANNEL_NAME;
+    private final String CHANNEL_NAME = "High priority channel";
+    private final String CHANNEL_ID = "com.cyk29.safewhere" + CHANNEL_NAME;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createChannels() {
@@ -48,7 +48,7 @@ public class NotificationHelper extends ContextWrapper {
         manager.createNotificationChannel(notificationChannel);
     }
 
-    public void sendHighPriorityNotification(String title, String body, Class activityName) {
+    public void sendHighPriorityNotification(String title, String body, Class<? extends Activity> activityName) {
 
         Intent intent = new Intent(this, activityName);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 267, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
@@ -68,8 +68,7 @@ public class NotificationHelper extends ContextWrapper {
             return;
         }
         NotificationManagerCompat.from(this).notify(new Random().nextInt(), notification);
-
-
+        Log.d(TAG, "sendHighPriorityNotification: sent");
     }
 
 }

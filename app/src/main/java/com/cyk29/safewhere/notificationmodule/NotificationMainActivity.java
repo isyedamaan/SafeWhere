@@ -1,10 +1,12 @@
 package com.cyk29.safewhere.notificationmodule;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -16,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cyk29.safewhere.R;
@@ -28,30 +29,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List; // Import this if you're using a list
 import java.util.Locale;
 import java.util.Objects;
 
 public class NotificationMainActivity extends AppCompatActivity {
-
-    private RecyclerView notificationRV;
+    private static final String TAG = "NotificationMainActivity";
     private NotificationAdapter adapter;
     private List<NotificationItem> notificationItems;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_main);
 
-        notificationRV = findViewById(R.id.notificationRV);
+        RecyclerView notificationRV = findViewById(R.id.notificationRV);
         notificationRV.setLayoutManager(new LinearLayoutManager(this));
 
         notificationItems = new ArrayList<>(); // Initialize the list
@@ -103,9 +97,11 @@ public class NotificationMainActivity extends AppCompatActivity {
 
     private void loadNotificationItems(String selectedType) {
         String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users").child(uid).child("notifications");
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users")
+                .child(uid).child("notifications");
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 notificationItems.clear(); // Clear existing data
@@ -124,79 +120,65 @@ public class NotificationMainActivity extends AppCompatActivity {
                         }
                     }
                 }
-                sort(notificationItems);
+                sortNotifications(notificationItems);
                 adapter.notifyDataSetChanged(); // Notify the adapter of the data change
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Log or handle database errors
+                Log.d(TAG, "onCancelled: " + databaseError.getMessage());
             }
         });
     }
 
-
-    List<NotificationItem> sort(List<NotificationItem> notificationItems){
-
-        Collections.sort(notificationItems, new Comparator<NotificationItem>() {
-            @Override
-            public int compare(NotificationItem o1, NotificationItem o2) {
-                return o2.getTime().compareTo(o1.getTime());
-            }
-        });
-
-        return notificationItems;
+    void sortNotifications(List<NotificationItem> notificationItems){
+        notificationItems.sort((o1, o2) -> o2.getTime().compareTo(o1.getTime()));
     }
 
-
-    private static class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
-
+    private static class NotificationAdapter
+            extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
         private final List<NotificationItem> notificationItems;
-
         NotificationAdapter(List<NotificationItem> notificationItems) {
             this.notificationItems = notificationItems;
         }
-
+        @NonNull
         @Override
         public NotificationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notification, parent, false);
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_notification, parent, false);
             return new NotificationViewHolder(view);
         }
-
         @Override
         public void onBindViewHolder(NotificationViewHolder holder, int position) {
             NotificationItem item = notificationItems.get(position);
             holder.notificationMessageTV.setText(item.getMessage());
-
             holder.notificationTimeTV.setText(formatElapsedTime(item.getTime()));
             holder.bindImage(item.getType()); // Update the ImageView based on the notification type
         }
-
         private String formatElapsedTime(String notificationTime) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-
+            SimpleDateFormat dateFormat =
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
             long currentTime = System.currentTimeMillis();
             Date date = new Date(currentTime);
             Log.d("NotificationMainActivity", "formatElapsedTime: " + date);
             try {
                 Date notificationDate = dateFormat.parse(notificationTime);
-                long notificationTimestamp = notificationDate.getTime();
-                long elapsedTime = currentTime - notificationTimestamp; // Time difference in milliseconds
-
-                if (elapsedTime < 60000) { // Less than 1 minute
+                long notificationTimestamp =
+                        notificationDate != null ? notificationDate.getTime() : 0;
+                long elapsedTime = currentTime - notificationTimestamp;
+                if (elapsedTime < 60000) {
                     return "now";
-                } else if (elapsedTime < 3600000) { // Less than 1 hour
+                } else if (elapsedTime < 3600000) {
                     return (elapsedTime / 60000) + "m";
-                } else if (elapsedTime < 86400000) { // Less than 1 day
+                } else if (elapsedTime < 86400000) {
                     return (elapsedTime / 3600000) + "hr";
-                } else if (elapsedTime < 604800000) { // Less than 1 week
+                } else if (elapsedTime < 604800000) {
                     return (elapsedTime / 86400000) + "d";
                 } else {
-                    // You can continue for weeks, months, years as you prefer
                     return (elapsedTime / 604800000) + "w";
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e(TAG, "formatElapsedTime: ", e);
                 return "";
             }
         }
@@ -228,30 +210,35 @@ public class NotificationMainActivity extends AppCompatActivity {
                 switch (type) {
                     case "dangerzone":
                         notificationIV.setImageResource(R.drawable.dangerzone_icon);
-                        notificationCL.setBackgroundColor(notificationCL.getResources().getColor(R.color.maroon));
-                        notificationMessageTV.setTextColor(notificationMessageTV.getResources().getColor(R.color.white));
+                        notificationCL.setBackgroundColor(ContextCompat
+                                .getColor(notificationCL.getContext(), R.color.maroon));
+                        notificationMessageTV.setTextColor(ContextCompat
+                                .getColor(notificationIV.getContext(),R.color.white));
                         break;
                     case "report":
                         notificationIV.setImageResource(R.drawable.report_icon3);
-                        notificationCL.setBackgroundColor(notificationCL.getResources().getColor(R.color.pink));
-                        notificationMessageTV.setTextColor(notificationMessageTV.getResources().getColor(R.color.black));
-                        setImageViewWidth(notificationIV, 50);
+                        notificationCL.setBackgroundColor(ContextCompat
+                                .getColor(notificationCL.getContext(), R.color.pink));
+                        notificationMessageTV.setTextColor(ContextCompat
+                                .getColor(notificationCL.getContext(), R.color.black));
+                        setImageViewWidth(notificationIV);
                         break;
                     case "geofencing":
                         notificationIV.setImageResource(R.drawable.geofencing_icon);
-                        notificationCL.setBackgroundColor(notificationCL.getResources().getColor(R.color.coral));
-                        notificationMessageTV.setTextColor(notificationMessageTV.getResources().getColor(R.color.white));
-                        setImageViewWidth(notificationIV, 50);
+                        notificationCL.setBackgroundColor(ContextCompat
+                                .getColor(notificationCL.getContext(), R.color.coral));
+                        notificationMessageTV.setTextColor(ContextCompat
+                                .getColor(notificationIV.getContext(),R.color.white));
+                        setImageViewWidth(notificationIV);
                         break;
                     default:
                         break;
                 }
             }
 
-            private void setImageViewWidth(ImageView imageView, int widthInDp) {
+            private void setImageViewWidth(ImageView imageView) {
                 float scale = imageView.getContext().getResources().getDisplayMetrics().density;
-                int widthInPx = (int) (widthInDp * scale + 0.5f);
-                imageView.getLayoutParams().width = widthInPx;
+                imageView.getLayoutParams().width = (int) (50 * scale + 0.5f);
                 imageView.requestLayout(); // This is important to apply the new height
             }
         }

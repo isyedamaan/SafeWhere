@@ -23,11 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class HotSpotFragment extends BottomSheetDialogFragment {
-    private Report report;
+    private final Report report;
     public HotSpotFragment(Report report) {
         this.report = report;
     }
-
     public interface BottomSheetListener {
         void showHotspots();
     }
@@ -38,8 +37,6 @@ public class HotSpotFragment extends BottomSheetDialogFragment {
 
     private TextView dangerDescription, upVotes, userDescription, downVotes;
     private boolean upVoted = false, downVoted = false;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,13 +68,13 @@ public class HotSpotFragment extends BottomSheetDialogFragment {
 
         SpannableString spannableString = new SpannableString(part1 + type + part2 + name+".");
 
-        ForegroundColorSpan blueSpan = new ForegroundColorSpan(ContextCompat.getColor(getContext(), R.color.blue));
+        ForegroundColorSpan blueSpan = new ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.blue));
         spannableString.setSpan(blueSpan, 0, part1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        ForegroundColorSpan redSpan = new ForegroundColorSpan(ContextCompat.getColor(getContext(), R.color.red));
+        ForegroundColorSpan redSpan = new ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.red));
         spannableString.setSpan(redSpan, part1.length(), part1.length() + type.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        ForegroundColorSpan maroonSpan = new ForegroundColorSpan(ContextCompat.getColor(getContext(), R.color.maroon));
+        ForegroundColorSpan maroonSpan = new ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.maroon));
         spannableString.setSpan(maroonSpan, part1.length() + type.length() + part2.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         dangerDescription.setText(spannableString);

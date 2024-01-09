@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsFragment extends Fragment {
-    private RecyclerView recyclerView;
     private InfoAdapter adapter;
     private DatabaseReference databaseReference;
     private List<InfoItem> statInfoList = new ArrayList<>();
@@ -33,7 +32,7 @@ public class StatisticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_legal_info, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
 
         databaseReference = FirebaseDatabase.getInstance().getReference("statsInfo");

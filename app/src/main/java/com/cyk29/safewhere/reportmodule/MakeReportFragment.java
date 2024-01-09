@@ -23,9 +23,7 @@ import com.cyk29.safewhere.dataclasses.NotificationItem;
 import com.cyk29.safewhere.dataclasses.Report;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -76,7 +74,7 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
             sendReport();
             requireActivity().finish();
         });
-        cancel.setOnClickListener(v -> {dismiss();});
+        cancel.setOnClickListener(v -> dismiss());
         switch (type){
             case "hazard":
                 title.setText(formatString(getResources().getString(R.string.title_public_safety_hazards)));
@@ -196,11 +194,6 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         }
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
         fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(requireActivity(), new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        currentLocation = location;
-                    }
-                });
+                .addOnSuccessListener(requireActivity(), location -> currentLocation = location);
     }
 }

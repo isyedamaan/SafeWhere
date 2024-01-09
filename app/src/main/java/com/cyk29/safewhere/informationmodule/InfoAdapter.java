@@ -1,5 +1,6 @@
 package com.cyk29.safewhere.informationmodule;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
 
-    private List<InfoItem> infoItemList;
+    private final List<InfoItem> infoItemList;
 
     public InfoAdapter(List<InfoItem> infoItemList) {
         this.infoItemList = infoItemList;
@@ -45,7 +46,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         if(infoItem.getLink()==null) {
             holder.textLink.setVisibility(View.GONE);
         } else {
-            holder.textLink.setText("For more info: " + infoItem.getLink());
+            holder.textLink.setText(holder.itemView.getContext().getString(R.string.for_more_info, infoItem.getLink()));
         }
 
         holder.layoutDetails.setVisibility(View.GONE);
@@ -75,6 +76,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         context.startActivity(browserIntent);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateData(List<InfoItem> newData) {
         infoItemList.clear();
         infoItemList.addAll(newData);

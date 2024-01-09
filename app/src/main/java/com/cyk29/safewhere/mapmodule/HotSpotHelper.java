@@ -41,11 +41,14 @@ public class HotSpotHelper extends ContextWrapper implements HotSpotFragment.Bot
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot reportSnapshot : dataSnapshot.getChildren()) {
                     Report report = reportSnapshot.getValue(Report.class);
+                    if (report == null) {
+                        continue;
+                    }
                     Log.d(TAG, "onDataChange: "+isWithinRadius(userLocation, report, 5000));
                     if (isWithinRadius(userLocation, report, radius)) {
                         LatLng reportLocation = new LatLng(Double.parseDouble(report.getLatitude()), Double.parseDouble(report.getLongitude()));
                         makeReportMarker(map, reportLocation, report);
-                        Log.d(TAG, "onDataChange: got a report brudda");
+                        Log.d(TAG, "onDataChange: got a report");
                     }
                 }
             }
@@ -73,7 +76,9 @@ public class HotSpotHelper extends ContextWrapper implements HotSpotFragment.Bot
                 .title("Danger Zone")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_ic_hotspot));
         Marker marker =  map.addMarker(markerOptions);
-        marker.setTag(report);
+        if (marker != null) {
+            marker.setTag(report);
+        }
         markers.add(marker);
         Circle circle1 = map.addCircle(new CircleOptions()
                 .center(reportLocation)

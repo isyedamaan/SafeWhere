@@ -1,14 +1,6 @@
 package com.cyk29.safewhere.mapmodule.geofencing;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentContainerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,14 +14,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
+
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataclasses.GeofencingInfo;
-import com.cyk29.safewhere.mapmodule.HomeFragment;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,10 +46,7 @@ public class GeofencingFragment extends Fragment {
     private ConstraintLayout searchLayout, readyLayout;
     private EditText name, alertNumber, alertEmail, geoPin, radius, resetGeofencing;
     private Button mainGeoButton, resetGeoButton;
-    private FragmentContainerView fcv;
 
-    // Google Places and Firebase
-    private PlacesClient placesClient;
     private AutocompleteSupportFragment autocompleteFragment;
     private DatabaseReference databaseReference;
 
@@ -87,38 +80,30 @@ public class GeofencingFragment extends Fragment {
         // Initialize Places Client
         if(!Places.isInitialized())
             Places.initialize(requireActivity().getApplicationContext(), getString(R.string.api_key));
-        placesClient = Places.createClient(requireContext());
-
+        // Google Places and Firebase
+//        PlacesClient placesClient = Places.createClient(requireContext());
         // Initialize AutocompleteSupportFragment
         setupAutocompleteFragment();
 
 
         // Set onClickListener for Back Button
-        geoBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().onBackPressed();
-            }
-        });
+        geoBackButton.setOnClickListener(v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
 
         // Set onClickListener for Main Geo Button
-        mainGeoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (currentLayout) {
-                    case 0:
-                        handleRegistration();
-                        break;
-                    case 1:
-                        handleSetup();
-                        break;
-                    case 2:
-                        geofencingInfo.setOn(true);
-                        handleStart();
-                        break;
-                    default:
-                        break;
-                }
+        mainGeoButton.setOnClickListener(view1 -> {
+            switch (currentLayout) {
+                case 0:
+                    handleRegistration();
+                    break;
+                case 1:
+                    handleSetup();
+                    break;
+                case 2:
+                    geofencingInfo.setOn(true);
+                    handleStart();
+                    break;
+                default:
+                    break;
             }
         });
 
@@ -129,20 +114,17 @@ public class GeofencingFragment extends Fragment {
     }
 
     private void handleResetGeofencing() {
-        resetGeoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String enteredResetGeofencing = resetGeofencing.getText().toString().trim();
-                if (enteredResetGeofencing.isEmpty()) {
-                    showToast("Please fill in all fields");
-                    return;
-                }
-                if (enteredResetGeofencing.equals(geofencingInfo.getGeoPin())) {
-                    databaseReference.removeValue();
-                    showRegisterLayout();
-                } else {
-                    showToast("Incorrect Geo Pin");
-                }
+        resetGeoButton.setOnClickListener(view -> {
+            String enteredResetGeofencing = resetGeofencing.getText().toString().trim();
+            if (enteredResetGeofencing.isEmpty()) {
+                showToast("Please fill in all fields");
+                return;
+            }
+            if (enteredResetGeofencing.equals(geofencingInfo.getGeoPin())) {
+                databaseReference.removeValue();
+                showRegisterLayout();
+            } else {
+                showToast("Incorrect Geo Pin");
             }
         });
     }
@@ -158,23 +140,20 @@ public class GeofencingFragment extends Fragment {
         }
 
         if (autocompleteFragment != null) {
-            autocompleteFragment.getView().post(new Runnable() {
-                @Override
-                public void run() {
-                    ImageView searchIcon = (ImageView) autocompleteFragment.getView().findViewById(com.google.android.libraries.places.R.id.places_autocomplete_search_button);
-                    if (searchIcon != null) {
-                        searchIcon.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.location_geofence, null));
-                        searchIcon.setMaxWidth(40);
-                    }
-
-                    EditText etPlace = (EditText) autocompleteFragment.getView().findViewById(com.google.android.libraries.places.R.id.places_autocomplete_search_input);
-                    // Set the hint to empty or to a new placeholder text
-                    etPlace.setHint("Enter Location");
-                    etPlace.setTypeface(ResourcesCompat.getFont(requireContext(), R.font.lexend));
-                    etPlace.setTextSize(18f);
-                    etPlace.setTextColor(getResources().getColor(R.color.grey));
-
+            autocompleteFragment.requireView().post(() -> {
+                ImageView searchIcon = autocompleteFragment.requireView().findViewById(com.google.android.libraries.places.R.id.places_autocomplete_search_button);
+                if (searchIcon != null) {
+                    searchIcon.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.location_geofence, null));
+                    searchIcon.setMaxWidth(40);
                 }
+
+                EditText etPlace = autocompleteFragment.requireView().findViewById(com.google.android.libraries.places.R.id.places_autocomplete_search_input);
+                // Set the hint to empty or to a new placeholder text
+                etPlace.setHint("Enter Location");
+                etPlace.setTypeface(ResourcesCompat.getFont(requireContext(), R.font.lexend));
+                etPlace.setTextSize(18f);
+                etPlace.setTextColor(ContextCompat.getColor(requireContext(),R.color.grey));
+
             });
             autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
@@ -211,9 +190,6 @@ public class GeofencingFragment extends Fragment {
         resetGeoButton = view.findViewById(R.id.resetGeoBT);
 
         mainGeoButton = view.findViewById(R.id.mainGeoBT);
-
-        fcv = view.findViewById(R.id.fcv_geofencing);
-
     }
 
 
@@ -257,8 +233,8 @@ public class GeofencingFragment extends Fragment {
         slideAnimation(radius, 200);
         fadeAnimation(searchLayout,0);
         setupLayout.setVisibility(View.VISIBLE);
-        mainGeoButton.setText("Next");
-        title.setText("Select Location");
+        mainGeoButton.setText(R.string.next);
+        title.setText(R.string.select_location);
         currentLayout = 1; // Update the current layout state
 
     }
@@ -268,8 +244,8 @@ public class GeofencingFragment extends Fragment {
         registerLayout.setVisibility(View.GONE);
         setupLayout.setVisibility(View.GONE);
         readyLayout.setVisibility(View.VISIBLE);
-        mainGeoButton.setText("Start Geofencing");
-        title.setText("Geofencing Ready");
+        mainGeoButton.setText(R.string.start_geofencing);
+        title.setText(R.string.geofencing_ready);
         // You may want to set up additional elements or logic here
         currentLayout = 2; // Update the current layout state
     }
@@ -278,8 +254,8 @@ public class GeofencingFragment extends Fragment {
         setupLayout.setVisibility(View.GONE);
         readyLayout.setVisibility(View.GONE);
         registerLayout.setVisibility(View.VISIBLE);
-        mainGeoButton.setText("Register");
-        title.setText("Register");
+        mainGeoButton.setText(R.string.register);
+        title.setText(R.string.register);
         currentLayout = 0;
 
         int delay = 400;

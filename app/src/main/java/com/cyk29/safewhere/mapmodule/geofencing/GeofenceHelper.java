@@ -13,7 +13,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class GeofenceHelper extends ContextWrapper {
 
-    private static final String TAG = "GeofenceHelper";
     PendingIntent pendingIntent;
 
 
@@ -38,13 +37,14 @@ public class GeofenceHelper extends ContextWrapper {
                 .build();
     }
 
-    public PendingIntent getPendingIntent(String name, String email){
+    public PendingIntent getPendingIntent(String name, String email, String phone){
         if(pendingIntent != null)
             return pendingIntent;
         Intent intent = new Intent(this, GeofenceBroadcastReceiver.class);
         intent.putExtra("Email",email);
         intent.putExtra("Name",name);
-        pendingIntent = PendingIntent.getBroadcast(this, 2607, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        intent.putExtra("Phone",phone);
+        pendingIntent = PendingIntent.getBroadcast(this, 2607, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
         return pendingIntent;
     }
 

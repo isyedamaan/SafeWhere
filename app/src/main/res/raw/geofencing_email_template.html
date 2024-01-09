@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geofencing Alert</title>
+    </head>
+    <body style="font-family: 'Lexend', sans-serif; background-color: #ffffff; color: #333; margin: 0; padding: 0;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; margin: 0 auto;">
+            <tr>
+                <td align="center">
+                    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tr>
+                            <td style="text-align: center; padding: 20px;">
+                                <img src="https://i.imgur.com/oGBebrS.png" alt="SafeWhere Logo" style="width: 100px; height: auto; border-radius: 50%;">
+                        </tr>
+                    </table>
+                    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="background-color: #FBEFEF; border-radius: 8px; box-shadow: 0px 10px 25px 3px rgba(0,0,0,.4)">
+                        <tr>
+                            <td style="padding: 20px; text-align: center; background-color: #0021A6; border-top-left-radius: 8px; border-top-right-radius: 8px; box-shadow: 0px 5px 15px 2px rgba(0,0,0,.4)">
+                                <h1 style="color: #ffffff; font-size: 24px;">Geofencing Alert</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px; text-align: center;">
+                                <p style="font-size: 16px;">Hello,</p>
+                                <p style="font-size: 16px;">Your device named "<strong>[DeviceName]</strong>" registered for geofencing with SafeWhere has exited the geofencing area. The alert was caused on <strong>[AlertDate]</strong>. Their last known location is shown below:</p>
+                                <a href="https://maps.google.com/?q=[Latitude],[Longitude]" target="_blank">
+                                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=[Latitude],[Longitude]&zoom=16&size=600x300&maptype=roadmap&markers=color:E62F23%7Clabel:G%7C[Latitude],[Longitude]&key=AIzaSyBhlwC1IyMQp6bauKmOi-Z5gUSKs43hlj0" alt="Google Map of Location" style="border-radius: 8px; max-width: 100%; height: auto;">
+                                </a>
+                                <p style="font-size: 12px; margin-top: 20px;">Latitude: [Latitude] | Longitude: [Longitude]</p>
+                                <p style="font-size: 12px;">Click on the map to view the full interactive map.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; padding: 20px; color: #888888; font-size: 16px; opacity: 0.5;">
+                                Thank you,<br>
+                                The SafeWhere App Team
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px; text-align: center; background-color: #0021A6; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; box-shadow: 0px -5px 15px 3px rgba(0,0,0,.4)">
+                                <p style="color: #ffffff;">If this movement was unexpected, please contact the person or take appropriate action.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

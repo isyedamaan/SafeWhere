@@ -1,14 +1,8 @@
 package com.cyk29.safewhere.mapmodule.geofencing;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataclasses.GeofencingInfo;
 import com.cyk29.safewhere.mapmodule.HomeFragment;
@@ -28,8 +25,6 @@ import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,19 +32,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Collections;
 
 public class GeofencingOnFragment extends Fragment {
-    private TextView geoLocation, geoMsg;
     private EditText geoPass;
     private Button disable;
-    private ImageView backBtn;
-    private GeofencingInfo geofencingInfo;
+    private final GeofencingInfo geofencingInfo;
     private GeofencingClient geofencingClient;
     private GeofenceHelper geofenceHelper;
-    private LatLng geofencingLocation;
+    private final LatLng geofencingLocation;
     private static final String TAG = "GeofencingOnFragment";
-
-    GeofencingOnFragment() {
-        // Required empty public constructor
-    }
     GeofencingOnFragment(GeofencingInfo geofencingInfo) {
         this.geofencingInfo = geofencingInfo;
         geofencingLocation = new LatLng(Double.parseDouble(geofencingInfo.getLatitude()),Double.parseDouble(geofencingInfo.getLongitude()));
@@ -69,46 +58,36 @@ public class GeofencingOnFragment extends Fragment {
         String uid = FirebaseAuth.getInstance().getUid()+"_geofence";
         Geofence geofence = geofenceHelper.getGeofence(uid,geofencingLocation,geofencingInfo.getRadius());
         GeofencingRequest geofencingRequest = geofenceHelper.geofencingRequest(geofence);
-        PendingIntent pendingIntent = geofenceHelper.getPendingIntent(geofencingInfo.getName(),geofencingInfo.getAlertEmail());
+        PendingIntent pendingIntent = geofenceHelper.getPendingIntent(geofencingInfo.getName(),geofencingInfo.getAlertEmail(),geofencingInfo.getAlertNumber());
         geofencingClient.addGeofences(geofencingRequest, pendingIntent)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG, "onSuccess: Geofences added...");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        String error = geofenceHelper.getErrorString(e);
-                        Log.d(TAG, "onFailure: "+e.getMessage());
-                        Log.d(TAG, "onFailure: "+error);
-                    }
+                .addOnSuccessListener(unused -> Log.d(TAG, "onSuccess: Geofences added..."))
+                .addOnFailureListener(e -> {
+                    String error = geofenceHelper.getErrorString(e);
+                    Log.d(TAG, "onFailure: "+e.getMessage());
+                    Log.d(TAG, "onFailure: "+error);
                 });
-        ((MapsActivity)getActivity()).addGeofenceMarker(geofencingLocation,geofencingInfo.getRadius());
+        ((MapsActivity) requireActivity()).addGeofenceMarker(geofencingLocation,geofencingInfo.getRadius());
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_geofencing_on, container, false);
-        geoLocation = view.findViewById(R.id.geoLocationTV);
-        geoMsg = view.findViewById(R.id.msgGeoTV);
+        TextView geoLocation = view.findViewById(R.id.geoLocationTV);
+        TextView geoMsg = view.findViewById(R.id.msgGeoTV);
         geoPass = view.findViewById(R.id.geoDisablePasswordET);
         disable = view.findViewById(R.id.disableGeoBtn);
-        backBtn = view.findViewById(R.id.backBT5);
+        ImageView backBtn = view.findViewById(R.id.backBT5);
 
         geoLocation.setText(geofencingInfo.getPlaceName());
-        geoMsg.setText("Stay within "+geofencingInfo.getRadius()+" metres or\nassigned contact will be alerted");
+        geoMsg.setText(String.format("%s%d%s", getString(R.string.stay_within), geofencingInfo.getRadius(), getString(R.string.metres_or_assigned_contact_will_be_alerted)));
         handleDisableGeofencing();
-
-        backBtn.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVHome, new HomeFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
+        backBtn.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
+                .replace(R.id.FCVHome, new HomeFragment())
+                .addToBackStack(null)
+                .commit());
 
 
         return view;
@@ -123,13 +102,15 @@ public class GeofencingOnFragment extends Fragment {
                             Log.d(TAG, "onSuccess: Geofences removed...");
                             geofenceRemoved = true;
                         })
-                        .addOnFailureListener(e -> {
-                            Log.d(TAG, "onFailure: "+e.getMessage());
-                        });
+                        .addOnFailureListener(e -> Log.d(TAG, "onFailure: "+e.getMessage()));
                 if(!geofenceRemoved)
                     return;
                 geofencingInfo.setOn(false);
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getUid()).child("geofencing");
+                String uid = FirebaseAuth.getInstance().getUid();
+                if (uid == null) {
+                    return;
+                }
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(uid).child("geofencing");
                 databaseReference.setValue(geofencingInfo);
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.FCVHome, new HomeFragment())

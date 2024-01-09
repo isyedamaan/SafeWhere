@@ -7,6 +7,7 @@ public class NotificationItem {
     private String type; // Added field
 
     // Empty Constructor
+    @SuppressWarnings("unused")
     public NotificationItem() { }
 
     // Full Constructor
@@ -25,8 +26,10 @@ public class NotificationItem {
 
     // Setters
     public void setId(String id) { this.id = id; }
+    @SuppressWarnings("unused")
     public void setMessage(String message) { this.message = message; }
+    @SuppressWarnings("unused")
     public void setTime(String time) { this.time = time; }
+    @SuppressWarnings("unused")
     public void setType(String type) { this.type = type; } // Setter for type
-
 }

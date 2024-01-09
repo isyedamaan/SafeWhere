@@ -1,18 +1,18 @@
 package com.cyk29.safewhere.sosmodule;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 public class EmailSender {
 
-    public void sendEmail(String toEmail, String subject, String message) {
+    public void sendEmail(String toEmail, String subject, String htmlContent) {
         try {
 
             final String stringSenderEmail = "safe.where.app@gmail.com";
-            final String stringReceiverEmail = toEmail;
             final String stringPasswordSenderEmail = "lbez tsbc skta mkvf";
 
             final String stringHost = "smtp.gmail.com";
@@ -42,10 +42,11 @@ public class EmailSender {
             });
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 
+            mimeMessage.setFrom(new InternetAddress(stringSenderEmail, "SafeWhere"));
             mimeMessage.setSubject(subject);
-            mimeMessage.setText(message);
+            mimeMessage.setContent(htmlContent, "text/html");
 
             Thread thread = new Thread(() -> {
                 try {
@@ -55,10 +56,10 @@ public class EmailSender {
                 }
             });
             thread.start();
-        } catch (AddressException e) {
-            e.printStackTrace();
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
         }
     }
 
