@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LegalInfoFragment extends Fragment {
-
+//Creating the fragment for the legal information
     private InfoAdapter adapter;
     private DatabaseReference databaseReference;
     private List<InfoItem> legalInfoList = new ArrayList<>();
