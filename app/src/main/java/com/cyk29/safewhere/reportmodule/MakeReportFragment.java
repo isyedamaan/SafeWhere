@@ -61,6 +61,7 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         return view;
     }
 
+    //initializes the User Interface for the fragment
     private void initializeUI(View view){
         cancel = view.findViewById(R.id.cancelReportBT);
         report = view.findViewById(R.id.reportBT);
