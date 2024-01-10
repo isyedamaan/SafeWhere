@@ -28,6 +28,7 @@ public class FAQFragment extends Fragment {
     private DatabaseReference databaseReference;
     private List<InfoItem> faqInfoList = new ArrayList<>();
 
+    //Creating the fragment for the FAQ information
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
