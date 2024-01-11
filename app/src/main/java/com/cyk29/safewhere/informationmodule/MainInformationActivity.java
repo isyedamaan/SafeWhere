@@ -40,7 +40,7 @@ public class MainInformationActivity extends AppCompatActivity{
         setupBottomNavMenu(navController);
         formatMenuUI(bottomNavigationView);
     }
-
+       // NavController
         private void setupBottomNavMenu(NavController navController) {
             bottomNavigationView = findViewById(R.id.infoBottomNavBar);
             NavigationUI.setupWithNavController(MainInformationActivity.this.bottomNavigationView, navController);
