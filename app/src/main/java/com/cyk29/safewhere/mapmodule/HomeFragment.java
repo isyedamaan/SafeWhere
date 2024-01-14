@@ -19,44 +19,53 @@ import com.cyk29.safewhere.sosmodule.SosActivity;
 import com.cyk29.safewhere.startupmodule.ProfileMainActivity;
 
 public class HomeFragment extends Fragment {
-    public HomeFragment(){
-    }
+
+    private Button startBtn;
+    private ImageView sos;
+    private Button infoBtn;
+    private Button repBtn;
+    private ImageView notificationsButton;
+    private Button geoBtn;
+    private ImageView profile;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        initializeUI(view);
+        setUI();
+        return view;
+    }
 
-        Button startBtn = view.findViewById(R.id.chooseDestBtn);
-        startBtn.setOnClickListener(v -> {
-            // Navigate to Fragment
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVHome, new DestinationSelectFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
+    /**
+     * Initializes UI components from the XML layout.
+     * @param view The root view of the fragment's layout, used to find each UI component.
+     */
+    private void initializeUI(View view){
+        startBtn = view.findViewById(R.id.chooseDestBtn);
+        sos = view.findViewById(R.id.mainSOSBtn);
+        infoBtn = view.findViewById(R.id.infoSlideBtn);
+        repBtn = view.findViewById(R.id.reportSlideBtn);
+        notificationsButton = view.findViewById(R.id.notifBtn);
+        geoBtn = view.findViewById(R.id.geoSlideBtn);
+        profile = view.findViewById(R.id.profileIVBtn);
+    }
 
-        ImageView sos = view.findViewById(R.id.mainSOSBtn);
+    /**
+     * Sets up the UI interaction elements of the fragment.
+     * Defines the behavior for button clicks, including navigation to different activities or fragments.
+     */
+    private void setUI(){
+        startBtn.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
+                .replace(R.id.FCVHome, new DestinationSelectFragment())
+                .addToBackStack(null)
+                .commit());
         sos.setOnClickListener(v -> startActivity(new Intent(requireContext(), SosActivity.class)));
-
-
-        Button infoBtn = view.findViewById(R.id.infoSlideBtn);
-        infoBtn.setOnClickListener(v -> startActivity(new Intent(requireContext(), MainInformationActivity.class)));
-
-        Button repBtn = view.findViewById(R.id.reportSlideBtn);
         repBtn.setOnClickListener(v -> startActivity(new Intent(requireContext(), ReportMainActivity.class)));
-
-        ImageView notifBtn = view.findViewById(R.id.notifBtn);
-        notifBtn.setOnClickListener(v -> startActivity(new Intent(requireContext(), NotificationMainActivity.class)));
-
-        Button geoBtn = view.findViewById(R.id.geoSlideBtn);
+        notificationsButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), NotificationMainActivity.class)));
+        infoBtn.setOnClickListener(v -> startActivity(new Intent(requireContext(), MainInformationActivity.class)));
         geoBtn.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
                 .replace(R.id.FCVHome, new GeofencingFragment())
                 .addToBackStack(null)
                 .commit());
-
-        ImageView profile = view.findViewById(R.id.profileIVBtn);
         profile.setOnClickListener(v -> startActivity(new Intent(requireContext(), ProfileMainActivity.class)));
-
-        return view;
     }
-
 }

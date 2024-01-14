@@ -19,6 +19,7 @@ import android.widget.ImageView;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataclasses.User;
+import com.cyk29.safewhere.helperclasses.EmailHelper;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -35,9 +36,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * This class represents the SOS activity in the SafeWhere application. It allows users to send SOS
+ * alerts, call emergency contacts, and perform various SOS-related functions.
+ */
 public class SosActivity extends AppCompatActivity {
     private static final String TAG = "SosActivity";
     private User currentUser;
+    private Location userLocation;
+    private FusedLocationProviderClient fusedLocationClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,31 +53,51 @@ public class SosActivity extends AppCompatActivity {
         getUserInfo();
         initializeUI();
     }
+
+    /**
+     * Initializes the user interface components and sets click listeners for buttons.
+     */
     private void initializeUI(){
-        // Cancel Button
         Button cancel = findViewById(R.id.cancelBT);
         cancel.setOnClickListener(v -> finish());
-        // Panic Button
+
         ImageView panic = findViewById(R.id.panic_modeIV);
         panic.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
-                .replace(R.id.panic_fragment_container, new PanicmodeFragment())
+                .replace(R.id.panic_fragment_container, new PanicModeFragment())
                 .addToBackStack(null)
                 .commit());
-        // Call Contacts Button
+
         ImageButton callContacts = findViewById(R.id.call_contactsIB);
         callContacts.setOnClickListener(v -> call(currentUser.getEcPhone()));
-        // Alert Authorities Buttons
+
         ImageButton ambulance = findViewById(R.id.AmbulanceBT);
         ImageButton civilDefence = findViewById(R.id.civilDefenceBT);
         ImageButton fire = findViewById(R.id.firefighterBT);
+
         civilDefence.setOnClickListener(v -> call("991"));
         ambulance.setOnClickListener(v -> call("999"));
         fire.setOnClickListener(v -> call("994"));
     }
+
+    /**
+     * Initiates a phone call to the specified phone number.
+     *
+     * @param number The phone number to call.
+     */
     public void call(String number){
         Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
         startActivity(dialIntent);
     }
+
+    /**
+     * Loads an email template with placeholders replaced by specific values.
+     *
+     * @param context   The context of the application.
+     * @param name      The user's name.
+     * @param latitude  The latitude of the user's location.
+     * @param longitude The longitude of the user's location.
+     * @return The email content with placeholders replaced.
+     */
     public static String loadEmailTemplateWithValues(Context context, String name, String latitude, String longitude) {
         String content = "";
         try {
@@ -88,6 +115,13 @@ public class SosActivity extends AppCompatActivity {
         }
         return content;
     }
+
+    /**
+     * Sends an SMS message to the specified phone number.
+     *
+     * @param phoneNumber The phone number to send the SMS to.
+     * @param message     The SMS message content.
+     */
     private void sendSMS(String phoneNumber, String message) {
         try {
             SmsManager smsManager = SmsManager.getDefault();
@@ -96,6 +130,10 @@ public class SosActivity extends AppCompatActivity {
             Log.d(TAG, "sendSMS: "+e.getMessage());
         }
     }
+
+    /**
+     * Alerts emergency contacts by sending SMS messages and emails.
+     */
     public void alertContacts() {
         getUserInfo();
         if (currentUser != null) {
@@ -114,10 +152,14 @@ public class SosActivity extends AppCompatActivity {
                 htmlBody = loadEmailTemplateWithValues(this, currentUser.getName(), null, null);
             }
             sendSMS(emergencyContactPhone, body);
-            EmailSender emailSender = new EmailSender();
-            emailSender.sendEmail(emergencyContactEmail, subject, htmlBody);
+            EmailHelper emailHelper = new EmailHelper();
+            emailHelper.sendEmail(emergencyContactEmail, subject, htmlBody);
         }
     }
+
+    /**
+     * Retrieves user information from the Firebase Realtime Database.
+     */
     private void getUserInfo(){
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid != null) {
@@ -133,8 +175,10 @@ public class SosActivity extends AppCompatActivity {
             });
         }
     }
-    private Location userLocation;
-    private FusedLocationProviderClient fusedLocationClient;
+
+    /**
+     * Requests a new location fix using the FusedLocationProviderClient.
+     */
     private void requestNewLocationFix() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -149,15 +193,34 @@ public class SosActivity extends AppCompatActivity {
             }, null);
         }
     }
+    /**
+     * Creates a location request for high-accuracy location updates.
+     *
+     * @return The LocationRequest object.
+     */
     private LocationRequest createLocationRequest() {
         return new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
                 .setIntervalMillis(10000)
                 .setMinUpdateIntervalMillis(2000)
                 .build();
     }
+
+    /**
+     * Generates a Google Maps URL based on latitude and longitude.
+     *
+     * @param latitude  The latitude of the location.
+     * @param longitude The longitude of the location.
+     * @return The Google Maps URL.
+     */
     private String getGoogleMapsUrl(double latitude, double longitude) {
         return "https://www.google.com/maps/?q=" + latitude + "," + longitude;
     }
+
+    /**
+     * Retrieves the user's location using the FusedLocationProviderClient.
+     *
+     * @return The user's location.
+     */
     private Location getUserLocation(){
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)

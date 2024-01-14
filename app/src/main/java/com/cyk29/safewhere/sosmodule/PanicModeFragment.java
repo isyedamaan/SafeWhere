@@ -1,11 +1,9 @@
 package com.cyk29.safewhere.sosmodule;
 
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -18,54 +16,62 @@ import android.widget.TextView;
 
 import com.cyk29.safewhere.R;
 
-public class PanicmodeFragment extends Fragment {
+/**
+ * This class represents a fragment for panic mode in the SOS module. It provides a countdown timer
+ * and UI elements for managing the panic mode.
+ */
+public class PanicModeFragment extends Fragment {
 
     private TextView countdownTextView;
     private ImageView continueButton;
+    private Button cancel;
     private CountDownTimer countDownTimer;
-    private MediaPlayer mediaPlayer1, mediaPlayer2;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mediaPlayer1 = MediaPlayer.create(getContext(), R.raw.tick_sound_1);
-        mediaPlayer2 = MediaPlayer.create(getContext(), R.raw.tick_sound_2);
-    }
+    private boolean isGrey = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_panicmode, container, false);
+        initializeUI(view);
+        timer();
+        setUI();
+        return view;
+    }
 
+    /**
+     * Initializes UI components and assigns their references.
+     *
+     * @param view The view containing UI components.
+     */
+    private void initializeUI(View view){
         countdownTextView = view.findViewById(R.id.countdown);
         continueButton = view.findViewById(R.id.panicContinueIV);
+        cancel = view.findViewById(R.id.cancelBT);
+    }
 
-        timer();
+    /**
+     * Sets up the user interface and attaches click listeners to buttons.
+     */
+    private void setUI(){
         continueButton.setOnClickListener(v -> {
             countDownTimer.cancel();
             timer();
         });
-
-        Button cancel = view.findViewById(R.id.cancelBT);
-        cancel.setOnClickListener(v -> onDestroy());
-
-        return view;
+        cancel.setOnClickListener(v -> {
+            startActivity(requireActivity().getIntent());
+            requireActivity().finish();
+        });
     }
 
+    /**
+     * Starts a countdown timer for panic mode.
+     */
     private void timer(){
         countDownTimer = new CountDownTimer(10100, 1000) {
-
             @Override
             public void onTick(long millisUntilFinished) {
-                // Update the TextView with the remaining time
                 countdownTextView.setText(String.valueOf(millisUntilFinished / 1000));
-                if(millisUntilFinished/1000%2 == 1)
-                    mediaPlayer1.start();
-                else
-                    mediaPlayer2.start();
             }
-
             @Override
             public void onFinish() {
                 countFinished();
@@ -77,43 +83,27 @@ public class PanicmodeFragment extends Fragment {
                         myActivity.alertContacts();
                     }
                 }
-                mediaPlayer2.release();
-                mediaPlayer1.release();
             }
         }.start();
     }
 
-
-    private boolean isRed = true;
+    /**
+     * Handles actions to be taken when the countdown timer finishes.
+     */
     private void countFinished(){
         countdownTextView.setText(R.string.your_emergency_contacts_have_been_alerted);
         countdownTextView.setTextSize(25.0f);
         countdownTextView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Toggle text color between red and white
-                if (isRed) {
+                if (isGrey) {
                     countdownTextView.setTextColor(Color.WHITE);
                 } else {
-                    countdownTextView.setTextColor(Color.RED);
+                    countdownTextView.setTextColor(Color.GRAY);
                 }
-                isRed = !isRed;
-
-                // Call the method recursively after a delay
+                isGrey = !isGrey;
                 countdownTextView.postDelayed(this, 500); // Flash every 500 milliseconds
             }
         }, 0);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mediaPlayer1.stop();
-        mediaPlayer2.stop();
-        mediaPlayer1.release();
-        mediaPlayer2.release();
-        countDownTimer.cancel();
-        // get fragment manager and remove the fragment
-        requireActivity().getSupportFragmentManager().beginTransaction().remove(PanicmodeFragment.this).commit();
     }
 }

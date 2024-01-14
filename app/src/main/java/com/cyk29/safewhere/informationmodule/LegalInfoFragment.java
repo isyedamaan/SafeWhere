@@ -1,15 +1,14 @@
 package com.cyk29.safewhere.informationmodule;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.dataclasses.InfoItem;
 import com.google.firebase.database.DataSnapshot;
@@ -21,52 +20,63 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * LegalInfoFragment is used for displaying legal information.
+ * It fetches data from Firebase and displays it using a RecyclerView.
+ */
 public class LegalInfoFragment extends Fragment {
+    private static final String TAG = "LegalInfoFragment";
 
+    private RecyclerView recyclerView;
     private InfoAdapter adapter;
-    private DatabaseReference databaseReference;
     private List<InfoItem> legalInfoList = new ArrayList<>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_legal_info, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("legalInfo");
-
-        adapter = new InfoAdapter(legalInfoList);
-
+        initializeUI(view);
         fetchDataFromFirebase();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-
+        setUI();
         return view;
     }
 
+    /**
+     * Initializes the UI components of the fragment.
+     * @param view The view inflated for the fragment.
+     */
+    private void initializeUI(View view) {
+        recyclerView = view.findViewById(R.id.recyclerView);
+        adapter = new InfoAdapter(legalInfoList);
+    }
 
+    /**
+     * Sets up the UI components such as the RecyclerView.
+     */
+    private void setUI() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+    }
+
+    /**
+     * Fetches data from Firebase and updates the RecyclerView adapter.
+     */
     private void fetchDataFromFirebase() {
-        // Attach a listener to read the data from Firebase Realtime Database
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("legalInfo");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 legalInfoList.clear();
                 legalInfoList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // Convert the data from Firebase to InfoItem objects
                     InfoItem infoItem = snapshot.getValue(InfoItem.class);
                     legalInfoList.add(infoItem);
                 }
-                // Update the adapter with the retrieved data
                 adapter.updateData(legalInfoList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle errors
+                Log.e(TAG, "onCancelled: " + databaseError.getMessage());
             }
         });
     }

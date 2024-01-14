@@ -158,27 +158,6 @@
   },
   {
     "featureType": "road.local",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#c7c7c7"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#d6d6d6"
-      },
-      {
-        "weight": 0.5
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
     "elementType": "labels",
     "stylers": [
       {

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,12 @@ import com.cyk29.safewhere.dataclasses.InfoItem;
 
 import java.util.List;
 
+/**
+ * InfoAdapter is a RecyclerView adapter for displaying a list of InfoItem objects.
+ */
 public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
 
+    private static final String TAG = "InfoAdapter";
     private final List<InfoItem> infoItemList;
 
     public InfoAdapter(List<InfoItem> infoItemList) {
@@ -32,52 +37,19 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.info_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.info_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         InfoItem infoItem = infoItemList.get(position);
-
-        holder.textTitle.setText(infoItem.getTitle());
-        holder.textDescription.setText(infoItem.getDescription());
-        if(infoItem.getLink()==null) {
-            holder.textLink.setVisibility(View.GONE);
-        } else {
-            holder.textLink.setText(holder.itemView.getContext().getString(R.string.for_more_info, infoItem.getLink()));
-        }
-
-        holder.layoutDetails.setVisibility(View.GONE);
-
-        // Set click listener to toggle visibility of details
-        holder.itemView.setOnClickListener(v -> {
-            ViewGroup parent = (ViewGroup) holder.itemView.getParent();
-            if (holder.layoutDetails.getVisibility() == View.GONE) {
-                // Expand details with animation
-                TransitionManager.beginDelayedTransition(parent, new ChangeBounds());
-                holder.layoutDetails.setVisibility(View.VISIBLE);
-            } else {
-                // Collapse details with animation
-                TransitionManager.beginDelayedTransition(parent, new ChangeBounds());
-                holder.layoutDetails.setVisibility(View.GONE);
-            }
-        });
-
-        holder.textLink.setOnClickListener(v -> {
-            // Open the link in the browser
-            openLinkInBrowser(holder.itemView.getContext(), infoItem.getLink());
-        });
-    }
-
-    private void openLinkInBrowser(Context context, String link) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-        context.startActivity(browserIntent);
+        holder.bind(infoItem);
     }
 
     @SuppressLint("NotifyDataSetChanged")
     public void updateData(List<InfoItem> newData) {
+        Log.d(TAG, "updateData: "+newData.size()+" items");
         infoItemList.clear();
         infoItemList.addAll(newData);
         notifyDataSetChanged();
@@ -88,6 +60,9 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
         return infoItemList.size();
     }
 
+    /**
+     * ViewHolder for the InfoItem.
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textTitle, textDescription, textLink;
         LinearLayout layoutDetails;
@@ -98,7 +73,58 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
             textDescription = itemView.findViewById(R.id.textDescription);
             textLink = itemView.findViewById(R.id.textLink);
             layoutDetails = itemView.findViewById(R.id.layoutDetails);
+            layoutDetails.setVisibility(View.GONE);
+        }
+
+        /**
+         * Binds the InfoItem to the ViewHolder.
+         * @param infoItem The InfoItem to bind.
+         */
+        void bind(InfoItem infoItem) {
+            textTitle.setText(infoItem.getTitle());
+            textDescription.setText(infoItem.getDescription());
+            setupLink(itemView.getContext(), infoItem.getLink());
+            setupItemViewClickListener();
+        }
+
+        /**
+         * Sets up the click listener for the item view.
+         */
+        private void setupItemViewClickListener() {
+            itemView.setOnClickListener(v -> toggleDetailsVisibility());
+        }
+
+        /**
+         * Toggles the visibility of layoutDetails with animation.
+         */
+        private void toggleDetailsVisibility() {
+            ViewGroup parent = (ViewGroup) itemView.getParent();
+            TransitionManager.beginDelayedTransition(parent, new ChangeBounds());
+            layoutDetails.setVisibility(layoutDetails.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        }
+
+        /**
+         * Sets up the text and click listener for the link.
+         * @param context The context of the itemView.
+         * @param link The URL to be opened.
+         */
+        private void setupLink(Context context, String link) {
+            if (link == null) {
+                textLink.setVisibility(View.GONE);
+            } else {
+                textLink.setText(context.getString(R.string.for_more_info, link));
+                textLink.setOnClickListener(v -> openLinkInBrowser(context, link));
+            }
+        }
+
+        /**
+         * Opens the provided link in a web browser.
+         * @param context The context used to start the activity.
+         * @param link The URL to be opened.
+         */
+        private void openLinkInBrowser(Context context, String link) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+            context.startActivity(browserIntent);
         }
     }
 }
-

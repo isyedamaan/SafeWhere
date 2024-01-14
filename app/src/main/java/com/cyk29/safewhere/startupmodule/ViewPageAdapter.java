@@ -8,10 +8,22 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class ViewPageAdapter extends FragmentStateAdapter{
 
+    /**
+     * Constructs a new instance of {@link ViewPageAdapter}.
+     *
+     * @param fragmentManager The fragment manager.
+     * @param lifecycle The lifecycle.
+     */
     public ViewPageAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle){
         super(fragmentManager, lifecycle);
     }
 
+    /**
+     * Creates a new fragment based on the given position.
+     *
+     * @param position The position of the fragment.
+     * @return The created fragment.
+     */
     @NonNull
     @Override
     public Fragment createFragment(int position){
@@ -21,6 +33,11 @@ public class ViewPageAdapter extends FragmentStateAdapter{
         return new LoginTabFragment();
     }
 
+    /**
+     * Gets the count of items.
+     *
+     * @return The item count.
+     */
     @Override public int getItemCount(){
         return 2;
     }

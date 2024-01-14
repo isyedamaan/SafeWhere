@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:src="@drawable/back_white3"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toBottomOf="@+id/geoActTitleTV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/geoActTitleTV" />
@@ -47,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:fontFamily="@font/lexend_bold"
-            android:text="Register this device for geofencing"
+            android:text="@string/register_this_device_for_geofencing"
             android:textColor="@color/white"
-            android:textSize="18.73dp" />
+            android:textSize="19sp" />
 
         <EditText
             android:id="@+id/nameET"
@@ -59,12 +60,14 @@
             android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/brigtest_blue"
-            android:textSize="18sp" />
+            android:textColorHint="@color/brightest_blue"
+            android:textSize="18sp"
+            android:autofillHints="name"/>
 
         <EditText
             android:id="@+id/alertNumberET"
@@ -74,12 +77,14 @@
             android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Alert Contact Number"
+            android:hint="@string/alert_contact_number"
             android:inputType="number"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/brigtest_blue"
-            android:textSize="18sp" />
+            android:textColorHint="@color/brightest_blue"
+            android:textSize="18sp"
+            android:autofillHints="phone"/>
 
         <EditText
             android:id="@+id/alertEmailET"
@@ -89,12 +94,14 @@
             android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Alert Contact Email"
+            android:hint="@string/alert_contact_email"
             android:inputType="text|textEmailAddress"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/brigtest_blue"
-            android:textSize="18sp" />
+            android:textColorHint="@color/brightest_blue"
+            android:textSize="18sp"
+            android:autofillHints="emailAddress"/>
 
         <EditText
             android:id="@+id/geoPassET"
@@ -107,9 +114,11 @@
             android:hint="@string/geofence_passcode"
             android:inputType="number|numberPassword"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/brigtest_blue"
-            android:textSize="18sp" />
+            android:textColorHint="@color/brightest_blue"
+            android:textSize="18sp"
+            android:autofillHints="password"/>
     </LinearLayout>
 
     <LinearLayout
@@ -154,7 +163,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/selectLocationBG"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/selectLocationBG"
-                app:layout_constraintTop_toTopOf="@+id/selectLocationBG">
+                app:layout_constraintTop_toTopOf="@+id/selectLocationBG"
+                tools:ignore="FragmentTagUsage">
 
             </fragment>
 
@@ -176,7 +186,8 @@
             android:textColor="@color/white"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:autofillHints="" />
     </LinearLayout>
 
 
@@ -198,22 +209,25 @@
             android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Geofencing Password"
+            android:hint="@string/geofencing_password"
             android:inputType="text"
             android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/brigtest_blue"
+            android:textColorHint="@color/brightest_blue"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/resetGeoBT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:autofillHints="password"/>
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="68.96dp"
             android:layout_height="68.96dp"
             android:layout_marginTop="200dp"
+            android:contentDescription="@string/image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -226,11 +240,10 @@
             android:layout_height="47dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/lexend_bold"
-            android:text="You have successfully configured
-        this device for Geofencing."
+            android:text="@string/geofence_registered"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18.72dp"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +278,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/white_button"
         android:fontFamily="@font/lexend"
-        android:text="Register"
+        android:text="@string/register"
         android:textAllCaps="false"
         android:textColor="@color/blue"
         android:textSize="22sp"

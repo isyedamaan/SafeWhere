@@ -1,6 +1,5 @@
 package com.cyk29.safewhere.startupmodule;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,60 +9,65 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
 import com.cyk29.safewhere.databinding.FragmentSignUpBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-import java.util.Objects;
+public class SignUpLoginFragment extends Fragment{
 
-public class SignUpFragment extends Fragment{
-
-    private FragmentSignUpBinding binding;
-    FragmentSignUpBinding f;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private ViewPageAdapter adapter;
 
-    private boolean isLogin = true;
-
-    private ImageButton BtnProceed;
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstancedState){
+        FragmentSignUpBinding binding = FragmentSignUpBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        //BACK BUTTON
+    /**
+     * Sets up the back button.
+     *
+     * @param view The view associated with this fragment.
+     */
+    private void setupBackButton(View view) {
         ImageButton BtnBack = view.findViewById(R.id.backBT);
-        View.OnClickListener OCLback = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.DestIntro);
-            }
-        };
-        BtnBack.setOnClickListener(OCLback);
+        BtnBack.setOnClickListener(v -> navigateToIntroScreen());
+    }
 
-        //LOGIN?SIGNUP TAB
+    /**
+     * Navigates to the intro screen.
+     */
+    private void navigateToIntroScreen() {
+        Navigation.findNavController(requireView()).navigate(R.id.DestIntro);
+    }
+
+    /**
+     * Sets up the login/sign up tabs.
+     *
+     * @param view The view associated with this fragment.
+     */
+    private void setupTabs(View view) {
         tabLayout = view.findViewById(R.id.tab_layout);
         viewPager2 = view.findViewById(R.id.view_pager);
 
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Sign Up"));
 
+        setupViewPagerAndTabLayout();
+    }
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        adapter = new ViewPageAdapter(fragmentManager, getLifecycle());
+    /**
+     * Sets up the view pager and tab layout.
+     */
+    private void setupViewPagerAndTabLayout() {
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        ViewPageAdapter adapter = new ViewPageAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -71,14 +75,17 @@ public class SignUpFragment extends Fragment{
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
             }
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+
             }
+
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
-
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -87,10 +94,12 @@ public class SignUpFragment extends Fragment{
             }
         });
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstancedState){
-        binding = FragmentSignUpBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        return root;
+        setupBackButton(view);
+        setupTabs(view);
     }
+
 }

@@ -6,7 +6,6 @@
     <color name="pink">#F2DBE5</color>
     <color name="blue">#0021A6</color>
     <color name="blue_transparent">#880021A6</color>
-<!--    <color name="blue">#FF000000</color>-->
     <color name="burgundy">#B41616</color>
     <color name="maroon">#AB3D4A</color>
     <color name="coral">#E66D6C</color>
@@ -14,10 +13,9 @@
     <color name="bright_red">#EC0F0F</color>
     <color name="dark_red">#940E26</color>
     <color name="red">#E62F23</color>
-<!--    <color name="bright_blue">#484848</color>-->
     <color name="bright_blue">#2941A4</color>
     <color name="grey">#B5B5B5</color>
-    <color name="brigtest_blue">#7185D9</color>
+    <color name="brightest_blue">#7185D9</color>
 
 
 </resources>

@@ -1,46 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/startup_back_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink">
 
-    <TextView
-        android:id="@+id/descTV"
-        android:layout_width="279dp"
-        android:layout_height="113dp"
-        android:fontFamily="@font/lexend"
-        android:text="Stay safe with SafeWhere. Join our loving community"
-        android:textColor="@color/blue"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/startup_top_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
+        app:srcCompat="@drawable/first_intersect" />
 
-    <TextView
-        android:id="@+id/welcomeTV"
-        android:layout_width="268dp"
-        android:layout_height="113dp"
-        android:fontFamily="@font/lexend_bold"
-        android:text="Welcome to
-        SafeWhere"
-        android:textColor="@color/blue"
-        android:textSize="41.61sp"
+    <ImageView
+        android:id="@+id/startup_bottom_left"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="-9dp"
+        android:scaleType="fitXY"
+        android:scaleX="1.05"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
+        app:srcCompat="@drawable/inter" />
 
     <ImageView
         android:id="@+id/introIV"
         android:layout_width="300dp"
         android:layout_height="243dp"
+        android:visibility="gone"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -49,19 +44,52 @@
         app:layout_constraintVertical_bias="0.151"
         app:srcCompat="@drawable/intro" />
 
-    <ImageButton
-        android:id="@+id/introBT"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
-        android:src="@drawable/arrow"
-        android:background="@drawable/intro_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/startup_intro_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        />
+        app:layout_constraintVertical_bias="0.57">
+
+        <TextView
+            android:id="@+id/descTV"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:fontFamily="@font/lexend"
+            android:text="@string/welcome_text"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeTV" />
+
+        <TextView
+            android:id="@+id/welcomeTV"
+            android:layout_width="300dp"
+            android:layout_height="113dp"
+            android:layout_marginStart="35dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="@string/welcome_to_safewhere"
+            android:textColor="@color/blue"
+            android:textSize="41.61sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/introBT"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/intro_button"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descTV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

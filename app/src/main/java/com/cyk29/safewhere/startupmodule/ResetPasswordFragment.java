@@ -12,74 +12,99 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.helperclasses.ToastHelper;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class ResetPasswordFragment extends Fragment {
 
-
     private EditText oldPass, newPass, confPass;
-    private Button reset;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reset_password, container, false);
-
-        oldPass = view.findViewById(R.id.oldPassET);
-        newPass = view.findViewById(R.id.newPassET);
-        confPass = view.findViewById(R.id.reenterNewPassET);
-
-        reset = view.findViewById(R.id.BTResetPassword);
-
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String oldUserPass = oldPass.getText().toString();
-                String newUserPass = newPass.getText().toString();
-                String confUserPass = confPass.getText().toString();
-
-                if(newUserPass.equals(confUserPass)){
-                    resetPassword(oldUserPass, newUserPass);
-                } else {
-                    Toast.makeText(requireActivity(), "Passwords do not match!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
+        setupViews(view);
         return view;
     }
 
+    /**
+     * Sets up the views for this fragment.
+     *
+     * @param view The view associated with this fragment.
+     */
+    private void setupViews(View view) {
+        oldPass = view.findViewById(R.id.oldPassET);
+        newPass = view.findViewById(R.id.newPassET);
+        confPass = view.findViewById(R.id.reenterNewPassET);
+        Button reset = view.findViewById(R.id.BTResetPassword);
+        reset.setOnClickListener(v -> handleResetButtonClick());
+    }
 
+    /**
+     * Handles the click event of the reset button.
+     */
+    private void handleResetButtonClick() {
+        String oldUserPass = oldPass.getText().toString();
+        String newUserPass = newPass.getText().toString();
+        String confUserPass = confPass.getText().toString();
+        if (!newUserPass.equals(confUserPass)) {
+            ToastHelper.make(requireActivity(), "Passwords do not match!", Toast.LENGTH_SHORT);
+            return;
+        }
+        resetPassword(oldUserPass, newUserPass);
+    }
+
+    /**
+     * Attempts to reset the user's password.
+     *
+     * @param oldPassword The old password entered by the user.
+     * @param newPassword The new password entered by the user.
+     */
     private void resetPassword(String oldPassword, final String newPassword) {
-        // Get the current user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null) return;
+        AuthCredential credential = EmailAuthProvider.getCredential(Objects.requireNonNull(user.getEmail()), oldPassword);
+        reAuthenticateUser(user, credential, newPassword);
+    }
 
-        // Create a credential with the current email and password
-        AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), oldPassword);
-
-        // Re-authenticate the user with the provided credentials
+    /**
+     * Re-authenticates the user with the provided credentials.
+     *
+     * @param user The current user.
+     * @param credential The authentication credential.
+     * @param newPassword The new password.
+     */
+    private void reAuthenticateUser(FirebaseUser user, AuthCredential credential, String newPassword) {
         user.reauthenticate(credential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // Re-authentication successful, now update the password
-                        user.updatePassword(newPassword)
-                                .addOnCompleteListener(updateTask -> {
-                                    if (updateTask.isSuccessful()) {
-                                        // Password updated successfully
-                                        Toast.makeText(getContext(), "Password updated successfully", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        // Handle password update failure
-                                        Toast.makeText(getContext(), "Failed to update password", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                        updateUserPassword(newPassword);
                     } else {
-                        // Handle re-authentication failure
-                        Toast.makeText(getContext(), "Re-authentication failed", Toast.LENGTH_SHORT).show();
+                        ToastHelper.make(requireActivity(), "Re-authentication failed", Toast.LENGTH_SHORT);
                     }
                 });
     }
 
+    /**
+     * Updates the user's password.
+     *
+     * @param newPassword The new password.
+     */
+    private void updateUserPassword(String newPassword) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null) return;
+        user.updatePassword(newPassword)
+                .addOnCompleteListener(updateTask -> {
+                    if (updateTask.isSuccessful()) {
+                        ToastHelper.make(requireActivity(), "Password updated successfully", Toast.LENGTH_SHORT);
+                    } else {
+                        ToastHelper.make(requireActivity(), "Failed to update password", Toast.LENGTH_SHORT);
+                    }
+                });
+    }
 }

@@ -1,12 +1,12 @@
 package com.cyk29.safewhere.informationmodule;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,54 +22,64 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * FAQFragment is responsible for displaying frequently asked questions.
+ * It uses Firebase to fetch the data and displays it in a RecyclerView.
+ */
 public class FAQFragment extends Fragment {
+    private static final String TAG = "FAQFragment";
 
+    private RecyclerView recyclerView;
     private InfoAdapter adapter;
-    private DatabaseReference databaseReference;
     private List<InfoItem> faqInfoList = new ArrayList<>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_legal_info, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("faqInfo");
-
-        adapter = new InfoAdapter(faqInfoList);
-
+        initializeUI(view);
         fetchDataFromFirebase();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-
+        setUI();
         return view;
     }
 
+    /**
+     * Initialize the UI components of the fragment.
+     * @param view The view inflated for the fragment.
+     */
+    private void initializeUI(View view) {
+        recyclerView = view.findViewById(R.id.recyclerView);
+        adapter = new InfoAdapter(faqInfoList);
+    }
 
+    /**
+     * Set up the UI components like RecyclerView.
+     */
+    private void setUI() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+    }
+
+    /**
+     * Fetch data from Firebase and update the adapter.
+     */
     private void fetchDataFromFirebase() {
-        // Attach a listener to read the data from Firebase Realtime Database
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("faqInfo");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 faqInfoList.clear();
                 faqInfoList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // Convert the data from Firebase to InfoItem objects
                     InfoItem infoItem = snapshot.getValue(InfoItem.class);
                     faqInfoList.add(infoItem);
                 }
-                // Update the adapter with the retrieved data
                 adapter.updateData(faqInfoList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle errors
+                Log.e(TAG, "onCancelled: " + databaseError.getMessage());
             }
         });
     }
-
 }

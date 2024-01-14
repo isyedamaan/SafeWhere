@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SafeWhere</string>
     <string name="api_key" tools:ignore="Typos">AIzaSyBhlwC1IyMQp6bauKmOi-Z5gUSKs43hlj0</string>
+<!--    <string name="permission_rationale">The following permissions are really important for our app\n\nLocation permission is required for this app to function as our app revolves around providing users with danger and report information based on their location.\n\nBackground location permission is required for this app to function as our geofencing features would be unusable without it.\n\nNotification permission is required for this app to function as our app needs to send the user notification, specifically about them violating their geofencing area.\n\nSMS permission is required for this app to function as our app needs to send sms to the user's emergency contact in times of panic.\n\nCall permission is required for this app to function as our app needs to call the user's emergency contact in times of panic or call the emergency authorities if they want to.\n\nPress OK to go to settings and enable permissions.</string>-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="your_location">Your Location</string>
@@ -100,4 +101,18 @@
     <string name="civil_defence">Civil Defence</string>
     <string name="cancel_sos">Cancel SOS</string>
     <string name="my_location">My Location</string>
+    <string name="welcome_text">Stay safe with SafeWhere.\nJoin our safety loving community.</string>
+    <string name="welcome_to_safewhere">Welcome to SafeWhere</string>
+    <string name="register_this_device_for_geofencing">Register this device for geofencing</string>
+    <string name="name">Name</string>
+    <string name="alert_contact_number">Alert Contact Number</string>
+    <string name="alert_contact_email">Alert Contact Email</string>
+    <string name="geofencing_password">Geofencing Password</string>
+    <string name="geofence_registered">You have successfully configured this device for Geofencing.</string>
+    <string name="geofencing">Geofencing</string>
+    <string name="geofencing_is_on">Geofencing is ON.</string>
+    <string name="stay_within_200_metres_or_nassigned_contact_will_be_alerted">Stay within 200 metres or\nassigned contact will be alerted</string>
+    <string name="disable_geofencing">Disable Geofencing</string>
+    <string name="toast_message">Toast Message</string>
+    <string name="complete_profile">Complete Profile</string>
 </resources>

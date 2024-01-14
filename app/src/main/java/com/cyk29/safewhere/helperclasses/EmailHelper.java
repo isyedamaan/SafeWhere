@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.sosmodule;
+package com.cyk29.safewhere.helperclasses;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -7,8 +7,18 @@ import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
-public class EmailSender {
+/**
+ * Helper class for sending emails.
+ */
+public class EmailHelper {
 
+    /**
+     * Sends an email with the specified recipient, subject, and HTML content.
+     *
+     * @param toEmail The recipient of the email.
+     * @param subject The subject of the email.
+     * @param htmlContent The HTML content of the email.
+     */
     public void sendEmail(String toEmail, String subject, String htmlContent) {
         try {
 

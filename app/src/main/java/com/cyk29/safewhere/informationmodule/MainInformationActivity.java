@@ -19,58 +19,82 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
-public class MainInformationActivity extends AppCompatActivity{
-
-
-    BottomNavigationView bottomNavigationView;
+/**
+ * MainInformationActivity is responsible for managing the main information screen of the app.
+ * It includes navigation controls and formatting for the bottom navigation menu.
+ */
+public class MainInformationActivity extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_information);
+        initializeUI();
+    }
 
-        //BACK BUTTON
-        ImageView BtnBack = findViewById(R.id.backInfoBT);
-        View.OnClickListener OCLback = v -> finish();
-        BtnBack.setOnClickListener(OCLback);
+    /**
+     * Initialize UI components and set up navigation.
+     */
+    private void initializeUI() {
+        ImageView btnBack = findViewById(R.id.backInfoBT);
+        btnBack.setOnClickListener(v -> finish());
 
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.FCVInfo);
         NavController navController = Objects.requireNonNull(host).getNavController();
 
         setupBottomNavMenu(navController);
-        formatMenuUI(bottomNavigationView);
+        formatMenuUI();
     }
 
-        private void setupBottomNavMenu(NavController navController) {
-            bottomNavigationView = findViewById(R.id.infoBottomNavBar);
-            NavigationUI.setupWithNavController(MainInformationActivity.this.bottomNavigationView, navController);
-        }
+    /**
+     * Set up the bottom navigation menu.
+     * @param navController The NavController for the activity.
+     */
+    private void setupBottomNavMenu(NavController navController) {
+        bottomNavigationView = findViewById(R.id.infoBottomNavBar);
+        NavigationUI.setupWithNavController(MainInformationActivity.this.bottomNavigationView, navController);
+    }
 
-    public void formatMenuUI(BottomNavigationView bottomNavigationView) {
+    /**
+     * Format the UI elements of the bottom navigation menu.
+     */
+    private void formatMenuUI() {
         Typeface typeface = ResourcesCompat.getFont(this, R.font.lexend_bold);
-
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+
         for (int i = 0; i < menuView.getChildCount(); i++) {
             BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(i);
-
-            ImageView iconView = itemView.findViewById(com.google.android.material.R.id.navigation_bar_item_icon_view);
-            iconView.setScaleX(1.1f);
-            iconView.setScaleY(1.1f);
-
-            View smallItemText = itemView.findViewById(com.google.android.material.R.id.navigation_bar_item_small_label_view);
-            if (smallItemText instanceof TextView) {
-                TextView t = ((TextView) smallItemText);
-                t.setTypeface(typeface);
-                t.setTextSize(15);
-            }
-            View largeItemText = itemView.findViewById(com.google.android.material.R.id.navigation_bar_item_large_label_view);
-            if (largeItemText instanceof TextView) {
-                TextView t = ((TextView) largeItemText);
-                t.setTypeface(typeface);
-                t.setTextSize(17);
-            }
+            formatIconView(itemView);
+            formatTextView(itemView, com.google.android.material.R.id.navigation_bar_item_small_label_view, typeface, 15);
+            formatTextView(itemView, com.google.android.material.R.id.navigation_bar_item_large_label_view, typeface, 17);
         }
     }
 
+    /**
+     * Format the icon view of the bottom navigation item.
+     * @param itemView The BottomNavigationItemView to format.
+     */
+    private void formatIconView(BottomNavigationItemView itemView) {
+        ImageView iconView = itemView.findViewById(com.google.android.material.R.id.navigation_bar_item_icon_view);
+        iconView.setScaleX(1.1f);
+        iconView.setScaleY(1.1f);
+    }
 
+    /**
+     * Format the text view of the bottom navigation item.
+     * @param itemView The BottomNavigationItemView containing the text view.
+     * @param textId The ID of the TextView within the item view.
+     * @param typeface The Typeface to apply to the TextView.
+     * @param textSize The size of the text.
+     */
+    private void formatTextView(BottomNavigationItemView itemView, int textId, Typeface typeface, float textSize) {
+        View textView = itemView.findViewById(textId);
+        if (textView instanceof TextView) {
+            TextView text = (TextView) textView;
+            text.setTypeface(typeface);
+            text.setTextSize(textSize);
+        }
+    }
 }
+

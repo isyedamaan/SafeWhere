@@ -52,6 +52,7 @@ dependencies {
     // Google Play Services
     implementation 'com.google.android.gms:play-services-maps:18.2.0'      // Integrates Google Maps
     implementation 'com.google.android.gms:play-services-location:21.0.1'  // Accesses user location data
+    implementation 'com.google.maps.android:android-maps-utils:2.2.0'
 
     // Google Places API
     implementation 'com.google.android.libraries.places:places:3.3.0'  // Google Places for location search and place details
@@ -69,5 +70,6 @@ dependencies {
     // Email Functionality
     implementation 'com.sun.mail:android-mail:1.6.4'  // Allows sending emails within the app
 
-    implementation "androidx.work:work-runtime:2.9.0"  // Background tasks
+    implementation "androidx.work:work-runtime:2.9.0"
+    androidTestImplementation 'junit:junit:4.13.2'// Background tasks
 }

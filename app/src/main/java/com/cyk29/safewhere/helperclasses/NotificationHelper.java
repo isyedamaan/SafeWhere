@@ -1,4 +1,4 @@
-package com.cyk29.safewhere.notificationmodule;
+package com.cyk29.safewhere.helperclasses;
 
 import android.Manifest;
 import android.app.Activity;
@@ -24,8 +24,17 @@ import com.cyk29.safewhere.R;
 
 import java.util.Random;
 
+/**
+ * Helper class for managing notifications.
+ */
 public class NotificationHelper extends ContextWrapper {
     private static final String TAG = "NotificationHelper";
+
+    /**
+     * Constructs a new instance of {@link NotificationHelper}.
+     *
+     * @param base The base context.
+     */
     public NotificationHelper(Context base) {
         super(base);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -36,6 +45,9 @@ public class NotificationHelper extends ContextWrapper {
     private final String CHANNEL_NAME = "High priority channel";
     private final String CHANNEL_ID = "com.cyk29.safewhere" + CHANNEL_NAME;
 
+    /**
+     * Creates notification channels for Android O and above.
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createChannels() {
         NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
@@ -48,14 +60,22 @@ public class NotificationHelper extends ContextWrapper {
         manager.createNotificationChannel(notificationChannel);
     }
 
-    public void sendHighPriorityNotification(String title, String body, Class<? extends Activity> activityName) {
-
+    /**
+     * Sends a high priority notification.
+     *
+     * @param title The title of the notification.
+     * @param body The body of the notification.
+     * @param summary The summary of the notification.
+     * @param activityName The activity to open when the notification is clicked.
+     */
+    public void sendHighPriorityNotification(String title, String body, String summary, Class<? extends Activity> activityName) {
         Intent intent = new Intent(this, activityName);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 267, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(body)
+                .setSubText(summary)
                 .setSmallIcon(R.drawable.app_logo)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setStyle(new NotificationCompat.BigTextStyle().setSummaryText("summary").setBigContentTitle(title).bigText(body))
@@ -64,13 +84,12 @@ public class NotificationHelper extends ContextWrapper {
                 .build();
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "No Permission broooo", Toast.LENGTH_SHORT).show();
+            ToastHelper.make(this, "Notification permission not granted", Toast.LENGTH_SHORT);
             return;
         }
         NotificationManagerCompat.from(this).notify(new Random().nextInt(), notification);
         Log.d(TAG, "sendHighPriorityNotification: sent");
     }
-
 }
 
 

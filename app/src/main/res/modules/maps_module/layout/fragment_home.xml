@@ -13,11 +13,11 @@
         android:id="@+id/notifBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/image"
         android:elevation="10dp"
         android:src="@drawable/notif_icon"
-        android:contentDescription="@string/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -305,7 +305,7 @@
             android:paddingEnd="15dp"
             android:text="@string/your_location"
             android:textAlignment="gravity"
-            android:textColor="@color/black"
+            android:textColor="#73000000"
             android:textSize="18sp"
             tools:ignore="UseCompatTextViewDrawableXml" />
 
@@ -331,7 +331,7 @@
             android:paddingEnd="15dp"
             android:text="@string/choose_destination"
             android:textAlignment="gravity"
-            android:textColor="@color/black"
+            android:textColor="#73000000"
             android:textSize="18sp"
             tools:ignore="UseCompatTextViewDrawableXml" />
 

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cyk29.safewhere.R;
+import com.cyk29.safewhere.helperclasses.ToastHelper;
 import com.cyk29.safewhere.dataclasses.NotificationItem;
 import com.cyk29.safewhere.dataclasses.Report;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -33,17 +34,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * This class represents a BottomSheetDialogFragment used for making reports.
+ * It allows users to report various types of incidents and send notifications.
+ */
 public class MakeReportFragment extends BottomSheetDialogFragment {
     private String type = "";
-    public MakeReportFragment(){
-    }
-    public MakeReportFragment(String type){
-        this.type = type;
-    }
     private Button cancel, report;
     private TextView title, description;
     private EditText userDesc;
     private String userName, uid;
+    private Location currentLocation;
+
+    /**
+     * Default constructor for MakeReportFragment.
+     */
+    public MakeReportFragment(){}
+
+    /**
+     * Constructor for MakeReportFragment with a specified report type.
+     * @param type The type of report to be created.
+     */
+    public MakeReportFragment(String type){
+        this.type = type;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +75,17 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         return view;
     }
 
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        super.onDismiss(dialog);
+        ((ReportMainActivity) requireActivity()).clearDim();
+    }
+
+    /**
+     * Initializes UI components and assigns their references.
+     *
+     * @param view The view containing UI components.
+     */
     private void initializeUI(View view){
         cancel = view.findViewById(R.id.cancelReportBT);
         report = view.findViewById(R.id.reportBT);
@@ -69,6 +94,9 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         userDesc = view.findViewById(R.id.userDescriptionET);
     }
 
+    /**
+     * Sets up the user interface and attaches click listeners to buttons.
+     */
     private void setUI(){
         report.setOnClickListener(v -> {
             sendReport();
@@ -119,6 +147,9 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         }
     }
 
+    /**
+     * Sends a report to the Firebase Realtime Database.
+     */
     private void sendReport() {
         uid = FirebaseAuth.getInstance().getUid();
         String type = title.getText().toString();
@@ -127,7 +158,7 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         String latitude;
         String longitude;
         if(currentLocation == null){
-            Toast.makeText(getContext(), "Wait for location Data", Toast.LENGTH_SHORT).show();
+            ToastHelper.make(getContext(), "Wait for location Data", Toast.LENGTH_SHORT);
             getLastLocation();
             return;
         } else {
@@ -141,20 +172,23 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
             ref.child(reportID).setValue(report);
         }
         sendNotification(uid,date);
-        Toast.makeText(getContext(), "Report Sent", Toast.LENGTH_SHORT).show();
+        ToastHelper.make(getContext(), "Report Sent", Toast.LENGTH_SHORT);
     }
 
+    /**
+     * Formats a multi-line string by joining its lines into a single line.
+     *
+     * @param string The multi-line string to be formatted.
+     * @return A single-line formatted string.
+     */
     private String formatString(String string){
         String[] words = string.split("\n");
         return String.join(" ", words);
     }
 
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        super.onDismiss(dialog);
-        ((ReportMainActivity) requireActivity()).clearDim();
-    }
-
+    /**
+     * Retrieves the user's name from Firebase based on their UID.
+     */
     private void getUserName(){
         uid = FirebaseAuth.getInstance().getUid();
         DatabaseReference ref = null;
@@ -170,6 +204,12 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         }
     }
 
+    /**
+     * Sends a notification to the user after a report has been successfully sent.
+     *
+     * @param uid  The UID of the user receiving the notification.
+     * @param date The date of the report.
+     */
     private void sendNotification(String uid, String date){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users").child(uid).child("notifications");
         String notifID = ref.push().getKey();
@@ -179,6 +219,12 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         }
     }
 
+    /**
+     * Formats a date in milliseconds to a readable date string.
+     *
+     * @param dateInMillis The date in milliseconds to be formatted.
+     * @return A formatted date string.
+     */
     private String formatDate(String dateInMillis){
         long timeInMillis = Long.parseLong(dateInMillis);
         Date date = new Date(timeInMillis);
@@ -186,7 +232,10 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
         return dateFormat.format(date);
     }
 
-    private Location currentLocation;
+    /**
+     * Retrieves the last known location of the device.
+     * Requires location permissions.
+     */
     private void getLastLocation(){
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
