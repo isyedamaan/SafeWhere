@@ -33,6 +33,7 @@ public class FAQFragment extends Fragment {
     private InfoAdapter adapter;
     private List<InfoItem> faqInfoList = new ArrayList<>();
 
+    //Creating the fragment for the FAQ information
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_legal_info, container, false);
