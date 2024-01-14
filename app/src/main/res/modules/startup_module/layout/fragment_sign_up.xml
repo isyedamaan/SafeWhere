@@ -6,7 +6,7 @@
     android:background="@color/blue">
 
     <ImageButton
-        android:id="@+id/backBT"
+        android:id="@+id/signUp_back_IB"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:background="@color/blue"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/signUp_appName_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

@@ -69,9 +69,9 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textTitle = itemView.findViewById(R.id.textTitle);
-            textDescription = itemView.findViewById(R.id.textDescription);
-            textLink = itemView.findViewById(R.id.textLink);
+            textTitle = itemView.findViewById(R.id.info_item_title_TV);
+            textDescription = itemView.findViewById(R.id.info_item_description_TV);
+            textLink = itemView.findViewById(R.id.info_item_link_TV);
             layoutDetails = itemView.findViewById(R.id.layoutDetails);
             layoutDetails.setVisibility(View.GONE);
         }

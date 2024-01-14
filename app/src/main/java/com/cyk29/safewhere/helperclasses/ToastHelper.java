@@ -28,7 +28,7 @@ public class ToastHelper {
         LayoutInflater inflater = LayoutInflater.from(context);
         @SuppressLint("InflateParams")
         View layout = inflater.inflate(R.layout.custom_toast_layout, null);
-        TextView text = layout.findViewById(R.id.text);
+        TextView text = layout.findViewById(R.id.custom_toast_text);
         text.setText(message);
         Toast toast = new Toast(context);
         toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);

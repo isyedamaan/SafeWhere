@@ -36,7 +36,7 @@ public class SignUpTabFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button signupBtn = view.findViewById(R.id.signupBT);
+        Button signupBtn = view.findViewById(R.id.SU_signUp_Btn);
         signupBtn.setOnClickListener(v -> validateInputFields());
     }
 
@@ -47,9 +47,9 @@ public class SignUpTabFragment extends Fragment {
      * @param view The view associated with this fragment.
      */
     private void initializeUI(View view) {
-        emailET = view.findViewById(R.id.SUEmailET);
-        passwordET = view.findViewById(R.id.SUPasswordET);
-        confirmPasswordET = view.findViewById(R.id.SUConfirmPasswordET);
+        emailET = view.findViewById(R.id.SU_Email_ET);
+        passwordET = view.findViewById(R.id.SU_Password_ET);
+        confirmPasswordET = view.findViewById(R.id.SU_confirmPassword_ET);
     }
 
     /**

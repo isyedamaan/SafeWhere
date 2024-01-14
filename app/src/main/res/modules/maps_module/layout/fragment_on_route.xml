@@ -9,7 +9,7 @@
     tools:context=".mapmodule.DestinationSelectFragment">
 
     <LinearLayout
-        android:id="@+id/on_route_destLL"
+        android:id="@+id/onRoute_dest_LL"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="@+id/bgView">
 
         <TextView
-            android:id="@+id/on_route_startTV"
+            android:id="@+id/onRoute_start_TV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
             android:background="@color/grey" />
 
         <TextView
-            android:id="@+id/on_route_destinationTV"
+            android:id="@+id/onRoute_destination_TV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/endBtn"
+        android:id="@+id/onRoute_end_Btn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="@+id/bgView" />
 
     <ImageView
-        android:id="@+id/onRouteReportBtn"
+        android:id="@+id/onRoute_report_IV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -110,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/onRouteSOSBtn"
+        android:id="@+id/onRoute_sos_Btn"
         android:layout_width="105dp"
         android:layout_height="105dp"
         android:layout_marginEnd="10dp"

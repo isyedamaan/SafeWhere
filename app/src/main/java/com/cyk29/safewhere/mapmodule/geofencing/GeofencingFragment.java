@@ -84,24 +84,24 @@ public class GeofencingFragment extends Fragment {
      * @param view The root view of the fragment's layout.
      */
     private void initializeUI(View view) {
-        geoBackButton = view.findViewById(R.id.geoBackBT);
-        title = view.findViewById(R.id.geoActTitleTV);
+        geoBackButton = view.findViewById(R.id.geo_back_btn);
+        title = view.findViewById(R.id.geo_title_TV);
 
         registerLayout = view.findViewById(R.id.register_layout);
-        name = view.findViewById(R.id.nameET);
-        alertNumber = view.findViewById(R.id.alertNumberET);
-        alertEmail = view.findViewById(R.id.alertEmailET);
-        geoPin = view.findViewById(R.id.geoPassET);
+        name = view.findViewById(R.id.geo_name_ET);
+        alertNumber = view.findViewById(R.id.geo_alertNumber_ET);
+        alertEmail = view.findViewById(R.id.geo_alertEmail_ET);
+        geoPin = view.findViewById(R.id.geo_pass_ET);
 
         setupLayout = view.findViewById(R.id.setup_layout);
-        searchLayout = view.findViewById(R.id.searchCL);
-        radius = view.findViewById(R.id.radiusET);
+        searchLayout = view.findViewById(R.id.geo_search_CL);
+        radius = view.findViewById(R.id.geo_radius_ET);
 
         readyLayout = view.findViewById(R.id.ready_layout);
-        resetGeofencing = view.findViewById(R.id.resetGeofencingET);
-        resetGeoButton = view.findViewById(R.id.resetGeoBT);
+        resetGeofencing = view.findViewById(R.id.geo_reset_pass_ET);
+        resetGeoButton = view.findViewById(R.id.geo_reset_Btn);
 
-        mainGeoButton = view.findViewById(R.id.mainGeoBT);
+        mainGeoButton = view.findViewById(R.id.geo_main_Btn);
     }
 
     /**
@@ -127,7 +127,7 @@ public class GeofencingFragment extends Fragment {
      */
     private void setupAutocompleteFragment() {
         autocompleteFragment = (AutocompleteSupportFragment)
-                getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+                getChildFragmentManager().findFragmentById(R.id.geo_place_AC_Fragment);
         if (autocompleteFragment != null) {
             autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG));
 
@@ -236,7 +236,7 @@ public class GeofencingFragment extends Fragment {
         databaseReference.setValue(geofencingInfo);
         GeofencingOnFragment geofencingOnFragment = new GeofencingOnFragment(geofencingInfo);
         getParentFragmentManager().beginTransaction()
-                .replace(R.id.FCVHome, geofencingOnFragment)
+                .replace(R.id.maps_FCV, geofencingOnFragment)
                 .addToBackStack(null)
                 .commit();
     }

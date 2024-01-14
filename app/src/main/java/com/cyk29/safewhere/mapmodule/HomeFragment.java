@@ -40,13 +40,13 @@ public class HomeFragment extends Fragment {
      * @param view The root view of the fragment's layout, used to find each UI component.
      */
     private void initializeUI(View view){
-        startBtn = view.findViewById(R.id.chooseDestBtn);
-        sos = view.findViewById(R.id.mainSOSBtn);
-        infoBtn = view.findViewById(R.id.infoSlideBtn);
-        repBtn = view.findViewById(R.id.reportSlideBtn);
-        notificationsButton = view.findViewById(R.id.notifBtn);
-        geoBtn = view.findViewById(R.id.geoSlideBtn);
-        profile = view.findViewById(R.id.profileIVBtn);
+        startBtn = view.findViewById(R.id.home_chooseDest_Btn);
+        sos = view.findViewById(R.id.home_SOS_IV);
+        infoBtn = view.findViewById(R.id.home_info_Btn);
+        repBtn = view.findViewById(R.id.home_report_Btn);
+        notificationsButton = view.findViewById(R.id.home_notification_IV);
+        geoBtn = view.findViewById(R.id.home_geo_Btn);
+        profile = view.findViewById(R.id.home_profile_IV);
     }
 
     /**
@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
      */
     private void setUI(){
         startBtn.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
-                .replace(R.id.FCVHome, new DestinationSelectFragment())
+                .replace(R.id.maps_FCV, new DestinationSelectFragment())
                 .addToBackStack(null)
                 .commit());
         sos.setOnClickListener(v -> startActivity(new Intent(requireContext(), SosActivity.class)));
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         notificationsButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), NotificationMainActivity.class)));
         infoBtn.setOnClickListener(v -> startActivity(new Intent(requireContext(), MainInformationActivity.class)));
         geoBtn.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
-                .replace(R.id.FCVHome, new GeofencingFragment())
+                .replace(R.id.maps_FCV, new GeofencingFragment())
                 .addToBackStack(null)
                 .commit());
         profile.setOnClickListener(v -> startActivity(new Intent(requireContext(), ProfileMainActivity.class)));

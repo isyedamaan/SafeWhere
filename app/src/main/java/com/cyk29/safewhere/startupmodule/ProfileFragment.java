@@ -60,14 +60,14 @@ public class ProfileFragment extends Fragment {
      * @param view The view of the fragment.
      */
     private void initializeUI(View view) {
-        resetPass = view.findViewById(R.id.BTResetPassword);
-        logoutButton = view.findViewById(R.id.BTLogout);
-        editProfile = view.findViewById(R.id.BTEditProfile);
-        name = view.findViewById(R.id.ETName);
-        phone = view.findViewById(R.id.ETPhone);
-        ecName = view.findViewById(R.id.ET_EC_name);
-        ecPhone = view.findViewById(R.id.ET_EC_Phone);
-        ecEmail = view.findViewById(R.id.ET_EC_Email);
+        resetPass = view.findViewById(R.id.profile_resetPass_Btn);
+        logoutButton = view.findViewById(R.id.profile_logout_Btn);
+        editProfile = view.findViewById(R.id.profile_save_Btn);
+        name = view.findViewById(R.id.profile_name_ET);
+        phone = view.findViewById(R.id.profile_phone_ET);
+        ecName = view.findViewById(R.id.profile_ECName_ET);
+        ecPhone = view.findViewById(R.id.profile_ECPhone_ET);
+        ecEmail = view.findViewById(R.id.profile_ECEMail_ET);
 
         firstTime = requireActivity().getIntent().getBooleanExtra("firstTime", false);
     }
@@ -108,7 +108,7 @@ public class ProfileFragment extends Fragment {
      */
     private void setResetPassClickListener() {
         resetPass.setOnClickListener(v -> getParentFragmentManager().beginTransaction()
-                .replace(R.id.FCVProfile, new ResetPasswordFragment())
+                .replace(R.id.profile_FCV, new ResetPasswordFragment())
                 .addToBackStack(null)
                 .commit());
     }

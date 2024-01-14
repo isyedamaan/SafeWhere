@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/notificationCardView"
     android:layout_width="match_parent"
     android:layout_height="100dp"
@@ -17,19 +16,20 @@
         android:background="@color/maroon">
 
         <ImageView
-            android:id="@+id/notificationIV"
+            android:id="@+id/notification_icon_IV"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:contentDescription="@string/image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/dangerzone_icon" />
 
         <TextView
-            android:id="@+id/notificationMessageTV"
+            android:id="@+id/notification_message_TV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -41,17 +41,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/notificationIV"
+            app:layout_constraintStart_toEndOf="@+id/notification_icon_IV"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/notificationTimeTV"
+            android:id="@+id/notification_time_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/lexend"
-            android:text="5min"
+            android:text="@string/_5min"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

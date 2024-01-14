@@ -8,7 +8,7 @@
     tools:context=".startupmodule.StartupActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/NHFintro_signup"
+        android:id="@+id/intro_FCV"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

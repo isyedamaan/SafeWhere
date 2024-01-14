@@ -38,10 +38,10 @@ public class ResetPasswordFragment extends Fragment {
      * @param view The view associated with this fragment.
      */
     private void setupViews(View view) {
-        oldPass = view.findViewById(R.id.oldPassET);
-        newPass = view.findViewById(R.id.newPassET);
-        confPass = view.findViewById(R.id.reenterNewPassET);
-        Button reset = view.findViewById(R.id.BTResetPassword);
+        oldPass = view.findViewById(R.id.reset_old_ET);
+        newPass = view.findViewById(R.id.reset_new_ET);
+        confPass = view.findViewById(R.id.reset_reNew_ET);
+        Button reset = view.findViewById(R.id.profile_resetPass_Btn);
         reset.setOnClickListener(v -> handleResetButtonClick());
     }
 

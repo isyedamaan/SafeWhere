@@ -87,11 +87,11 @@ public class MakeReportFragment extends BottomSheetDialogFragment {
      * @param view The view containing UI components.
      */
     private void initializeUI(View view){
-        cancel = view.findViewById(R.id.cancelReportBT);
-        report = view.findViewById(R.id.reportBT);
-        title = view.findViewById(R.id.reportTitleFragTV);
-        description = view.findViewById(R.id.reportDescTV);
-        userDesc = view.findViewById(R.id.userDescriptionET);
+        cancel = view.findViewById(R.id.makeReport_cancel_Btn);
+        report = view.findViewById(R.id.makeReport_report_Btn);
+        title = view.findViewById(R.id.makeReport_title_TV);
+        description = view.findViewById(R.id.makeReport_desc_TV);
+        userDesc = view.findViewById(R.id.makeReport_userDesc_ET);
     }
 
     /**

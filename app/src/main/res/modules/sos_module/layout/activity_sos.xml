@@ -6,11 +6,11 @@
     android:background="@color/pink">
 
     <ImageButton
-        android:id="@+id/panic_modeIV"
+        android:id="@+id/sos_panicBG_IV"
         android:layout_width="357.74dp"
         android:layout_height="277.2dp"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toTopOf="@id/call_contactsIB"
+        app:layout_constraintBottom_toTopOf="@id/sos_callContacts_IB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/panic_mode" />
 
     <TextView
-        android:id="@+id/panicTV"
+        android:id="@+id/sos_panic_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
@@ -28,15 +28,15 @@
         android:text="@string/panic_mode"
         android:textColor="@color/white"
         android:textSize="37sp"
-        app:layout_constraintBottom_toTopOf="@+id/panicDescTV"
-        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
+        app:layout_constraintBottom_toTopOf="@+id/sos_panicDesc_TV"
+        app:layout_constraintEnd_toEndOf="@+id/sos_panicBG_IV"
         app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
-        app:layout_constraintTop_toTopOf="@+id/panic_modeIV"
+        app:layout_constraintStart_toStartOf="@+id/sos_panicBG_IV"
+        app:layout_constraintTop_toTopOf="@+id/sos_panicBG_IV"
         app:layout_constraintVertical_bias="0.878" />
 
     <TextView
-        android:id="@+id/panicDescTV"
+        android:id="@+id/sos_panicDesc_TV"
         android:layout_width="312dp"
         android:layout_height="78dp"
         android:layout_marginBottom="10dp"
@@ -44,25 +44,25 @@
         android:text="@string/tap_a_button_every_10_seconds_during_critical_situation_before_your_location_is_automatically_shared_to_emergency_services_and_contacts"
         android:textColor="#FBCFCF"
         android:textSize="14.98sp"
-        app:layout_constraintBottom_toBottomOf="@+id/panic_modeIV"
-        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
-        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
-        app:layout_constraintTop_toBottomOf="@+id/panicTV" />
+        app:layout_constraintBottom_toBottomOf="@+id/sos_panicBG_IV"
+        app:layout_constraintEnd_toEndOf="@+id/sos_panicBG_IV"
+        app:layout_constraintStart_toStartOf="@+id/sos_panicBG_IV"
+        app:layout_constraintTop_toBottomOf="@+id/sos_panic_TV" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/sos_panicLogo_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toTopOf="@+id/panicTV"
-        app:layout_constraintEnd_toEndOf="@+id/panic_modeIV"
+        app:layout_constraintBottom_toTopOf="@+id/sos_panic_TV"
+        app:layout_constraintEnd_toEndOf="@+id/sos_panicBG_IV"
         app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="@+id/panic_modeIV"
-        app:layout_constraintTop_toTopOf="@+id/panic_modeIV"
+        app:layout_constraintStart_toStartOf="@+id/sos_panicBG_IV"
+        app:layout_constraintTop_toTopOf="@+id/sos_panicBG_IV"
         app:srcCompat="@drawable/panic" />
 
     <ImageButton
-        android:id="@+id/call_contactsIB"
+        android:id="@+id/sos_callContacts_IB"
         android:layout_width="357.74dp"
         android:layout_height="118dp"
         android:background="@drawable/emergency_contact"
@@ -71,12 +71,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/panic_modeIV"
+        app:layout_constraintTop_toBottomOf="@+id/sos_panicBG_IV"
         app:layout_constraintVertical_bias="0.058" />
 
 
     <TextView
-        android:id="@+id/emergencyTV"
+        android:id="@+id/sos_callTitle_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -84,15 +84,15 @@
         android:text="@string/call_emergency_contact"
         android:textColor="@color/white"
         android:textSize="18.73sp"
-        app:layout_constraintBottom_toTopOf="@+id/emergency_desc_TV"
-        app:layout_constraintEnd_toEndOf="@id/call_contactsIB"
+        app:layout_constraintBottom_toTopOf="@+id/sos_callDesc_TV"
+        app:layout_constraintEnd_toEndOf="@id/sos_callContacts_IB"
         app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toStartOf="@id/call_contactsIB"
-        app:layout_constraintTop_toTopOf="@id/call_contactsIB"
+        app:layout_constraintStart_toStartOf="@id/sos_callContacts_IB"
+        app:layout_constraintTop_toTopOf="@id/sos_callContacts_IB"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/emergency_desc_TV"
+        android:id="@+id/sos_callDesc_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -100,20 +100,20 @@
         android:text="@string/initate_call"
         android:textColor="#ECB9C2"
         android:textSize="11.24sp"
-        app:layout_constraintBottom_toBottomOf="@id/call_contactsIB"
-        app:layout_constraintStart_toStartOf="@+id/emergencyTV"
-        app:layout_constraintTop_toBottomOf="@id/emergencyTV" />
+        app:layout_constraintBottom_toBottomOf="@id/sos_callContacts_IB"
+        app:layout_constraintStart_toStartOf="@+id/sos_callTitle_TV"
+        app:layout_constraintTop_toBottomOf="@id/sos_callTitle_TV" />
 
     <ImageView
-        android:id="@+id/callIV"
+        android:id="@+id/sos_callIcon_IV"
         android:layout_width="wrap_content"
         android:contentDescription="@string/image"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:scaleX="0.8"
         android:scaleY="0.8"
-        app:layout_constraintEnd_toEndOf="@id/call_contactsIB"
-        app:layout_constraintTop_toTopOf="@id/call_contactsIB"
+        app:layout_constraintEnd_toEndOf="@id/sos_callContacts_IB"
+        app:layout_constraintTop_toTopOf="@id/sos_callContacts_IB"
         app:srcCompat="@drawable/ic_phone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -121,11 +121,11 @@
         android:layout_width="357.74dp"
         android:layout_height="170.44dp"
         android:background="@drawable/emergency_services"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintBottom_toTopOf="@+id/sos_cancel_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/call_contactsIB"
+        app:layout_constraintTop_toBottomOf="@+id/sos_callContacts_IB"
         app:layout_constraintVertical_bias="0.405">
 
         <TextView
@@ -228,7 +228,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/cancelBT"
+        android:id="@+id/sos_cancel_BT"
         android:layout_width="176.06dp"
         android:layout_height="56.19dp"
         android:background="@drawable/button_sos"
@@ -242,7 +242,7 @@
         app:layout_constraintTop_toBottomOf="@id/emergency_services" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/panic_fragment_container"
+        android:id="@+id/sos_FCV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="100dp"

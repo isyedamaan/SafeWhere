@@ -45,7 +45,7 @@ public class IntroFragment extends Fragment {
      * @param view The fragment's root view.
      */
     private void initializeIntroButton(View view) {
-        ImageButton introButton = view.findViewById(R.id.introBT);
+        ImageButton introButton = view.findViewById(R.id.startup_next_Btn);
         introButton.setOnClickListener(v -> startStartupAnimations(view));
     }
 

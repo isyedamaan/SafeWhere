@@ -7,14 +7,14 @@
     tools:context=".informationmodule.MainInformationActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/FCVInfo"
+        android:id="@+id/info_FCV"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="-30dp"
         android:layout_marginBottom="-8dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/infoBottomNavBar"
+        app:layout_constraintBottom_toTopOf="@+id/info_bottom_nav_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/info_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend"
@@ -44,16 +44,17 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <ImageView
-        android:id="@+id/backInfoBT"
+        android:id="@+id/info_back_Btn"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:srcCompat="@drawable/back_white" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/infoBottomNavBar"
+        android:id="@+id/info_bottom_nav_bar"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/bottom_background"

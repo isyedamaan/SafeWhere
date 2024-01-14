@@ -103,20 +103,20 @@ public class HotSpotFragment extends BottomSheetDialogFragment {
      * @param view The view of the fragment.
      */
     private void initializeUI(View view) {
-        dangerDescription = view.findViewById(R.id.hotspot_danger_description);
-        userDescription = view.findViewById(R.id.hotspot_user_description);
-        upVotes = view.findViewById(R.id.hotspot_upvotes);
-        downVotes = view.findViewById(R.id.hotspot_downvotes);
+        dangerDescription = view.findViewById(R.id.hotspot_dangerDescription_TV);
+        userDescription = view.findViewById(R.id.hotspot_userDescription_TV);
+        upVotes = view.findViewById(R.id.hotspot_upvotes_TV);
+        downVotes = view.findViewById(R.id.hotspot_downvotes_TV);
 
-        ImageView upVoteButton = view.findViewById(R.id.hotspot_upvoteIV);
+        ImageView upVoteButton = view.findViewById(R.id.hotspot_upvote_IV);
         upVotes.setText(String.valueOf(report.getUpVotes()));
         upVoteButton.setOnClickListener(v -> updateVoteCount(upVotes, !upVoted));
 
-        ImageView downVoteButton = view.findViewById(R.id.hotspot_downvoteIV);
+        ImageView downVoteButton = view.findViewById(R.id.hotspot_downvote_IV);
         downVotes.setText(String.valueOf(report.getDownVotes()));
         downVoteButton.setOnClickListener(v -> updateVoteCount(downVotes, !downVoted));
 
-        ImageView topLine = view.findViewById(R.id.hotspot_topline);
+        ImageView topLine = view.findViewById(R.id.hotspot_topline_IV);
         topLine.setOnClickListener(v -> dismiss());
     }
 

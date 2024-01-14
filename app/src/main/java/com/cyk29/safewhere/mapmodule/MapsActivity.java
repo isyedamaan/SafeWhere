@@ -112,7 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * Sets up the back button for navigation.
      */
     private void setupBackButton() {
-        backBtn = findViewById(R.id.backBtn);
+        backBtn = findViewById(R.id.maps_back_Btn);
         backBtn.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 

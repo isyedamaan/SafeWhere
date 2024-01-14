@@ -17,137 +17,142 @@
         tools:layout_editor_absoluteY="100dp">
 
         <ImageView
-            android:id="@+id/profilepicIV"
+            android:id="@+id/profile_icon_IV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:layout_marginBottom="20dp"
+            android:contentDescription="@string/image"
             app:srcCompat="@drawable/img_1" />
 
         <EditText
-            android:id="@+id/ETName"
+            android:id="@+id/profile_name_ET"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
+            android:autofillHints="name"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/ETPhone"
+            android:id="@+id/profile_phone_ET"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Phone"
-            android:inputType="number"
+            android:hint="@string/phone"
+            android:inputType="phone"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
+            android:autofillHints="phone"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/ET_EC_name"
+            android:id="@+id/profile_ECName_ET"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Emergency Contact Name"
+            android:hint="@string/emergency_contact_name"
             android:inputType="text"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
+            android:autofillHints="name"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/ET_EC_Phone"
+            android:id="@+id/profile_ECPhone_ET"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Emergency Contact Phone"
-            android:inputType="text"
+            android:hint="@string/emergency_contact_phone"
+            android:inputType="phone"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
+            android:autofillHints="phone"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/ET_EC_Email"
+            android:id="@+id/profile_ECEMail_ET"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/text_shape"
             android:ems="10"
             android:fontFamily="@font/lexend"
-            android:hint="Emergency Contact Email"
-            android:inputType="text"
+            android:hint="@string/emergency_contact_email"
+            android:inputType="text|textEmailAddress"
             android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/blue"
             android:textColorHint="#A6B7FF"
             android:textSize="18sp"
+            android:autofillHints="emailAddress"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/BTEditProfile"
+            android:id="@+id/profile_save_Btn"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/pink_button"
             android:fontFamily="@font/lexend_bold"
-            android:text="Edit Profile"
+            android:text="@string/save_profile"
             android:textAllCaps="false"
             android:textColor="@color/blue"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         <Button
-            android:id="@+id/BTResetPassword"
+            android:id="@+id/profile_resetPass_Btn"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/pink_button"
             android:fontFamily="@font/lexend_bold"
-            android:text="Reset Password"
+            android:text="@string/reset_pass"
             android:textAllCaps="false"
             android:textColor="@color/blue"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/BTLogout"
+            android:id="@+id/profile_logout_Btn"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/red_button"
             android:fontFamily="@font/lexend_bold"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
 
     </LinearLayout>
 

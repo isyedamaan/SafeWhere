@@ -6,7 +6,7 @@
     android:background="@color/pink">
 
     <Button
-        android:id="@+id/cancelBT"
+        android:id="@+id/panic_cancel_BT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="117dp"
@@ -20,14 +20,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descPanicCountdownTV" />
+        app:layout_constraintTop_toBottomOf="@id/panic_desc_TV" />
 
     <ImageView
         android:id="@+id/panic_countdown_bg"
         android:layout_width="280.18dp"
         android:layout_height="280.18dp"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintBottom_toTopOf="@+id/panic_cancel_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,14 +38,14 @@
         android:layout_width="256.83dp"
         android:layout_height="256.83dp"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintBottom_toTopOf="@+id/panic_cancel_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/panic_mode_countdown" />
 
     <TextView
-        android:id="@+id/descPanicCountdownTV"
+        android:id="@+id/panic_desc_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -57,13 +57,13 @@
         android:text="@string/you_are_currently_in_panic_mode_tap_the_button_every_10_seconds"
         android:textColor="@color/red"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintBottom_toTopOf="@+id/panic_cancel_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/panic_countdown_bg" />
 
     <TextView
-        android:id="@+id/countdown"
+        android:id="@+id/panic_countdown_TV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="50dp"
@@ -81,12 +81,12 @@
         app:layout_constraintTop_toTopOf="@+id/panic_countdown" />
 
     <ImageView
-        android:id="@+id/panicContinueIV"
+        android:id="@+id/panic_continue_IV"
         android:layout_width="256.83dp"
         android:layout_height="256.83dp"
         android:alpha="0"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBT"
+        app:layout_constraintBottom_toTopOf="@+id/panic_cancel_BT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

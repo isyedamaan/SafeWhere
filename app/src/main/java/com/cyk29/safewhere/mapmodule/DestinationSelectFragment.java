@@ -54,7 +54,7 @@ public class DestinationSelectFragment extends Fragment {
      */
     private void setupAutocompleteFragment() {
         autocompleteFragment = (AutocompleteSupportFragment)
-                getChildFragmentManager().findFragmentById(R.id.home_autocomplete_fragment);
+                getChildFragmentManager().findFragmentById(R.id.destinationselect_AC_Fragment);
 
         if (autocompleteFragment != null) {
             autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID,
@@ -130,7 +130,7 @@ public class DestinationSelectFragment extends Fragment {
      * @param view The parent view of the fragment.
      */
     private void setupStartButton(View view) {
-        Button startBtn = view.findViewById(R.id.startBtn);
+        Button startBtn = view.findViewById(R.id.destselect_start_btn);
         startBtn.setOnClickListener(v -> startNavigation());
     }
 
@@ -140,7 +140,7 @@ public class DestinationSelectFragment extends Fragment {
     private void startNavigation() {
         if (latLng != null && placeName != null) {
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.FCVHome, new OnRouteFragment(latLng, placeName)).commit();
+                    .replace(R.id.maps_FCV, new OnRouteFragment(latLng, placeName)).commit();
         }
     }
 }

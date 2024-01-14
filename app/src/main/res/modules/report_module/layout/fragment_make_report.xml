@@ -18,7 +18,7 @@
 
 
         <TextView
-            android:id="@+id/reportTitleFragTV"
+            android:id="@+id/makeReport_title_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -36,36 +36,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:contentDescription="@string/image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/line" />
 
         <Button
-            android:id="@+id/reportBT"
+            android:id="@+id/makeReport_report_Btn"
             android:layout_width="175.58dp"
             android:layout_height="52.13dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button_report"
             android:fontFamily="@font/lexend_bold"
-            android:text="Report"
+            android:text="@string/Report_btn"
             android:textAllCaps="false"
             android:textColor="@color/blue"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cancelReportBT" />
+            app:layout_constraintStart_toEndOf="@+id/makeReport_cancel_Btn" />
 
         <Button
-            android:id="@+id/cancelReportBT"
+            android:id="@+id/makeReport_cancel_Btn"
             android:layout_width="175.58dp"
             android:layout_height="52.13dp"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button_report_cancel"
             android:fontFamily="@font/lexend_bold"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -75,7 +76,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/reportDescTV"
+            android:id="@+id/makeReport_desc_TV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -88,10 +89,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reportTitleFragTV" />
+            app:layout_constraintTop_toBottomOf="@+id/makeReport_title_TV" />
 
         <EditText
-            android:id="@+id/userDescriptionET"
+            android:id="@+id/makeReport_userDesc_ET"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -107,11 +108,12 @@
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/cancelReportBT"
+            android:autofillHints=""
+            app:layout_constraintBottom_toTopOf="@+id/makeReport_cancel_Btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reportDescTV" />
+            app:layout_constraintTop_toBottomOf="@+id/makeReport_desc_TV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

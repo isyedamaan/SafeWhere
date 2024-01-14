@@ -8,7 +8,7 @@
     tools:context=".notificationmodule.NotificationMainActivity" >
 
     <View
-        android:id="@+id/topBarView"
+        android:id="@+id/notif_topBar_view"
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:background="@drawable/rounded_rect_bottom"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/notifTitleTV"
+        android:id="@+id/notif_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend"
@@ -27,40 +27,41 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/topBarView"
-        app:layout_constraintEnd_toEndOf="@+id/topBarView"
+        app:layout_constraintBottom_toBottomOf="@+id/notif_topBar_view"
+        app:layout_constraintEnd_toEndOf="@+id/notif_topBar_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topBarView" />
+        app:layout_constraintTop_toTopOf="@+id/notif_topBar_view" />
 
     <ImageView
-        android:id="@+id/backNotifBT"
+        android:id="@+id/notif_back_Btn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/topBarView"
+        android:contentDescription="@string/image"
+        app:layout_constraintBottom_toBottomOf="@+id/notif_topBar_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_white" />
 
     <Spinner
-        android:id="@+id/filterSpinner"
+        android:id="@+id/notfi_filter_Spinner"
         android:layout_width="36dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/settings_icon"
         android:textAlignment="viewEnd"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/topBarView"
-        app:layout_constraintEnd_toEndOf="@+id/topBarView"
-        app:layout_constraintTop_toTopOf="@+id/topBarView"
+        app:layout_constraintBottom_toBottomOf="@+id/notif_topBar_view"
+        app:layout_constraintEnd_toEndOf="@+id/notif_topBar_view"
+        app:layout_constraintTop_toTopOf="@+id/notif_topBar_view"
         app:layout_constraintVertical_bias="0.75" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notificationRV"
+        android:id="@+id/notif_RV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBarView" />
+        app:layout_constraintTop_toBottomOf="@+id/notif_topBar_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -115,4 +115,26 @@
     <string name="disable_geofencing">Disable Geofencing</string>
     <string name="toast_message">Toast Message</string>
     <string name="complete_profile">Complete Profile</string>
+    <string name="title">Title</string>
+    <string name="zero">0</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="reset_pass">Reset Password</string>
+    <string name="logout">Logout</string>
+    <string name="emergency_contact_email">Emergency Contact Email</string>
+    <string name="emergency_contact_phone">Emergency Contact Phone</string>
+    <string name="emergency_contact_name">Emergency Contact Name</string>
+    <string name="phone">Phone</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="reset">Reset</string>
+    <string name="_5min">5min</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="desc">desc</string>
+    <string name="link">link</string>
+    <string name="random_user_dec">User Description:\nreport description</string>
 </resources>

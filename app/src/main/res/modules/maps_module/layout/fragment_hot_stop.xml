@@ -19,10 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/hotspot_topline"
+        android:id="@+id/hotspot_topline_IV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:contentDescription="@string/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,11 +40,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hotspot_title"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_title_TV"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/hotspot_title"
+        android:id="@+id/hotspot_title_TV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -62,10 +63,11 @@
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        tools:ignore="UseCompatTextViewDrawableXml" />
 
     <TextView
-        android:id="@+id/hotspot_danger_description"
+        android:id="@+id/hotspot_dangerDescription_TV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -80,37 +82,37 @@
         app:layout_constraintTop_toTopOf="@+id/view6" />
 
     <TextView
-        android:id="@+id/hotspot_upvotes"
+        android:id="@+id/hotspot_upvotes_TV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/lexend"
         android:gravity="center_horizontal"
-        android:text="0"
+        android:text="@string/zero"
         android:textColor="#34A753"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/hotspot_upvoteIV"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_upvote_IV"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/hotspot_upvoteIV"
-        app:layout_constraintTop_toBottomOf="@+id/hotspot_upvoteIV" />
+        app:layout_constraintStart_toStartOf="@+id/hotspot_upvote_IV"
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_upvote_IV" />
 
     <TextView
-        android:id="@+id/hotspot_downvotes"
+        android:id="@+id/hotspot_downvotes_TV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend"
         android:gravity="center_horizontal"
-        android:text="0"
+        android:text="@string/zero"
         android:textColor="#B31616"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvotes"
-        app:layout_constraintEnd_toEndOf="@+id/hotspot_downvoteIV"
-        app:layout_constraintStart_toStartOf="@+id/hotspot_downvoteIV"
-        app:layout_constraintTop_toTopOf="@+id/hotspot_upvotes" />
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvotes_TV"
+        app:layout_constraintEnd_toEndOf="@+id/hotspot_downvote_IV"
+        app:layout_constraintStart_toStartOf="@+id/hotspot_downvote_IV"
+        app:layout_constraintTop_toTopOf="@+id/hotspot_upvotes_TV" />
 
     <TextView
-        android:id="@+id/hotspot_user_description"
+        android:id="@+id/hotspot_userDescription_TV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -121,16 +123,16 @@
         android:padding="10dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:text="User Description:\nyabababahdbashd\nrsfsfsfsfs\ndsadsda\ndasds\n\n\nffe"
+        android:text="@string/random_user_dec"
         android:textColor="#4B4B4B"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/view6"
-        app:layout_constraintTop_toBottomOf="@+id/hotspot_danger_description" />
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_dangerDescription_TV" />
 
     <ImageView
-        android:id="@+id/hotspot_upvoteIV"
+        android:id="@+id/hotspot_upvote_IV"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:src="@drawable/upvote"
@@ -138,18 +140,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hotspot_user_description"
-        app:layout_constraintVertical_bias="0.3"/>
+        app:layout_constraintTop_toBottomOf="@+id/hotspot_userDescription_TV"
+        app:layout_constraintVertical_bias="0.3"
+        android:contentDescription="@string/image"/>
 
     <ImageView
-        android:id="@+id/hotspot_downvoteIV"
+        android:id="@+id/hotspot_downvote_IV"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:src="@drawable/downvote"
-        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvoteIV"
+        app:layout_constraintBottom_toBottomOf="@+id/hotspot_upvote_IV"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintHorizontal_bias=".6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hotspot_upvoteIV"/>
+        app:layout_constraintTop_toTopOf="@+id/hotspot_upvote_IV"
+        android:contentDescription="@string/image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

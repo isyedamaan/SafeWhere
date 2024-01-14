@@ -10,7 +10,7 @@
     tools:context=".mapmodule.HomeFragment">
 
     <ImageView
-        android:id="@+id/notifBtn"
+        android:id="@+id/home_notification_IV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/mainSOSBtn"
+        android:id="@+id/home_SOS_IV"
         android:layout_width="105dp"
         android:layout_height="105dp"
         android:layout_marginEnd="16dp"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/profileIVBtn"
+        android:id="@+id/home_profile_IV"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="10dp"
@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
-        android:id="@+id/HCVbtns"
+        android:id="@+id/home_HCV"
         android:layout_width="0dp"
         android:layout_height="170dp"
         android:layout_marginTop="20dp"
@@ -80,11 +80,11 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/reportSlideBtn"
+                    android:id="@+id/home_report_Btn"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/rounded_rect"
-                    android:text=""
+                    android:text="@string/image"
                     android:textColor="#00FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
-                    android:id="@+id/reportBtn"
+                    android:id="@+id/home_reportBG_View"
                     android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -102,7 +102,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/home_reportIcon_IV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -110,10 +110,10 @@
                     android:contentDescription="@string/report_icon"
                     android:src="@drawable/report_icon"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/reportBtn" />
+                    app:layout_constraintTop_toTopOf="@+id/home_reportBG_View" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/home_reportText_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -125,7 +125,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/home_report_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -134,7 +134,7 @@
                     android:text="@string/Report_btn"
                     android:textColor="@color/pink"
                     android:textSize="22sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView"
+                    app:layout_constraintBottom_toTopOf="@+id/home_reportText_TV"
                     app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -145,11 +145,11 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/geoSlideBtn"
+                    android:id="@+id/home_geo_Btn"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@drawable/rounded_rect"
-                    android:text=""
+                    android:text="@string/image"
                     android:textColor="#00FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +157,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
-                    android:id="@+id/GeoBtn"
+                    android:id="@+id/home_geoBG_View"
                     android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -167,7 +167,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/profileIV"
+                    android:id="@+id/home_geoIcon_IV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -178,7 +178,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/home_geoText_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -190,7 +190,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/home_geo_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -199,7 +199,7 @@
                     android:text="@string/geofencing_btn"
                     android:textColor="@color/white"
                     android:textSize="22sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView3"
+                    app:layout_constraintBottom_toTopOf="@+id/home_geoText_TV"
                     app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -209,8 +209,20 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
+                <Button
+                    android:id="@+id/home_info_Btn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/rounded_rect"
+                    android:text=""
+                    android:textColor="#00FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <View
-                    android:id="@+id/InfoBtnView"
+                    android:id="@+id/home_infoBG_View"
                     android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
@@ -222,7 +234,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/home_infoIcon_IV"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -233,7 +245,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/home_infoText_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -245,7 +257,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/home_info_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -254,20 +266,8 @@
                     android:text="@string/information"
                     android:textColor="@color/black"
                     android:textSize="22sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView5"
+                    app:layout_constraintBottom_toTopOf="@+id/home_infoText_TV"
                     app:layout_constraintStart_toStartOf="parent" />
-
-                <Button
-                    android:id="@+id/infoSlideBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/rounded_rect"
-                    android:text=""
-                    android:textColor="#00FFFFFF"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -291,7 +291,7 @@
         app:layout_constraintTop_toTopOf="@+id/bgView">
 
         <TextView
-            android:id="@+id/home_startLocationTV"
+            android:id="@+id/home_startLocation_TV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -317,7 +317,7 @@
             android:background="@color/grey" />
 
         <TextView
-            android:id="@+id/home_destinationTV"
+            android:id="@+id/home_destination_TV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -338,7 +338,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/chooseDestBtn"
+        android:id="@+id/home_chooseDest_Btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/rounded_rect"

@@ -58,16 +58,16 @@ public class SosActivity extends AppCompatActivity {
      * Initializes the user interface components and sets click listeners for buttons.
      */
     private void initializeUI(){
-        Button cancel = findViewById(R.id.cancelBT);
+        Button cancel = findViewById(R.id.sos_cancel_BT);
         cancel.setOnClickListener(v -> finish());
 
-        ImageView panic = findViewById(R.id.panic_modeIV);
+        ImageView panic = findViewById(R.id.sos_panicBG_IV);
         panic.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
-                .replace(R.id.panic_fragment_container, new PanicModeFragment())
+                .replace(R.id.sos_FCV, new PanicModeFragment())
                 .addToBackStack(null)
                 .commit());
 
-        ImageButton callContacts = findViewById(R.id.call_contactsIB);
+        ImageButton callContacts = findViewById(R.id.sos_callContacts_IB);
         callContacts.setOnClickListener(v -> call(currentUser.getEcPhone()));
 
         ImageButton ambulance = findViewById(R.id.AmbulanceBT);

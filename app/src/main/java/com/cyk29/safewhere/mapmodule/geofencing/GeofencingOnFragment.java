@@ -94,11 +94,11 @@ public class GeofencingOnFragment extends Fragment {
      * Initializes the UI components and sets up event listeners.
      */
     private void initializeUI(View view) {
-        TextView geoLocation = view.findViewById(R.id.geoLocationTV);
-        TextView geoMsg = view.findViewById(R.id.msgGeoTV);
-        geoPass = view.findViewById(R.id.geoDisablePasswordET);
-        disable = view.findViewById(R.id.disableGeoBtn);
-        ImageView backBtn = view.findViewById(R.id.backBT5);
+        TextView geoLocation = view.findViewById(R.id.geoOn_location_TV);
+        TextView geoMsg = view.findViewById(R.id.geoOn_msg_TV);
+        geoPass = view.findViewById(R.id.geoOn_disablePass_ET);
+        disable = view.findViewById(R.id.geoOn_disable_Btn);
+        ImageView backBtn = view.findViewById(R.id.geoOn_back_IV);
         geoLocation.setText(geofencingInfo.getPlaceName());
         geoMsg.setText(String.format(Locale.getDefault(), "%s%d%s",
                 getString(R.string.stay_within),
@@ -154,7 +154,7 @@ public class GeofencingOnFragment extends Fragment {
      */
     private void transitionToHomeFragment() {
         getParentFragmentManager().beginTransaction()
-                .replace(R.id.FCVHome, new HomeFragment())
+                .replace(R.id.maps_FCV, new HomeFragment())
                 .addToBackStack(null)
                 .commit();
     }

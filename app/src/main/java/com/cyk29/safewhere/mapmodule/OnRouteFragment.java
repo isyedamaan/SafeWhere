@@ -74,16 +74,16 @@ public class OnRouteFragment extends Fragment {
      * @param view The view inflated for the fragment.
      */
     private void initializeUI(View view) {
-        TextView destinationTV = view.findViewById(R.id.on_route_destinationTV);
+        TextView destinationTV = view.findViewById(R.id.onRoute_destination_TV);
         destinationTV.setText(placeName);
-        Button endBtn = view.findViewById(R.id.endBtn);
+        Button endBtn = view.findViewById(R.id.onRoute_end_Btn);
         endBtn.setOnClickListener(v -> {
             requireActivity().finish();
             startActivity(requireActivity().getIntent());
         });
-        ImageView report = view.findViewById(R.id.onRouteReportBtn);
+        ImageView report = view.findViewById(R.id.onRoute_report_IV);
         report.setOnClickListener(v -> startActivity(new Intent(requireActivity(), ReportMainActivity.class)));
-        ImageView sos = view.findViewById(R.id.onRouteSOSBtn);
+        ImageView sos = view.findViewById(R.id.onRoute_sos_Btn);
         sos.setOnClickListener(v -> startActivity(new Intent(requireActivity(), SosActivity.class)));
     }
 

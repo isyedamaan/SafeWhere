@@ -37,10 +37,10 @@ public class MainInformationActivity extends AppCompatActivity {
      * Initialize UI components and set up navigation.
      */
     private void initializeUI() {
-        ImageView btnBack = findViewById(R.id.backInfoBT);
+        ImageView btnBack = findViewById(R.id.info_back_Btn);
         btnBack.setOnClickListener(v -> finish());
 
-        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.FCVInfo);
+        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.info_FCV);
         NavController navController = Objects.requireNonNull(host).getNavController();
 
         setupBottomNavMenu(navController);
@@ -52,7 +52,7 @@ public class MainInformationActivity extends AppCompatActivity {
      * @param navController The NavController for the activity.
      */
     private void setupBottomNavMenu(NavController navController) {
-        bottomNavigationView = findViewById(R.id.infoBottomNavBar);
+        bottomNavigationView = findViewById(R.id.info_bottom_nav_bar);
         NavigationUI.setupWithNavController(MainInformationActivity.this.bottomNavigationView, navController);
     }
 

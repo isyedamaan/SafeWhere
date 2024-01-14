@@ -7,18 +7,18 @@
     android:background="@color/blue">
 
     <ImageView
-        android:id="@+id/geoBackBT"
+        android:id="@+id/geo_back_btn"
         android:layout_width="52.46dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:src="@drawable/back_white3"
         android:contentDescription="@string/image"
-        app:layout_constraintBottom_toBottomOf="@+id/geoActTitleTV"
+        app:layout_constraintBottom_toBottomOf="@+id/geo_title_TV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/geoActTitleTV" />
+        app:layout_constraintTop_toTopOf="@+id/geo_title_TV" />
 
     <TextView
-        android:id="@+id/geoActTitleTV"
+        android:id="@+id/geo_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -40,10 +40,10 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/geoActTitleTV">
+        app:layout_constraintTop_toBottomOf="@+id/geo_title_TV">
 
         <TextView
-            android:id="@+id/registerGeoTV"
+            android:id="@+id/geo_register_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -53,7 +53,7 @@
             android:textSize="19sp" />
 
         <EditText
-            android:id="@+id/nameET"
+            android:id="@+id/geo_name_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -70,7 +70,7 @@
             android:autofillHints="name"/>
 
         <EditText
-            android:id="@+id/alertNumberET"
+            android:id="@+id/geo_alertNumber_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -87,7 +87,7 @@
             android:autofillHints="phone"/>
 
         <EditText
-            android:id="@+id/alertEmailET"
+            android:id="@+id/geo_alertEmail_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -104,7 +104,7 @@
             android:autofillHints="emailAddress"/>
 
         <EditText
-            android:id="@+id/geoPassET"
+            android:id="@+id/geo_pass_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -131,16 +131,16 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/geoActTitleTV">
+        app:layout_constraintTop_toBottomOf="@+id/geo_title_TV">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/searchCL"
+            android:id="@+id/geo_search_CL"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:elevation="2dp">
 
             <View
-                android:id="@+id/selectLocationBG"
+                android:id="@+id/geo_select_locationBG"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="30dp"
@@ -152,18 +152,18 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <fragment
-                android:id="@+id/autocomplete_fragment"
+                android:id="@+id/geo_place_AC_Fragment"
                 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/selectLocationBG"
-                app:layout_constraintEnd_toEndOf="@+id/selectLocationBG"
+                app:layout_constraintBottom_toBottomOf="@+id/geo_select_locationBG"
+                app:layout_constraintEnd_toEndOf="@+id/geo_select_locationBG"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/selectLocationBG"
-                app:layout_constraintTop_toTopOf="@+id/selectLocationBG"
+                app:layout_constraintStart_toStartOf="@+id/geo_select_locationBG"
+                app:layout_constraintTop_toTopOf="@+id/geo_select_locationBG"
                 tools:ignore="FragmentTagUsage">
 
             </fragment>
@@ -172,7 +172,7 @@
 
 
         <EditText
-            android:id="@+id/radiusET"
+            android:id="@+id/geo_radius_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -196,13 +196,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/mainGeoBT"
+        app:layout_constraintBottom_toTopOf="@+id/geo_main_Btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/geoActTitleTV">
+        app:layout_constraintTop_toBottomOf="@+id/geo_title_TV">
 
         <EditText
-            android:id="@+id/resetGeofencingET"
+            android:id="@+id/geo_reset_pass_ET"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
@@ -216,7 +216,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/brightest_blue"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/resetGeoBT"
+            app:layout_constraintBottom_toTopOf="@+id/geo_reset_Btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -232,10 +232,10 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/geofence_configured" />
+            android:src="@drawable/geofence_configured"/>
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/geo_registered_msg_TV"
             android:layout_width="336dp"
             android:layout_height="47dp"
             android:layout_marginTop="15dp"
@@ -251,7 +251,7 @@
             app:layout_editor_absoluteX="56.17dp" />
 
         <Button
-            android:id="@+id/resetGeoBT"
+            android:id="@+id/geo_reset_Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -270,7 +270,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/mainGeoBT"
+        android:id="@+id/geo_main_Btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -289,7 +289,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcv_geofencing"
+        android:id="@+id/geo_FCV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

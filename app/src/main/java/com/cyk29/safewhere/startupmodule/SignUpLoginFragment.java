@@ -36,7 +36,7 @@ public class SignUpLoginFragment extends Fragment{
      * @param view The view associated with this fragment.
      */
     private void setupBackButton(View view) {
-        ImageButton BtnBack = view.findViewById(R.id.backBT);
+        ImageButton BtnBack = view.findViewById(R.id.signUp_back_IB);
         BtnBack.setOnClickListener(v -> navigateToIntroScreen());
     }
 

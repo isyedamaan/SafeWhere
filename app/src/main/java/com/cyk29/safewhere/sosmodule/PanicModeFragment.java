@@ -44,9 +44,9 @@ public class PanicModeFragment extends Fragment {
      * @param view The view containing UI components.
      */
     private void initializeUI(View view){
-        countdownTextView = view.findViewById(R.id.countdown);
-        continueButton = view.findViewById(R.id.panicContinueIV);
-        cancel = view.findViewById(R.id.cancelBT);
+        countdownTextView = view.findViewById(R.id.panic_countdown_TV);
+        continueButton = view.findViewById(R.id.panic_continue_IV);
+        cancel = view.findViewById(R.id.sos_cancel_BT);
     }
 
     /**

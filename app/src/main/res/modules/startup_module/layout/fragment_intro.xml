@@ -30,20 +30,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/inter" />
 
-    <ImageView
-        android:id="@+id/introIV"
-        android:layout_width="300dp"
-        android:layout_height="243dp"
-        android:visibility="gone"
-        android:contentDescription="@string/image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151"
-        app:srcCompat="@drawable/intro" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/startup_intro_cl"
         android:layout_width="0dp"
@@ -55,7 +41,7 @@
         app:layout_constraintVertical_bias="0.57">
 
         <TextView
-            android:id="@+id/descTV"
+            android:id="@+id/startup_desc_TV"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="38dp"
@@ -64,10 +50,10 @@
             android:textColor="@color/blue"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeTV" />
+            app:layout_constraintTop_toBottomOf="@+id/startup_welcome_TV" />
 
         <TextView
-            android:id="@+id/welcomeTV"
+            android:id="@+id/startup_welcome_TV"
             android:layout_width="300dp"
             android:layout_height="113dp"
             android:layout_marginStart="35dp"
@@ -79,7 +65,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/introBT"
+            android:id="@+id/startup_next_Btn"
             android:layout_width="76dp"
             android:layout_height="76dp"
             android:layout_marginTop="60dp"
@@ -88,7 +74,7 @@
             android:contentDescription="@string/image"
             android:src="@drawable/arrow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descTV" />
+            app:layout_constraintTop_toBottomOf="@+id/startup_desc_TV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -35,8 +35,8 @@ public class LoginTabFragment extends Fragment {
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        emailET = view.findViewById(R.id.loginEmailET);
-        passwordET = view.findViewById(R.id.loginPasswordET);
+        emailET = view.findViewById(R.id.loginTab_email_ET);
+        passwordET = view.findViewById(R.id.loginTab_password_ET);
         setUpForgotPassword(view);
         setUpRememberMe(view);
         setUpLoginButton(view);
@@ -48,7 +48,7 @@ public class LoginTabFragment extends Fragment {
      * @param view The fragment's root view.
      */
     private void setUpForgotPassword(View view) {
-        forgotPassTV = view.findViewById(R.id.ForgotPassTV);
+        forgotPassTV = view.findViewById(R.id.loginTab_forgotPass_TV);
         handler = new Handler();
         forgotPassTV.setOnClickListener(v -> handleForgotPasswordClick());
     }
@@ -85,7 +85,7 @@ public class LoginTabFragment extends Fragment {
     }
 
     private void setUpRememberMe(View view) {
-        radioButton = view.findViewById(R.id.radioBT);
+        radioButton = view.findViewById(R.id.loginTab_rememberMe_RB);
         radioButton.setOnClickListener(v -> {
             if (!radioButton.isSelected()) {
                 radioButton.setChecked(true);
@@ -105,7 +105,7 @@ public class LoginTabFragment extends Fragment {
      * @param view The fragment's root view.
      */
     private void setUpLoginButton(View view) {
-        Button loginBtn = view.findViewById(R.id.loginBT);
+        Button loginBtn = view.findViewById(R.id.loginTab_login_Btn);
         loginBtn.setOnClickListener(v -> handleLoginButtonClick());
     }
 

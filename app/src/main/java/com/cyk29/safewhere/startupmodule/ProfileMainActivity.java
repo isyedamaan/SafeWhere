@@ -28,7 +28,7 @@ public class ProfileMainActivity extends AppCompatActivity {
      * Initialize UI elements.
      */
     private void initializeUI() {
-        ImageView backBtn = findViewById(R.id.IVBackProfile);
+        ImageView backBtn = findViewById(R.id.profile_back_IB);
         backBtn.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 

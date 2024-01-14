@@ -7,7 +7,7 @@
     tools:context=".startupmodule.SignUpTabFragment">
 
     <EditText
-        android:id="@+id/SUConfirmPasswordET"
+        android:id="@+id/SU_confirmPassword_ET"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -15,38 +15,42 @@
         android:drawableLeft="@drawable/password"
         android:drawablePadding="18dp"
         android:fontFamily="@font/lexend"
-        android:hint="Confirm Password"
+        android:hint="@string/confirm_password"
         android:inputType="textPassword"
         android:padding="8dp"
         android:textColorHint="#AE9289"
         android:textSize="15sp"
+        android:autofillHints="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SUPasswordET" />
+        app:layout_constraintTop_toBottomOf="@+id/SU_Password_ET"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
-        android:id="@+id/SUEmailET"
+        android:id="@+id/SU_Email_ET"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:background="@drawable/edittext_bg"
         android:drawableLeft="@drawable/email"
         android:drawablePadding="8dp"
         android:fontFamily="@font/lexend"
-        android:hint="Email Address"
+        android:hint="@string/email_address"
         android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textColorHint="#AE9289"
         android:textSize="15sp"
+        android:autofillHints="emailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.32"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
-        android:id="@+id/SUPasswordET"
+        android:id="@+id/SU_Password_ET"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -54,18 +58,20 @@
         android:drawableLeft="@drawable/password"
         android:drawablePadding="18dp"
         android:fontFamily="@font/lexend"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="8dp"
         android:textColorHint="#AE9289"
         android:textSize="15sp"
+        android:autofillHints="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SUEmailET" />
+        app:layout_constraintTop_toBottomOf="@+id/SU_Email_ET"
+        tools:ignore="RtlHardcoded" />
 
     <Button
-        android:id="@+id/signupBT"
+        android:id="@+id/SU_signUp_Btn"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
@@ -78,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SUConfirmPasswordET" />
+        app:layout_constraintTop_toBottomOf="@+id/SU_confirmPassword_ET" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

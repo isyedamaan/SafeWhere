@@ -7,7 +7,7 @@
     tools:context=".startupmodule.SignUpTabFragment">
 
     <Button
-        android:id="@+id/loginBT"
+        android:id="@+id/loginTab_login_Btn"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
@@ -19,10 +19,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPasswordET" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTab_password_ET" />
 
     <RadioButton
-        android:id="@+id/radioBT"
+        android:id="@+id/loginTab_rememberMe_RB"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
@@ -35,24 +35,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBT" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTab_login_Btn" />
 
     <TextView
-        android:id="@+id/ForgotPassTV"
+        android:id="@+id/loginTab_forgotPass_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_bold"
-        android:text="Forgot password?"
+        android:text="@string/forgot_pass"
         android:textColor="@color/blue"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioBT"
+        app:layout_constraintBottom_toBottomOf="@+id/loginTab_rememberMe_RB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioBT" />
+        app:layout_constraintTop_toTopOf="@+id/loginTab_rememberMe_RB" />
 
     <EditText
-        android:id="@+id/loginPasswordET"
+        android:id="@+id/loginTab_password_ET"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -61,29 +61,31 @@
         android:drawablePadding="18dp"
         android:fontFamily="@font/lexend"
         android:foregroundGravity="center"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="8dp"
         android:textColorHint="#AE9289"
         android:textSize="15sp"
+        android:autofillHints="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmailET" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTab_email_ET" />
 
     <EditText
-        android:id="@+id/loginEmailET"
+        android:id="@+id/loginTab_email_ET"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:background="@drawable/edittext_bg"
         android:drawableStart="@drawable/email"
         android:drawablePadding="8dp"
         android:fontFamily="@font/lexend"
-        android:hint="Email Address"
+        android:hint="@string/email_address"
         android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textColorHint="#AE9289"
         android:textSize="15sp"
+        android:autofillHints="emailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

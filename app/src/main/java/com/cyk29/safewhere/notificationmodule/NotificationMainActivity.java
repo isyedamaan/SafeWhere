@@ -57,7 +57,7 @@ public class NotificationMainActivity extends AppCompatActivity {
      * Initializes the user interface components, including the RecyclerView and adapter.
      */
     private void initializeUI() {
-        RecyclerView notificationRV = findViewById(R.id.notificationRV);
+        RecyclerView notificationRV = findViewById(R.id.notif_RV);
         notificationRV.setLayoutManager(new LinearLayoutManager(this));
         notificationItems = new ArrayList<>();
         adapter = new NotificationAdapter(notificationItems);
@@ -68,7 +68,7 @@ public class NotificationMainActivity extends AppCompatActivity {
      * Sets up the filter spinner by configuring its adapter and item selection handling.
      */
     private void setupFilterSpinner() {
-        Spinner filterSpinner = findViewById(R.id.filterSpinner);
+        Spinner filterSpinner = findViewById(R.id.notfi_filter_Spinner);
         ArrayAdapter<CharSequence> filterAdapter = ArrayAdapter.createFromResource(this,
                 R.array.notification_filter_options, R.layout.spinner_item_fixed_text);
         filterAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
@@ -107,7 +107,7 @@ public class NotificationMainActivity extends AppCompatActivity {
      * Configures the functionality of the back button, allowing the user to close the activity.
      */
     private void setupBackButton() {
-        ImageView backNotificationBT = findViewById(R.id.backNotifBT);
+        ImageView backNotificationBT = findViewById(R.id.notif_back_Btn);
         backNotificationBT.setOnClickListener(v -> finish());
     }
 
@@ -206,9 +206,9 @@ public class NotificationMainActivity extends AppCompatActivity {
              */
             NotificationViewHolder(View view) {
                 super(view);
-                notificationIV = view.findViewById(R.id.notificationIV);
-                notificationMessageTV = view.findViewById(R.id.notificationMessageTV);
-                notificationTimeTV = view.findViewById(R.id.notificationTimeTV);
+                notificationIV = view.findViewById(R.id.notification_icon_IV);
+                notificationMessageTV = view.findViewById(R.id.notification_message_TV);
+                notificationTimeTV = view.findViewById(R.id.notification_time_TV);
                 notificationCL = view.findViewById(R.id.notifLayout);
             }
 

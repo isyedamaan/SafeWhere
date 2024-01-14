@@ -50,7 +50,7 @@ public class ReportMainActivity extends AppCompatActivity {
         ImageView health = findViewById(R.id.healthBT);
         ImageView streetAlt = findViewById(R.id.streetAltBT);
         ImageView violence = findViewById(R.id.violenceBT);
-        ImageView back = findViewById(R.id.BackBtnReport);
+        ImageView back = findViewById(R.id.report_back_Btn);
         hazard.setOnClickListener(v -> makeOverlay("hazard"));
         suspicious.setOnClickListener(v -> makeOverlay("suspicious"));
         vandalism.setOnClickListener(v -> makeOverlay("vandalism"));
