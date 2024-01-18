@@ -1,5 +1,5 @@
 package com.cyk29.safewhere.informationmodule;
-
+//imports
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
