@@ -16,9 +16,9 @@
 **Semester 1**  
 **Lecturer:** Dr. Ong  
 **Company Name:** SafeWhere  
-**Phase 3b: Final Report**  
 **Course:** WIA2007 Mobile Application Development - Team OSY11  
 **Assigned SDG and Selected Targets:** SDG 16: Peace, Justice, and Strong Institutions  
+
 **Developer:**[Amaan Geelani Sed](www.linkedin.com/in/amaangsyed)
 **UI Design:**[Alyssa Atmasava](https://www.linkedin.com/in/alyssa-atmasava-87a875273/)
 
