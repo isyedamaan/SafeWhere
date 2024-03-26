@@ -19,7 +19,7 @@
 **Course:** WIA2007 Mobile Application Development - Team OSY11  
 **Assigned SDG and Selected Targets:** SDG 16: Peace, Justice, and Strong Institutions  
 
-**Developer:**[Amaan Geelani Sed](www.linkedin.com/in/amaangsyed)
+**Developer:**[Amaan Geelani Syed](www.linkedin.com/in/amaangsyed)  
 **UI Design:**[Alyssa Atmasava](https://www.linkedin.com/in/alyssa-atmasava-87a875273/)
 
 The SafeWhere project aims to address the challenges outlined in Sustainable Development Goal 16 (SDG 16), focusing on creating a safer environment for all. This Android application enables users to report incidents in real-time, access safety tips and legal information, and receive emergency assistance when needed. By leveraging technology, we strive to contribute to building peaceful, just, and secure societies.
